@@ -1,0 +1,2720 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VeracodeC#API</name>
+    </assembly>
+    <members>
+        <member name="T:Parser.OptionBaseAttribute">
+            <summary>
+            Base class for attributes used to define parsing rules
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.ShortName">
+            <summary>
+            Short name of the option. Can be only 1 character long.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.LongName">
+            <summary>
+            Long name of the option.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.Required">
+            <summary>
+            True if the option is required.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.RequiredBy">
+            <summary>
+            The first element is a string representing the LongName of the field that requires this field.
+            Subsequent elements represent the values of the referenced field that cause this field to be required.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.NotSupported">
+            <summary>
+            True if the option is not supported.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.OptionalBy">
+            <summary>
+            The first element is a string representing the LongName of the field that accepts this field.
+            Subsequent elements represent the values of the referenced field that cause this field to be optional.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.InputPath">
+            <summary>
+            When set to true instructs the parser to verify that the parsed argument
+            represents a valid input filepath or folderpath.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.OutputPath">
+            <summary>
+            When set to true instructs the parser to verify that the parsed argument
+            represents a valid output filepath or folderpath.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.ParseOnce">
+            <summary>
+            When set to true instructs the parser to parse this option at most once. Has no effect if
+            <see cref="T:Parser.CommandLineOptionsBase"/> object is passed to the parser only once.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.OverridesRules">
+            <summary>
+            When set to true instructs the parser to ignore "RequiredBy" and "OptionalBy"
+            rules for all options, as long as the option with this argument is successfully parsed.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.HelpText">
+            <summary>
+            The option's description
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.DisplayEnumOptions">
+            <summary>
+            Used with fields of an Enum type. True if the names of the enumeration's
+            elements should be added to the HelpText.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.CustomDefaultValue">
+            <summary>
+            The custom default value of the field. Setting this value to "null" or String.Empty has no effect.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionBaseAttribute.DisplayOnCLI">
+            <summary>
+            When set to true, -useragent will show in command line.
+            </summary>
+        </member>
+        <member name="T:Parser.OptionAttribute">
+            <summary>
+            Models an option that can accept a single argument.
+            Must be applied to a field of the string type or a simple type.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionAttribute.MutuallyExclusiveSet">
+            <summary>
+            Gets or sets the option's mutually exclusive set.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionAttribute.MutuallyInclusiveSet">
+            <summary>
+            Gets or sets the option's mutually inclusive set.
+            </summary>
+        </member>
+        <member name="M:Parser.OptionAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionAttribute"/> class.
+            </summary>
+            <param name="shortName">The short name of the option or null if not used.</param>
+            <param name="longName">The long name of the option or null if not used.</param>
+        </member>
+        <member name="M:Parser.OptionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionAttribute"/> class.
+            </summary>
+            <param name="shortName">The short name of the option or null if not used.</param>
+            <param name="longName">The long name of the option or null if not used.</param>
+        </member>
+        <member name="T:Parser.OptionArrayAttribute">
+            <summary>
+            Models an option that can accept multiple, separate arguments. The arguments must not be enclosed in quotes.
+            Must be applied to a field of an array type.
+            </summary>
+        </member>
+        <member name="M:Parser.OptionArrayAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionArrayAttribute"/> class.
+            </summary>
+            <param name="shortName">The short name of the option or null if not used.</param>
+            <param name="longName">The long name of the option or null if not used.</param>
+        </member>
+        <member name="M:Parser.OptionArrayAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionArrayAttribute"/> class.
+            </summary>
+            <param name="longName">The long name of the option or null if not used.</param>
+        </member>
+        <member name="T:Parser.OptionListAttribute">
+            <summary>
+            Models an option that can accept multiple arguments, separated by the specified separator and enclosed in quotes.
+            Must be applied to a field of type <see cref="!:System.Collections.Generic.IList&lt;System.String&gt;"/>.
+            </summary>
+        </member>
+        <member name="P:Parser.OptionListAttribute.Separator">
+            <summary>
+            Gets or sets the values separator character.
+            </summary>
+        </member>
+        <member name="M:Parser.OptionListAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionListAttribute"/> class.
+            </summary>
+            <param name="shortName">The short name of the option or null if not used.</param>
+            <param name="longName">The long name of the option or null if not used.</param>
+        </member>
+        <member name="M:Parser.OptionListAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionListAttribute"/> class.
+            </summary>
+            <param name="longName">The long name of the option or null if not used.</param>
+        </member>
+        <member name="M:Parser.OptionListAttribute.#ctor(System.String,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.OptionListAttribute"/> class.
+            </summary>
+            <param name="longName">The long name of the option or null if not used.</param>
+            <param name="separator">Values separator character.</param>
+        </member>
+        <member name="T:Parser.CommandLineOptionsBase">
+            <summary>
+            Provides the abstract base class for a type whose instance fields or properties are initialized using the parsed arguments.
+            Its fields or properties must be decorated with the Option, OptionArray, or OptionList attribute.
+            </summary>
+        </member>
+        <member name="T:Parser.CommandLineParserSettings">
+            <summary>
+            Specifies a set of features to configure the behavior of a <see cref="T:Parser.CommandLineParser"/> object.
+            </summary>
+        </member>
+        <member name="P:Parser.CommandLineParserSettings.Writer">
+            <summary>
+            Gets or sets the <see cref="T:System.IO.TextWriter"/> used for help method output.
+            Setting this property to null, will disable help screen.
+            </summary>
+        </member>
+        <member name="P:Parser.CommandLineParserSettings.CaseSensitive">
+            <summary>
+            Gets or sets the case comparison behavior.
+            Default is set to true.
+            </summary>
+        </member>
+        <member name="P:Parser.CommandLineParserSettings.IgnoreUnknownCommands">
+            <summary>
+            Unknown commands will cause the parsing to fail when this property is set to False.
+            </summary>
+        </member>
+        <member name="P:Parser.CommandLineParserSettings.ReturnSuccess">
+            <summary>
+            Returns a success result from the wrapper if this is set to true
+            </summary>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class,
+            setting the case comparison behavior.
+            </summary>
+            <param name="writeErrorsOnly">If set to true, only errors will be written.</param>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor(System.IO.TextWriter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class,
+            setting the <see cref="T:System.IO.TextWriter"/> used for help method output.
+            </summary>
+            <param name="writer">Any instance derived from <see cref="T:System.IO.TextWriter"/>.
+            Defaults to <see cref="P:System.Console.Out"/>. Setting this argument to null will disable the help screen.</param>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor(System.IO.TextWriter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class,
+            setting case comparison and help output options.
+            </summary>
+            <param name="writer">Any instance derived from <see cref="T:System.IO.TextWriter"/>.
+            Defaults to <see cref="P:System.Console.Out"/>. Setting this argument to null will disable the help screen.</param>
+            <param name="writeErrorsOnly">If set to true, only errors will be written.</param>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class,
+            setting case comparison and mutually exclusive behaviors.
+            </summary>
+            <param name="writeErrorsOnly">If set to true, only errors will be written.</param>
+            <param name="caseSensitive">If set to true, parsing will be case sensitive.</param>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor(System.IO.TextWriter,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class,
+            setting case comparison, mutually exclusive behavior and help output option.
+            </summary>
+            <param name="writer">Any instance derived from <see cref="T:System.IO.TextWriter"/>.
+            Defaults to <see cref="P:System.Console.Out"/>. Setting this argument to null will disable the help screen.</param>
+            <param name="writeErrorsOnly">If set to true, only errors will be written.</param>
+            <param name="caseSensitive">If set to true, parsing will be case sensitive.</param>
+        </member>
+        <member name="M:Parser.CommandLineParserSettings.#ctor(System.IO.TextWriter,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.CommandLineParserSettings"/> class,
+            setting case comparison, mutually exclusive behavior and help output option.
+            </summary>
+            <param name="writer">Any instance derived from <see cref="T:System.IO.TextWriter"/>.
+            Defaults to <see cref="P:System.Console.Out"/>. Setting this argument to null will disable the help screen.</param>
+            <param name="writeErrorsOnly">If set to true, only errors will be written.</param>
+            <param name="caseSensitive">If set to true, parsing will be case sensitive.</param>
+            <param name="ignoreUnknownCommands">If set to true, allow the parser to skip unknown argument, otherwise return a parse failure</param>
+        </member>
+        <member name="T:Parser.CommandLineParser">
+            <summary>
+            Parses command line arguments.
+            </summary>
+        </member>
+        <member name="M:Parser.CommandLineParser.Parse(Parser.CommandLineOptionsBase,System.String[])">
+            <summary>
+            Parses a <see cref="T:System.String"/> array of command line arguments, assigning the parsed values to the fields or properties
+            of an instance of a type that derives from the <see cref="T:Parser.CommandLineOptionsBase"/> class.
+            </summary>
+            <param name="options">An instance of a type that derives from the <see cref="T:Parser.CommandLineOptionsBase"/> class.</param>
+            <param name="arguments">A <see cref="T:System.String"/> array of command line arguments.</param>
+            <returns>True if parsing process succeed.</returns>
+            <exception cref="!:CommandLineParserException">Thrown if <paramref name="options"/> is null.</exception>
+            <exception cref="!:CommandLineParserException">Thrown if <paramref name="arguments"/> is null.</exception>
+        </member>
+        <member name="M:Parser.CommandLineParser.ParseUsernamePassword(Parser.CommandLineOptionsBase,System.String[])">
+            <summary>
+            Checks for -vuser and -vpassword in CLI command. If these are present, we return a custom error message.
+            </summary>
+            <param name="options"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parser.CommandLineParser.CheckHelpOrWrapperVersionExistenceWithOtherArgs(Parser.CommandLineOptionsBase,System.String[])">
+            <summary>
+            Returns true if -help or -wrapperversion arguments exist with other arguments
+            </summary>
+            <param name="options"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parser.CommandLineParser.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Parser.CommandLineParser"/> class.
+            </summary>
+        </member>
+        <member name="M:Parser.CommandLineParser.#ctor(Parser.CommandLineParserSettings)">
+            <summary>
+            Creates a new instance of the <see cref="T:Parser.CommandLineParser"/> class,
+            configurable with a <see cref="T:Parser.CommandLineParserSettings"/> object.
+            </summary>
+            <param name="settings">The <see cref="T:Parser.CommandLineParserSettings"/> object is used to configure
+            aspects and behaviors of the parser.</param>
+        </member>
+        <member name="T:Parser.TextBuilder">
+            <summary>
+            Generates the text that appears in the Help Screen
+            </summary>
+        </member>
+        <member name="M:Parser.TextBuilder.GetAllText">
+            <summary>
+            Returns a <see cref="T:System.String"/> that contains the help information.
+            </summary>
+        </member>
+        <member name="M:Parser.TextBuilder.GetWrapperVersionText">
+            <summary>
+            Returns the version of this wrapper
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parser.TextBuilder.#ctor(Parser.CommandLineOptionsBase,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.TextBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:Parser.TextBuilder.CreateInstance(Parser.CommandLineOptionsBase)">
+            <summary>
+            Creates a new instance of the <see cref="T:Parser.TextBuilder"/> class using common defaults.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Parser.TextBuilder"/> class.
+            </returns>
+            <param name='options'>The instance that collected command line arguments parsed with <see cref="T:Parser.CommandLineParser"/> class.</param>
+        </member>
+        <member name="M:Parser.TextBuilder.CreateInstance(Parser.CommandLineOptionsBase,System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:Parser.TextBuilder"/> class using common defaults.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Parser.TextBuilder"/> class.
+            </returns>
+            <param name='options'>The instance that collected command line arguments parsed with <see cref="T:Parser.CommandLineParser"/> class.</param>
+            <param name='lineLength'>The maximum number of characters to display per line. The default is 80 (Console.WindowWidth)</param>
+        </member>
+        <member name="M:Parser.TextBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser.TextBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:Parser.TextBuilder.CreateInstance">
+            <summary>
+            Creates a new instance of the <see cref="T:Parser.TextBuilder"/> class.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parser.TextBuilder.GetUsernamePasswordDeprecationText">
+            <summary>
+            Returns a custom message if the user provides username/password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.veracode.apiwrapper.AbstractAPIWrapper">
+            <summary>
+            Abstract APIWrapper base class.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AbstractAPIWrapper.SetUpProxy(System.Net.IWebProxy)">
+            <summary>
+            Set up a connection using a proxy represented by an instance of a type that implements the <see cref="T:System.Net.IWebProxy"/> interface.
+            This method must be called before calling the APIs.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AbstractAPIWrapper.SetUpProxy(System.String,System.String)">
+            <summary>
+            Set up a connection using a proxy that requires no authentication. This method must be called before calling the APIs.
+            </summary>
+            <remarks>
+            A proxy server is a computer that offers a computer network service to allow clients to make 
+            indirect network connections to other network services.
+            </remarks>
+            <param name="host">The proxy IP address.</param>
+            <param name="port">The proxy port. (A <see cref="T:System.String"/> that represents an integer value.)</param>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AbstractAPIWrapper.SetUpProxy(System.String,System.String,System.String,System.String)">
+            <summary>
+            Set up a connection using a proxy that requires authentication. This method must be called before calling the APIs.
+            </summary>
+            <remarks>
+            A proxy server is a computer that offers a computer network service to allow clients to make 
+            indirect network connections to other network services. Some proxy servers require a username
+            and password to access their services.
+            </remarks>
+            <param name="host">The proxy IP address.</param>
+            <param name="port">The proxy port. (A <see cref="T:System.String"/> that represents an integer value.)</param>
+            <param name="username">The proxy username.</param>
+            <param name="password">The proxy password.</param>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AbstractAPIWrapper.SetUpCredentials(System.String,System.String)">
+            <summary>
+            Set up the Veracode login credentials. This method is deprecated. Use ID/KEY based authentication instead.
+            </summary>
+            <param name="username">The Veracode username.</param>
+            <param name="password">The Veracode password.</param>
+            <exception cref="T:System.NotSupportedException"/>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AbstractAPIWrapper.SetUpApiCredentials(System.String,System.String)">
+            <summary>
+            Set up the Veracode API credentials. This method must be called before calling the APIs.
+            </summary>
+            <param name="apiID">The Veracode API ID.</param>
+            <param name="apiKey">The Veracode API key.</param>
+            <exception cref="T:System.ArgumentException">If the specified API ID or API key is null or invalid.</exception>
+        </member>
+        <member name="T:com.veracode.apiwrapper.MitigationAPIWrapper">
+            <summary>
+            Provides access to the Veracode Mitigation API. The Mitigation and Comments API enables you to integrate flaw comments
+            and mitigation workflow tasks into IDEs and bug tracking systems. You can mitigate a flaw, accept or reject a
+            mitigation action, or you can comment on a proposed mitigation. In addition, you can view all comments and
+            mitigation actions any user has performed on a flaw.
+            </summary>
+            <remarks>
+            To use the Mitigation and Comments API, you must have either a:
+            <para>a) Veracode API account with the Mitigation API role</para>
+            <para>b) Veracode human user account with the following roles to do specific tasks:</para>
+            <para>*Reviewer or Security Lead: To view all actions performed on a flaw, to submit proposed
+            mitigations, or to comment on proposed mitigations.</para>
+            <para>*Mitigation Approver and either Reviewer or Security Lead: To accept or reject proposed mitigations.</para>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.MitigationAPIWrapper.GetMitigationInfo(System.String,System.String)">
+            <summary>
+            Retrieves all the information on actions that users have performed on a list
+            of one or more flaws in the specified build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/getmitigationinfo.do">https://analysiscenter.veracode.com/api/getmitigationinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/mitigationinfo.xsd">https://analysiscenter.veracode.com/resource/mitigationinfo.xsd</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="flaw_id_list">Required. A <see cref="T:System.String"/> that represents an Integer value. The
+            flaw ID is available on the flaw viewer page in the Veracode platform.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the mitigationinfo XML document, which references the mitigationinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.MitigationAPIWrapper.UpdateMitigationInfo(System.String,System.String,System.String,System.String)">
+            <summary>
+            Enables you to perform several actions on a list of one or more flaws in the
+            specified build. These actions include commenting on a flaw, proposing a mitigation
+            action, and rejecting or accepting a mitigation action.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/updatemitigationinfo.do">https://analysiscenter.veracode.com/api/updatemitigationinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/mitigationinfo.xsd">https://analysiscenter.veracode.com/resource/mitigationinfo.xsd</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="action">Required. Possible enum values are comment, fp, appdesign, osenv, netenv, rejected,
+            accepted.</param>
+            <param name="comment">Required. The comment string associated with the action. Limit of 1024 characters.</param>
+            <param name="flaw_id_list">Required. The list is a comma-separated series of one or more flaw IDs available
+            in the flaw viewer page in the Veracode platform.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the mitigationinfo XML document, which references the mitigationinfo.xsd schema.</returns>
+        </member>
+        <member name="T:com.veracode.apiwrapper.AdminAPIWrapper">
+            <summary>
+            Provides access to the Veracode Admin API. The Veracode Admin API enables you to automate administration tasks
+            such as creating and managing users and teams in the Veracode platform and obtaining reference information about
+            your organization. For example, you can use a script to mass create users, mass assign users to teams, or de-provision
+            many users at once. You can also use the Admin API to automatically connect Veracode to your organization's directory
+            (LDAP or Active Directory), so that as changes occur in your directory (adding or terminating employees), those changes
+            are automatically reflected in your user list in Veracode.
+            </summary>
+            <remarks>
+            To be able to access the Admin API, you must have a non-human API customer account that has the Admin API role.
+            You cannot use the Admin API to create a non-human API user account; you must do this task using the Veracode platform. 
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.CreateTeam(System.String)">
+            <summary>
+            Creates a new team of users.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/createteam.do">https://analysiscenter.veracode.com/api/3.0/createteam.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <param name="team_name">Required. Must be unique.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which shows a user list filtered by the new team name, listing the users in the team. This XML document references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.CreateTeam(System.String,System.String)">
+            <summary>
+            Creates a new team of users.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/createteam.do">https://analysiscenter.veracode.com/api/3.0/createteam.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <param name="team_name">Required. Must be unique.</param>
+            <param name="members">Optional. Comma-delimited string. List of usernames.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which shows a user list filtered by the new team name, listing the users in the team. This XML document references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.CreateUser(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new user login account. You can only create a human user. To create
+            non-human API users, you must use the Veracode platform.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/createuser.do">https://analysiscenter.veracode.com/api/3.0/createuser.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+            <param name="first_name">Required.</param>
+            <param name="last_name">Required.</param>
+            <param name="email_address">Required.</param>
+            <param name="roles">Required. Comma-delimited string. Case-sensitive. You can only pass the following
+            human user roles: Administrator, Creator, Executive, Mitigation Approver,
+            Policy Administrator, Reviewer, Security Lead, Submitter, Security Insights,
+            eLearning. You cannot pass any of the non-human API user roles. If you
+            use either the Creator, Security Lead, or Submitter role, you must also
+            pass one or more of the scan permission roles: Manual Scan, Static Scan, Dynamic
+            Scan, or Any Scan. The createuser.do call only returns users that match
+            all the listed roles.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.CreateUser(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new user login account. You can only create a human user. To create
+            non-human API users, you must use the Veracode platform.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/createuser.do">https://analysiscenter.veracode.com/api/3.0/createuser.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+            <param name="first_name">Required.</param>
+            <param name="last_name">Required.</param>
+            <param name="email_address">Required.</param>
+            <param name="roles">Required. Comma-delimited string. Case-sensitive. You can only pass the following
+            human user roles: Administrator, Creator, Executive, Mitigation Approver,
+            Policy Administrator, Reviewer, Security Lead, Submitter, Security Insights,
+            eLearning. You cannot pass any of the non-human API user roles. If you
+            use either the Creator, Security Lead, or Submitter role, you must also
+            pass one or more of the scan permission roles: Manual Scan, Static Scan, Dynamic
+            Scan, or Any Scan. The createuser.do call only returns users that match
+            all the listed roles.</param>
+            <param name="teams">Comma-delimited string. Case-sensitive.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.DeleteTeam(System.String)">
+            <summary>
+            Deletes a specified team of users.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/deleteteam.do">https://analysiscenter.veracode.com/api/3.0/deleteteam.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd">https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd</a>
+            </remarks>
+            <param name="team_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.DeleteUser(System.String,System.String)">
+            <summary>
+            Deletes a Veracode user login account. You can only delete a human user. To
+            delete non-human API users, you must use the Veracode platform.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/deleteuser.do">https://analysiscenter.veracode.com/api/3.0/deleteuser.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userlist.xsd">https://analysiscenter.veracode.com/resource/3.0/userlist.xsd</a>
+            </remarks>
+            <param name="username">Required.</param>
+            <param name="custom_id">Required if the username parameter is not provided.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetCurriculumList">
+            <summary>
+            Returns a list of the eLearning curricula that is defined for your organization
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getcurriculumlist.do">https://analysiscenter.veracode.com/api/3.0/getcurriculumlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/curriculumlist.xsd">https://analysiscenter.veracode.com/resource/3.0/curriculumlist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetTeamList">
+            <summary>
+            Returns a list of the user teams for your organization.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getteamlist.do">https://analysiscenter.veracode.com/api/3.0/getteamlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd">https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetTeamInfo(System.String)">
+            <summary>
+            Returns team information about a specific team.
+            </summary>
+            <remarks>
+            <param name="team_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getteaminfo.do">https://analysiscenter.veracode.com/api/3.0/getteaminfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetTeamInfo(System.String,System.String)">
+            <summary>
+            Returns team information about a specific team.
+            </summary>
+            <remarks>
+            <param name="team_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="include_users">Optional. A <see cref="T:System.String"/> that represents an String value.</param>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getteaminfo.do">https://analysiscenter.veracode.com/api/3.0/getteaminfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetTeamInfo(System.String,System.String,System.String)">
+            <summary>
+            Returns team information about a specific team.
+            </summary>
+            <remarks>
+            <param name="team_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="include_users">Optional. A <see cref="T:System.String"/> that represents an String value.</param>
+            <param name="include_applications">Optional. A <see cref="T:System.String"/> that represents an String value.</param>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getteaminfo.do">https://analysiscenter.veracode.com/api/3.0/getteaminfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetTrackList">
+            <summary>
+            Returns a list of the eLearning tracks that are available for your organization.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/gettracklist.do">https://analysiscenter.veracode.com/api/3.0/gettracklist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/tracklist.xsd">https://analysiscenter.veracode.com/resource/3.0/tracklist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetUserInfo(System.String,System.String)">
+            <summary>
+            Returns information about the specified user.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getuserinfo.do">https://analysiscenter.veracode.com/api/3.0/getuserinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+            <param name="username">Required. This is usually the email address of the user.</param>
+            <param name="custom_id">Required if the username parameter is not provided.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the userinfo XML document, which references the userinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetUserList">
+            <summary>
+            Returns a list of the Veracode user accounts in your organization.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getuserlist.do">https://analysiscenter.veracode.com/api/3.0/getuserlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userlist.xsd">https://analysiscenter.veracode.com/resource/3.0/userlist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents a comma-delimited list of usernames in the userlist XML document, which references the userlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetUserList(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Returns a list of the Veracode user accounts in your organization.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getuserlist.do">https://analysiscenter.veracode.com/api/3.0/getuserlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userlist.xsd">https://analysiscenter.veracode.com/resource/3.0/userlist.xsd</a>
+            </remarks>
+            <param name="email_address">Valid email address.</param>
+            <param name="login_account_type">user or api</param>
+            <param name="teams">Comma-delimited string. This filter only returns users matching all the listed
+            team names.</param>
+            <param name="roles">Comma-delimited string. Case-sensitive. You can filter on theses human user
+            roles: Administrator, Creator, Executive, Mitigation Approver, Policy Administrator,
+            Reviewer, Security Lead, Submitter, Security Insights, eLearning.
+            This filter only returns users that match all of the listed teams.</param>
+            <param name="is_saml_user">true or false</param>
+            <param name="login_enabled">true or false</param>
+            <param name="requires_token">true or false</param>
+            <param name="is_elearning_manager">true or false</param>
+            <param name="elearning_manager">The first and last name (not the username) of the eLearning manager. For example,
+            Mary Doe.</param>
+            <param name="elearning_track">The eLearning track name.</param>
+            <param name="elearning_curriculum">The eLearning curriculum name.</param>
+            <param name="keep_elearning_active">true or false</param>
+            <param name="custom_one">Custom field.</param>
+            <param name="custom_two">Custom field.</param>
+            <param name="custom_three">Custom field.</param>
+            <param name="custom_four">Custom field.</param>
+            <param name="custom_five">Custom field.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents a comma-delimited list of usernames in the userlist XML document, which references the userlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.GetUserList(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Returns a list of the Veracode user accounts in your organization.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getuserlist.do">https://analysiscenter.veracode.com/api/3.0/getuserlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userlist.xsd">https://analysiscenter.veracode.com/resource/3.0/userlist.xsd</a>
+            </remarks>
+            <param name="email_address">Valid email address.</param>
+            <param name="login_account_type">user or api</param>
+            <param name="teams">Comma-delimited string. This filter only returns users matching all the listed
+            team names.</param>
+            <param name="roles">Comma-delimited string. Case-sensitive. You can filter on theses human user
+            roles: Administrator, Creator, Executive, Mitigation Approver, Policy Administrator,
+            Reviewer, Security Lead, Submitter, Security Insights, eLearning.
+            This filter only returns users that match all of the listed teams.</param>
+            <param name="is_saml_user">true or false</param>
+            <param name="login_enabled">true or false</param>
+            <param name="requires_token">true or false</param>
+            <param name="is_elearning_manager">true or false</param>
+            <param name="elearning_manager">The first and last name (not the username) of the eLearning manager. For example,
+            Mary Doe.</param>
+            <param name="elearning_track">The eLearning track name.</param>
+            <param name="elearning_curriculum">The eLearning curriculum name.</param>
+            <param name="keep_elearning_active">true or false</param>
+            <param name="custom_one">Custom field.</param>
+            <param name="custom_two">Custom field.</param>
+            <param name="custom_three">Custom field.</param>
+            <param name="custom_four">Custom field.</param>
+            <param name="custom_five">Custom field.</param>
+            <param name="position">Job title of the user</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents a comma-delimited list of usernames in the userlist XML document, which references the userlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.UpdateTeam(System.String)">
+            <summary>
+            Updates or changes the member information of the specified team.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/updateteam.do">https://analysiscenter.veracode.com/api/3.0/updateteam.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <param name="team_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.UpdateTeam(System.String,System.String,System.String)">
+            <summary>
+            Updates or changes the member information of the specified team.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/updateteam.do">https://analysiscenter.veracode.com/api/3.0/updateteam.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+            <param name="members">Optional. Comma-delimited string. To update or change the membership of the
+            team, provide a new list of members. To get the current membership of the team
+            before you change it, issue: getuserlist.do?teams="Team_Id"</param>
+            <param name="team_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="team_name">Optional.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.UpdateUser(System.String,System.String)">
+            <summary>
+            Updates or changes the information of the specified user account. You can use
+            this call to change any of the parameters that you can change in the Veracode
+            platform, except for login_account_type.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/updateuser.do">https://analysiscenter.veracode.com/api/3.0/updateuser.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+            <param name="username">Required. To change the username, send a new value in the email_address parameter.</param>
+            <param name="custom_id">Required. To change a custom_id, send a new value in the new_custom_id parameter.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.AdminAPIWrapper.UpdateUser(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Updates or changes the information of the specified user account. You can use
+            this call to change any of the parameters that you can change in the Veracode
+            platform, except for login_account_type.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/updateuser.do">https://analysiscenter.veracode.com/api/3.0/updateuser.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+            <param name="username">Required. To change the username, send a new value in the email_address parameter.</param>
+            <param name="custom_id">Required. To change a custom_id, send a new value in the new_custom_id parameter.</param>
+            <param name="email_address">Valid email address.</param>
+            <param name="new_custom_id">The new custom_id value.</param>
+            <param name="login_account_type">user or api. (This is a placeholder. Must change using the Veracode platform.)</param>
+            <param name="teams">Comma-delimited string. This filter only returns users matching all the listed
+            team names.</param>
+            <param name="roles">Comma-delimited string. Case-sensitive. You can filter on theses human user
+            roles: Administrator, Creator, Executive, Mitigation Approver, Policy Administrator,
+            Reviewer, Security Lead, Submitter, Security Insights, eLearning.
+            This filter only returns users that match all of the listed teams.</param>
+            <param name="is_saml_user">true or false. If is_saml_user is set to true, an error is thrown unless the
+            account has SAML enabled and the login account has or is being given a custom_id.
+            If is_saml_user is being set to false, an error is thrown indicating
+            that SAML users cannot be switched off.</param>
+            <param name="login_enabled">true or false</param>
+            <param name="requires_token">true or false</param>
+            <param name="is_elearning_manager">true or false</param>
+            <param name="elearning_manager">The first and last name (not the username) of the eLearning manager. For example,
+            Mary Doe.</param>
+            <param name="elearning_track">The eLearning track name.</param>
+            <param name="elearning_curriculum">The eLearning curriculum name.</param>
+            <param name="keep_elearning_active">true or false</param>
+            <param name="custom_one">Custom field.</param>
+            <param name="custom_two">Custom field.</param>
+            <param name="custom_three">Custom field.</param>
+            <param name="custom_four">Custom field.</param>
+            <param name="custom_five">Custom field.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the output XML document, which references the output.xsd schema.</returns>
+        </member>
+        <member name="T:com.veracode.apiwrapper.ArcherAPIWrapper">
+            <summary>
+            Provides access to the Veracode Archer API. The Archer dashboard is a platform for governance, risk, and compliance solutions
+            that consumes XML data feeds to integrate data from a variety of sources into a unified view of enterprise-wide risk.
+            Veracode provides Archer feeds that include information about the applications in an account. For assessments of
+            internally developed or maintained applications, a feed includes scores, a listing of all discovered flaws, and status
+            information about the flaws (new, open, fixed, or re-opened). Summary data is included for third-party assessments,
+            including scores and top-risk categories. Customers who have purchased a subscription that includes access to the Archer
+            API can generate and retrieve Archer reports.
+            </summary>
+            <remarks>
+            To be able to access the Archer API, you must have a non-human API customer account that has the Archer API role. 
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ArcherAPIWrapper.Archer">
+            <summary>
+            The Archer is the deprecated call that pushes the Archer feed to an XML report.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/archer.do">https://analysiscenter.veracode.com/api/archer.do</a>
+            Schema File: XSD schema file from archer-tech.com/
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the archer XML document, which references the archer.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ArcherAPIWrapper.Archer(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            The Archer is the deprecated call that pushes the Archer feed to an XML report.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/archer.do">https://analysiscenter.veracode.com/api/archer.do</a>
+            Schema File: XSD schema file from archer-tech.com/
+            </remarks>
+            <param name="app_id">The application ID of the application for which you wish to pull data. You
+            can find the application ID in the main Archer feed or by using the Results
+            API.</param>
+            <param name="period">Use a time period: yesterday, last week (preceding Saturday to Sunday), last
+            month (preceding calendar month). Using the period option selects any published
+            applications that have had modifications (either published or mitigated)
+            during the specified time period.</param>
+            <param name="from_date">Specify the beginning of a date range using a dd-mm-yyyy format. Should be
+            used with the to_date parameter.</param>
+            <param name="to_date">Specify the end of a date range using dd-mm-yyyy format. Should be used with
+            the from_date parameter.</param>
+            <param name="scan_type">Specify one of the following flaw types: static, dynamic, manual</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the archer XML document, which references the archer.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ArcherAPIWrapper.GenerateArcherReport">
+            <summary>
+            Initiates the process of generating the Archer report, which contains a token
+            you use to retrieve the report when the processing is complete.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/generatearcherreport.do">https://analysiscenter.veracode.com/api/3.0/generatearcherreport.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/1.0/archerreportrequest.xsd">https://analysiscenter.veracode.com/resource/1.0/archerreportrequest.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the archerreport XML document, which references the archerreportrequest.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ArcherAPIWrapper.GenerateArcherReport(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initiates the process of generating the Archer report, which contains a token
+            you use to retrieve the report when the processing is complete.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/generatearcherreport.do">https://analysiscenter.veracode.com/api/3.0/generatearcherreport.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/1.0/archerreportrequest.xsd">https://analysiscenter.veracode.com/resource/1.0/archerreportrequest.xsd</a>
+            </remarks>
+            <param name="app_id">A <see cref="T:System.String"/> that represents an Integer value. The application
+            ID of the application for which you wish to pull data. You can find the
+            application ID in the main Archer feed or by using the Results API.</param>
+            <param name="period">Use a time period: yesterday, last_week (preceding Saturday to Sunday), last_month
+            (preceding calendar month). Using the period option selects any published
+            applications that have had modifications (either published or mitigated)
+            during the specified time period.</param>
+            <param name="from_date">Specify the beginning of a date range using a dd-mm-yyyy format. Should be
+            used with the to_date parameter.</param>
+            <param name="to_date">Specify the end of a date range using dd-mm-yyyy format. Should be used with
+            the from_date parameter.</param>
+            <param name="scan_type">Specify one of the following flaw types: static, dynamic, manual</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the archerreport XML document, which references the archerreportrequest.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ArcherAPIWrapper.DownloadArcherReport">
+            <summary>
+            Returns the Archer XML report when its generation is complete.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/downloadarcherreport.do">https://analysiscenter.veracode.com/api/3.0/downloadarcherreport.do</a>
+            Schema File: XSD schema file from archer-tech.com/
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the archerreport XML document, which references the archerreportrequest.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ArcherAPIWrapper.DownloadArcherReport(System.String)">
+            <summary>
+            Returns the Archer XML report when its generation is complete.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/downloadarcherreport.do">https://analysiscenter.veracode.com/api/3.0/downloadarcherreport.do</a>
+            Schema File: XSD schema file from archer-tech.com/
+            </remarks>
+            <param name="token">A string contained in the archer.xml file returned by the generatearcherreport.do
+            call.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the archerreport XML document, which references the archerreportrequest.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.BeginPreScan(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's BeginPreScan(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.BeginScan(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's BeginScan(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.CreateApp(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's CreateApp(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.CreateBuild(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's CreateBuild(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DeleteApp(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's DeleteApp(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applist.xsd">https://analysiscenter.veracode.com/resource/2.0/applist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DeleteBuild(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's DeleteBuild(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd">https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetAppInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetAppInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetAppList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetAppList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applist.xsd">https://analysiscenter.veracode.com/resource/2.0/applist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetBuildInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetBuildInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetBuildList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetBuildList(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd">https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetFileList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetFileList(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetPolicyList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetPolicyList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/policylist.xsd">https://analysiscenter.veracode.com/resource/4.0/policylist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetPreScanResults(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetPreScanResults(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd">https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetVendorList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's GetVendorList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/vendorlist.xsd">https://analysiscenter.veracode.com/resource/2.0/vendorlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.RemoveFile(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's RemoveFile(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UpdateApp(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's UpdateApp(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UpdateBuild(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's UpdateBuild(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UploadFile(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls UploadAPIWrapper's UploadFileAsync(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.CreateSandbox(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls SandboxAPIWrapper's CreateSandbox instance method and prints the result.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.PromoteSandbox(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls SandboxAPIWrapper's PromoteSandbox instance method and prints the result.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetSandboxList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls SandboxAPIWrapper's GetSandboxList instance method and prints the result.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UpdateSandbox(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls SandboxAPIWrapper's UpdateSandbox instance method and prints the result.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DetailedReport(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's DetailedReport(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/detailedreport.xsd">https://analysiscenter.veracode.com/resource/detailedreport.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DetailedReportPdf(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's DetailedReportPdf(...) instance method and prints the results.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetAppBuilds(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's GetAppBuilds() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applicationbuilds.xsd">https://analysiscenter.veracode.com/resource/2.0/applicationbuilds.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetCallStacks(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's GetCallStacks(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/callstacks.xsd">https://analysiscenter.veracode.com/resource/2.0/callstacks.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.SummaryReport(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's SummaryReport(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/summaryreport.xsd">https://analysiscenter.veracode.com/resource/summaryreport.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.SummaryReportPdf(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's SummaryReportPdf(...) instance method and prints the results.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.ThirdPartyReportPdf(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ResultsAPIWrapper's ThirdPartyReportPdf(...) instance method and prints the results.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.CreateTeam(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's CreateTeam(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.CreateUser(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's CreateUser(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DeleteTeam(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's DeleteTeam(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd">https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DeleteUser(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's DeleteUser(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userlist.xsd">https://analysiscenter.veracode.com/resource/3.0/userlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetCurriculumList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's GetCurriculumList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/curriculumlist.xsd">https://analysiscenter.veracode.com/resource/3.0/curriculumlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetTeamList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's GetTeamList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd">https://analysiscenter.veracode.com/resource/3.0/teamlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetTeamInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's GetTeamInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetTrackList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's GetTrackList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/tracklist.xsd">https://analysiscenter.veracode.com/resource/3.0/tracklist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetUserInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's GetUserInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetUserList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's GetUserList() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userlist.xsd">https://analysiscenter.veracode.com/resource/3.0/userlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UpdateTeam(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's UpdateTeam(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd">https://analysiscenter.veracode.com/resource/3.0/teaminfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UpdateUser(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls AdminAPIWrapper's UpdateUser(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/userinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.Archer(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ArcherAPIWrapper's Archer() instance method and prints the results.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GenerateArcherReport(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ArcherAPIWrapper's GenerateArcherReport() instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/1.0/archerreportrequest.xsd">https://analysiscenter.veracode.com/resource/1.0/archerreportrequest.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.DownloadArcherReport(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls ArcherAPIWrapper's DownloadArcherReport() instance method and prints the results.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetMitigationInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls MitigationAPIWrapper's GetMitigationInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/mitigationinfo.xsd">https://analysiscenter.veracode.com/resource/mitigationinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UpdateMitigationInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls MitigationAPIWrapper's UpdateMitigationInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/mitigationinfo.xsd">https://analysiscenter.veracode.com/resource/mitigationinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetSharedReportInfo(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls VastAPIWrapper's GetSharedReportInfo(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/sharedreportinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/sharedreportinfo.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.GetSharedReportList(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls VastAPIWrapper's GetSharedReportList(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/sharedreportlist.xsd">https://analysiscenter.veracode.com/resource/3.0/sharedreportlist.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.SharedReport(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls VastAPIWrapper's SharedReport(...) instance method and prints the results.
+            </summary>
+            <remarks>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/summaryreport.xsd">https://analysiscenter.veracode.com/resource/summaryreport.xsd</a>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.SharedReportPdf(com.veracode.apiwrapper.cli.VeracodeCommand.Options,System.Boolean)">
+            <summary>
+            Calls VastAPIWrapper's SharedReportPdf(...) instance method and prints the results.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.AllDetailedReports(com.veracode.apiwrapper.cli.VeracodeCommand.Options)">
+            <summary>
+            A composite operation method.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.PassFail(com.veracode.apiwrapper.cli.VeracodeCommand.Options)">
+            <summary>
+            A composite operation method.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.SwitchToSaml(com.veracode.apiwrapper.cli.VeracodeCommand.Options)">
+            <summary>
+            A composite operation method.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UploadAndScan(com.veracode.apiwrapper.cli.VeracodeCommand.Options)">
+            <summary>
+            A composite operation method.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.cli.VeracodeCommand.VeracodeParser.UploadAndScanByAppId(com.veracode.apiwrapper.cli.VeracodeCommand.Options)">
+            <summary>
+            A composite operation method.
+            </summary>
+        </member>
+        <member name="T:com.veracode.apiwrapper.ResultsAPIWrapper">
+            <summary>
+            Provides access to the Veracode Results API. You can use the Veracode Results API to access your application assessment data
+            from another application or a script. For instance, you can write a script to automatically download newly published
+            results into a bug tracking system. Information about application profiles, completed and in progress builds, and
+            detailed application results data (including call stacks) or summary results data can be retrieved in XML format via
+            the Veracode Results API. You can also download the XML results data directly from the application's report page without
+            using the API.
+            </summary>
+            <remarks>
+            To access the Results API, you must first configure a login for API access.
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.DetailedReport(System.String)">
+            <summary>
+            Returns a detailed XML report of the scan results for the specified build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/detailedreport.do">https://analysiscenter.veracode.com/api/5.0/detailedreport.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/detailedreport.xsd">https://analysiscenter.veracode.com/resource/detailedreport.xsd</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the detailedreport XML document, which references the detailedreport.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.DetailedReportPdf(System.String)">
+            <summary>
+            Downloads a PDF report of the detailed scan results for the specified build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/4.0/detailedreportpdf.do">https://analysiscenter.veracode.com/api/4.0/detailedreportpdf.do</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="!:System.Byte[]"/> that represents the detailedreport_[app_name]_[build_id] PDF format of the detailedreport XML file, which references the detailedreport.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.GetAppBuilds">
+            <summary>
+            Compiles a detailed list of applications and statuses, including all the application
+            and build profile data. By default, only build data for the latest
+            builds with scan reports that have been published or scan reports that have
+            changed within the last 31 days is included. To obtain data more quickly
+            for all applications and builds, Veracode recommends that you use getapplist.do
+            to generate a list of all applications and getbuildlist.do to generate
+            a list of all builds for an application. You can then use getappinfo.do and
+            getbuildinfo.do to retrieve the data about specific applications and builds.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/4.0/getappbuilds.do">https://analysiscenter.veracode.com/api/4.0/getappbuilds.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applicationbuilds.xsd">https://analysiscenter.veracode.com/resource/2.0/applicationbuilds.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appbuilds XML document, which references the applicationbuilds.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.GetAppBuilds(System.String,System.String,System.String)">
+            <summary>
+            Compiles a detailed list of applications and statuses, including all the application
+            and build profile data. By default, only build data for the latest
+            builds with scan reports that have been published or scan reports that have
+            changed within the last 31 days is included. To obtain data more quickly
+            for all applications and builds, Veracode recommends that you use getapplist.do
+            to generate a list of all applications and getbuildlist.do to generate
+            a list of all builds for an application. You can then use getappinfo.do and
+            getbuildinfo.do to retrieve the data about specific applications and builds.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/4.0/getappbuilds.do">https://analysiscenter.veracode.com/api/4.0/getappbuilds.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applicationbuilds.xsd">https://analysiscenter.veracode.com/resource/2.0/applicationbuilds.xsd</a>
+            </remarks>
+            <param name="report_changed_since">Optional. Validates against the MM/dd/yyyy date format. Defaults to the date
+            31 days ago. Build data is included only for builds with scan reports that
+            have been published or scan reports that have changed since the specified
+            date. The following events cause a change to a build's scan report: acceptance
+            of a flaw mitigation for a flaw relevant to the scan report, rejection
+            of a previously accepted flaw mitigation for a flaw relevant to the scan report,
+            or, if the build's scan report is the latest within its application profile,
+            a policy change to the build's application profile.</param>
+            <param name="only_latest">Optional. A <see cref="T:System.String"/> that represents a Boolean value. Defaults
+            to true. If set to false, build data is included for previous builds
+            with published scan reports.</param>
+            <param name="include_in_progress">Optional. A <see cref="T:System.String"/> that represents a Boolean value. Defaults
+            to false. If set to true, build data is included for builds with unpublished
+            scan reports. To retrieve build data only for builds with unpublished
+            scan reports, set include_in_progress to true and report_changed_since to
+            a future date.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appbuilds XML document, which references the applicationbuilds.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.GetCallStacks(System.String,System.String)">
+            <summary>
+            Retrieves the call stacks for a specified flaw in a specific build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getcallstacks.do">https://analysiscenter.veracode.com/api/5.0/getcallstacks.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/callstacks.xsd">https://analysiscenter.veracode.com/resource/2.0/callstacks.xsd</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="flaw_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the callstacks_[app_id]_[build_id]_[flaw_id] XML document, which references the callstacks.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.SummaryReport(System.String)">
+            <summary>
+            Returns a summary XML report of the scan results for the specified build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/4.0/summaryreport.do">https://analysiscenter.veracode.com/api/4.0/summaryreport.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/summaryreport.xsd">https://analysiscenter.veracode.com/resource/summaryreport.xsd</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the summaryreport XML document, which references the summaryreport.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.SummaryReportPdf(System.String)">
+            <summary>
+            Downloads a PDF summary report of the scan results for the specified build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/4.0/summaryreportpdf.do">https://analysiscenter.veracode.com/api/4.0/summaryreportpdf.do</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="!:System.Byte[]"/> that represents the summaryreport_[app_name]_[build_id] PDF format of the summaryreport XML file, which references the summaryreport.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.ResultsAPIWrapper.ThirdPartyReportPdf(System.String)">
+            <summary>
+            Downloads a PDF file of the scan results for the specified build of a third-party
+            application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/4.0/thirdpartyreportpdf.do">https://analysiscenter.veracode.com/api/4.0/thirdpartyreportpdf.do</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="!:System.Byte[]"/> that represents the thirdpartyreport_[app_name]_[build_id] PDF format of the scan results of a third-party application.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.SandboxAPIWrapper.CreateSandbox(System.String,System.String)">
+            <summary>
+            Creates a sandbox for the specified application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createsandbox.do">https://analysiscenter.veracode.com/api/5.0/createsandbox.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_name">Required. The name of the sandbox.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sandboxinfo XML document, which references the sandboxinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.SandboxAPIWrapper.PromoteSandbox(System.String)">
+            <summary>
+            Promotes a sandbox scan to a policy scan
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/promotesandbox.do">https://analysiscenter.veracode.com/api/5.0/promotesandbox.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd</a>
+            </remarks>
+            <param name="build_id">Required. A <see cref="T:System.String"/> that represents an integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sandboxinfo XML document, which references the sandboxinfo.xsd.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.SandboxAPIWrapper.GetSandboxList(System.String)">
+            <summary>
+            Returns a list of all the sandboxes associated with the specified application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getsandboxlist.do">https://analysiscenter.veracode.com/api/5.0/getsandboxlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/sandboxlist.xsd">https://analysiscenter.veracode.com/resource/4.0/sandboxlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sandboxlist XML document, which references the sandboxlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.SandboxAPIWrapper.UpdateSandbox(System.String,System.String,System.String)">
+            <summary>
+            Updates the value of the given custom field name.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updatesandbox.do">https://analysiscenter.veracode.com/api/5.0/updatesandbox.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd</a>
+            </remarks>
+            <param name="sandbox_id">Required. A <see cref="T:System.String"/> that represents an integer value.</param>
+            <param name="custom_field_name">Required. Specifies the custom field that the custom_field_value changes. </param>
+            <param name="custom_field_value">Required. The value of the custom field that the custom_field_name specifies.</param>
+            <returns>A <see cref="T:System.String"/> that represents the sandboxinfo XML document, which references the sandboxinfo.xsd.</returns>
+        </member>
+        <member name="T:com.veracode.apiwrapper.ProgressChangedAsyncDelegate">
+            <summary>
+            ProgressChangedAsyncDelegate delegate
+            </summary>
+            <param name="percentage"></param>
+            <param name="bytesSent"></param>
+            <param name="totalBytesToSend"></param>
+            <param name="isSignificant"></param>
+        </member>
+        <member name="T:com.veracode.apiwrapper.PreUploadAsyncDelegate">
+            <summary>
+            PreUploadAsyncDelegate delegate
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="T:com.veracode.apiwrapper.UploadAPIWrapper">
+            <summary>
+            Provides access to the Veracode Upload API. You can use the Veracode Upload API to create an application, upload a
+            new build of an application, check pre-scan results, and submit a static scan request, all from a script or
+            another external tool. For example, you can call the Upload API from your build system to automatically send
+            a new build to Veracode for analysis as soon as the build finishes. 
+            </summary>
+            <remarks>
+            To use the Upload API, the following must be true:
+            <para>1) You must have a valid Veracode subscription for scanning applications.</para>
+            <para>2) When creating or uploading a new build via the Upload API, the API must specify a different version from the prior build.</para>
+            <para>3) When uploading to an existing build:</para>
+            <para>* The existing build must be in a pre-pre-scan state. Once the pre-scan has started, that build can no longer be used by the Upload API.</para>
+            <para>* app_id, platform, and version must all exactly match the existing build.</para>
+            </remarks>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.SetUpApiCredentials(System.String,System.String)">
+            <summary>
+            Set up the Veracode API credentials. This method must be called before calling the APIs.
+            </summary>
+            <param name="apiID">The Veracode API ID.</param>
+            <param name="apiKey">The Veracode API key.</param>
+            <exception cref="T:System.ArgumentException">If the specified API ID or API key is null or invalid.</exception>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginPreScan(System.String)">
+            <summary>
+            Runs the pre-scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginprescan.do">https://analysiscenter.veracode.com/api/5.0/beginprescan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginPreScan(System.String,System.String)">
+            <summary>
+            Runs the pre-scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginprescan.do">https://analysiscenter.veracode.com/api/5.0/beginprescan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginPreScan(System.String,System.String,System.String)">
+            <summary>
+            Runs the pre-scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginprescan.do">https://analysiscenter.veracode.com/api/5.0/beginprescan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <param name="auto_scan">Optional. A <see cref="T:System.String"/> that represents a Boolean value. Indicate
+            if you want to automatically submit a full scan of this application following
+            a successful prescan.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginPreScan(System.String,System.String,System.String,System.String)">
+            <summary>
+            Runs the pre-scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginprescan.do">https://analysiscenter.veracode.com/api/5.0/beginprescan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <param name="auto_scan">Optional. A <see cref="T:System.String"/> that represents a Boolean value. Indicate
+            if you want to automatically submit a full scan of this application following
+            a successful prescan.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginScan(System.String,System.String,System.String)">
+            <summary>
+            Runs the full scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginscan.do">https://analysiscenter.veracode.com/api/5.0/beginscan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="modules">Comma-separated list of module IDs. Validates against the IDs of existing modules
+            for the most recent build. Requires either this parameter or the scan_all_top_level_modules
+            parameter.</param>
+            <param name="scan_all_top_level_modules">A <see cref="T:System.String"/> that represents a Boolean value. Requires either
+            this parameter or the modules parameter. Veracode recommends that you use
+            the scan_all_top_level_modules parameter if you want to ensure the scan completes
+            even though there are non-fatal errors, such as unsupported frameworks.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginScan(System.String,System.String,System.String,System.String)">
+            <summary>
+            Runs the full scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginscan.do">https://analysiscenter.veracode.com/api/5.0/beginscan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="modules">Comma-separated list of module IDs. Validates against the IDs of existing modules
+            for the most recent build. Requires either this parameter or the scan_all_top_level_modules
+            parameter.</param>
+            <param name="scan_all_top_level_modules">A <see cref="T:System.String"/> that represents a Boolean value. Requires either
+            this parameter or the modules parameter. Veracode recommends that you use
+            the scan_all_top_level_modules parameter if you want to ensure the scan completes
+            even though there are non-fatal errors, such as unsupported frameworks.</param>
+            <param name="scan_selected_modules">Optional. A <see cref="T:System.String"/> that represents a Boolean value. 
+            If you want to ensure select current modules are selected.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginScan(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Runs the full scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginscan.do">https://analysiscenter.veracode.com/api/5.0/beginscan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="modules">Comma-separated list of module IDs. Validates against the IDs of existing modules
+            for the most recent build. Requires either this parameter or the scan_all_top_level_modules
+            parameter.</param>
+            <param name="scan_all_top_level_modules">A <see cref="T:System.String"/> that represents a Boolean value. Requires either
+            this parameter or the modules parameter. Veracode recommends that you use
+            the scan_all_top_level_modules parameter if you want to ensure the scan completes
+            even though there are non-fatal errors, such as unsupported frameworks.</param>
+            <param name="scan_selected_modules">Optional. A <see cref="T:System.String"/> that represents a Boolean value. 
+            If you want to ensure select current modules are selected.</param>
+            <param name="scan_previously_selected_modules">Required. A <see cref="T:System.String"/> that 
+            represents a Boolean value. If you want to ensure select previously modules were selected. </param> 
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.BeginScan(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Runs the full scan of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/beginscan.do">https://analysiscenter.veracode.com/api/5.0/beginscan.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="modules">Comma-separated list of module IDs. Validates against the IDs of existing modules
+            for the most recent build. Requires either this parameter or the scan_all_top_level_modules
+            parameter.</param>
+            <param name="scan_all_top_level_modules">A <see cref="T:System.String"/> that represents a Boolean value. Requires either
+            this parameter or the modules parameter. Veracode recommends that you use
+            the scan_all_top_level_modules parameter if you want to ensure the scan completes
+            even though there are non-fatal errors, such as unsupported frameworks.</param>
+            <param name="scan_selected_modules">Required. A <see cref="T:System.String"/> that represents a Boolean value. 
+            If you want to ensure select current modules are selected.</param>
+            <param name="scan_previously_selected_modules">Required. A <see cref="T:System.String"/> that 
+            represents a Boolean value. If you want to ensure select previously modules were selected. </param> 
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateApp(System.String,System.String)">
+            <summary>
+            Creates a new application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createapp.do">https://analysiscenter.veracode.com/api/5.0/createapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_name">Required.</param>
+            <param name="business_criticality">Required. Matches the names of business criticality enums such as "Very High",
+            etc.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateApp(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createapp.do">https://analysiscenter.veracode.com/api/5.0/createapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_name">Required.</param>
+            <param name="description">No default.</param>
+            <param name="vendor_id">A <see cref="T:System.String"/> that represents an Integer value. This parameter
+            ndicates that this is a third-party (COTS) application. It validates against
+            existing vendors. No default.</param>
+            <param name="business_criticality">Required. Matches the names of business criticality enums such as "Very High",
+            etc.</param>
+            <param name="policy">Validates against the names of existing policies for this account. Defaults
+            to the policy set as default for the business criticality parameter.</param>
+            <param name="business_unit">Validates against the names of existing business units for this account. No
+            default.</param>
+            <param name="business_owner">No default.</param>
+            <param name="business_owner_email">No default.</param>
+            <param name="teams">Comma-separated list of team names. Validates against the names of existing
+            teams for this account. No default .</param>
+            <param name="origin">Validates against the names of the Origin enums. Defaults to "Not Specified".</param>
+            <param name="industry">Validates against the names of the Industry enums. Defaults to the same industry
+            of the account.</param>
+            <param name="app_type">Validates against the names of the Application Purpose enums. Defaults to "Not
+            Specified".</param>
+            <param name="deployment_type">Validates against the names of the Deployment Type enums. Defaults to "Not
+            Specified".</param>
+            <param name="web_application">A <see cref="T:System.String"/> that represents a Boolean value. Defaults to false.</param>
+            <param name="archer_app_name">No default.</param>
+            <param name="tags">Comma-separated list of tags. No default.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateApp(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createapp.do">https://analysiscenter.veracode.com/api/5.0/createapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_name">Required.</param>
+            <param name="description">No default.</param>
+            <param name="vendor_id">A <see cref="T:System.String"/> that represents an Integer value. This parameter
+            ndicates that this is a third-party (COTS) application. It validates against
+            existing vendors. No default.</param>
+            <param name="business_criticality">Required. Matches the names of business criticality enums such as "Very High",
+            etc.</param>
+            <param name="policy">Validates against the names of existing policies for this account. Defaults
+            to the policy set as default for the business criticality parameter.</param>
+            <param name="business_unit">Validates against the names of existing business units for this account. No
+            default.</param>
+            <param name="business_owner">No default.</param>
+            <param name="business_owner_email">No default.</param>
+            <param name="teams">Comma-separated list of team names. Validates against the names of existing
+            teams for this account. No default .</param>
+            <param name="origin">Validates against the names of the Origin enums. Defaults to "Not Specified".</param>
+            <param name="industry">Validates against the names of the Industry enums. Defaults to the same industry
+            of the account.</param>
+            <param name="app_type">Validates against the names of the Application Purpose enums. Defaults to "Not
+            Specified".</param>
+            <param name="deployment_type">Validates against the names of the Deployment Type enums. Defaults to "Not
+            Specified".</param>
+            <param name="web_application">A <see cref="T:System.String"/> that represents a Boolean value. Defaults to false.</param>
+            <param name="archer_app_name">No default.</param>
+            <param name="tags">Comma-separated list of tags. No default.</param>
+            <param name="next_day_scheduling_enabled">Specifies if a user can schedule next-day consultations. Defaults to false.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateBuild(System.String,System.String)">
+            <summary>
+            Creates a new build of an existing application in the portfolio. The uploadfile.do
+            call also creates a build, therefore it is not necessary to use this
+            call as part of the Upload API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createbuild.do">https://analysiscenter.veracode.com/api/5.0/createbuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="version">Required. You must specify a version number unique to ones used for previous
+            builds.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateBuild(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new build of an existing application in the portfolio. The uploadfile.do
+            call also creates a build, therefore it is not necessary to use this
+            call as part of the Upload API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createbuild.do">https://analysiscenter.veracode.com/api/5.0/createbuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="version">Required. You must specify a version number unique to ones used for previous
+            builds.</param>
+            <param name="platform">Validates against the platform enums. Defaults to "Not Specified. Only used
+            if platform_id is not provided.</param>
+            <param name="platform_id">A <see cref="T:System.String"/> that represents an Integer value. Validates against
+            the platform enums IDs.</param>
+            <param name="lifecycle_stage">Validates against the names of the lifecycle enums. Defaults to "Not Specified.
+            Only used if lifecycle_stage_id is not provided.</param>
+            <param name="lifecycle_stage_id">A <see cref="T:System.String"/> that represents an Integer value. Validates against
+            the lifecycle enum IDs.</param>
+            <param name="launch_date">Validates against the "MM/dd/yyyy" date format. No default.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateBuild(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new build of an existing application in the portfolio. The uploadfile.do
+            call also creates a build, therefore it is not necessary to use this
+            call as part of the Upload API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createbuild.do">https://analysiscenter.veracode.com/api/5.0/createbuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="version">Required. You must specify a version number unique to ones used for previous
+            builds.</param>
+            <param name="platform">Validates against the platform enums. Defaults to "Not Specified. Only used
+            if platform_id is not provided.</param>
+            <param name="platform_id">A <see cref="T:System.String"/> that represents an Integer value. Validates against
+            the platform enums IDs.</param>
+            <param name="lifecycle_stage">Validates against the names of the lifecycle enums. Defaults to "Not Specified.
+            Only used if lifecycle_stage_id is not provided.</param>
+            <param name="lifecycle_stage_id">A <see cref="T:System.String"/> that represents an Integer value. Validates against
+            the lifecycle enum IDs.</param>
+            <param name="launch_date">Validates against the "MM/dd/yyyy" date format. No default.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateBuild(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a new build of an existing application in the portfolio. The uploadfile.do
+            call also creates a build, therefore it is not necessary to use this
+            call as part of the Upload API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createbuild.do">https://analysiscenter.veracode.com/api/5.0/createbuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="version">Required. You must specify a version number unique to ones used for previous
+            builds.</param>
+            <param name="platform">Validates against the platform enums. Defaults to "Not Specified. Only used
+            if platform_id is not provided.</param>
+            <param name="platform_id">A <see cref="T:System.String"/> that represents an Integer value. Validates against
+            the platform enums IDs.</param>
+            <param name="lifecycle_stage">Validates against the names of the lifecycle enums. Defaults to "Not Specified.
+            Only used if lifecycle_stage_id is not provided.</param>
+            <param name="lifecycle_stage_id">A <see cref="T:System.String"/> that represents an Integer value. Validates against
+            the lifecycle enum IDs.</param>
+            <param name="launch_date">Validates against the "MM/dd/yyyy" date format. No default.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <param name="legacy_scan_engine">Optional. A <see cref="T:System.String"/> that represents a Boolean value. Use legacy scan
+            engine version, if one is available.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.CreateSandbox(System.String,System.String)">
+            <summary>
+            Creates a sandbox for the specified application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/createsandbox.do">https://analysiscenter.veracode.com/api/5.0/createsandbox.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/sandboxinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_name">Required. The name of the sandbox.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sandboxinfo XML document, which references the sandboxinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.DeleteApp(System.String)">
+            <summary>
+            Deletes an existing application from the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/deleteapp.do">https://analysiscenter.veracode.com/api/5.0/deleteapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applist.xsd">https://analysiscenter.veracode.com/resource/2.0/applist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the applist XML document, which references the applist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.DeleteBuild(System.String)">
+            <summary>
+            Deletes the most recent build of an existing application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/deletebuild.do">https://analysiscenter.veracode.com/api/5.0/deletebuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd">https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildlist XML document, which references the buildlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.DeleteBuild(System.String,System.String)">
+            <summary>
+            Deletes the most recent build of an existing application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/deletebuild.do">https://analysiscenter.veracode.com/api/5.0/deletebuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd">https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildlist XML document, which references the buildlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetAppInfo(System.String)">
+            <summary>
+            Provides information about the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getappinfo.do">https://analysiscenter.veracode.com/api/5.0/getappinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetAppList">
+            <summary>
+            Compiles a list of the applications in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getapplist.do">https://analysiscenter.veracode.com/api/5.0/getapplist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applist.xsd">https://analysiscenter.veracode.com/resource/2.0/applist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the applist XML document, which references the applist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetAppList(System.String)">
+            <summary>
+            Compiles a list of the applications in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getapplist.do">https://analysiscenter.veracode.com/api/5.0/getapplist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/applist.xsd">https://analysiscenter.veracode.com/resource/2.0/applist.xsd</a>
+            </remarks>
+            <param name="include_user_info">Optional. A <see cref="T:System.String"/> that represents a Boolean value. Defaults
+            to false. If set to true, permission information for the current user
+            is included.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the applist XML document, which references the applist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetBuildInfo(System.String)">
+            <summary>
+            Provides information about the most recent build of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getbuildinfo.do">https://analysiscenter.veracode.com/api/5.0/getbuildinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetBuildInfo(System.String,System.String)">
+            <summary>
+            Provides information about the most recent build of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getbuildinfo.do">https://analysiscenter.veracode.com/api/5.0/getbuildinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value. Defaults to
+            the most recent build.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetBuildInfo(System.String,System.String,System.String)">
+            <summary>
+            Provides information about the most recent build of the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getbuildinfo.do">https://analysiscenter.veracode.com/api/5.0/getbuildinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value. Defaults to
+            the most recent build.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetBuildList(System.String)">
+            <summary>
+            Produces a list of the builds in the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getbuildlist.do">https://analysiscenter.veracode.com/api/5.0/getbuildlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd">https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildlist XML document, which references the buildlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetBuildList(System.String,System.String)">
+            <summary>
+            Produces a list of the builds in the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getbuildlist.do">https://analysiscenter.veracode.com/api/5.0/getbuildlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd">https://analysiscenter.veracode.com/resource/2.0/buildlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildlist XML document, which references the buildlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetFileList(System.String)">
+            <summary>
+            Compiles a list of the files in an application build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getfilelist.do">https://analysiscenter.veracode.com/api/5.0/getfilelist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetFileList(System.String,System.String)">
+            <summary>
+            Compiles a list of the files in an application build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getfilelist.do">https://analysiscenter.veracode.com/api/5.0/getfilelist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value. Defaults to
+            the most recent build.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetFileList(System.String,System.String,System.String)">
+            <summary>
+            Compiles a list of the files in an application build.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getfilelist.do">https://analysiscenter.veracode.com/api/5.0/getfilelist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value. Defaults to
+            the most recent build.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetPolicyList">
+            <summary>
+            Compiles a list of all the policies available for use by your account.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getpolicylist.do">https://analysiscenter.veracode.com/api/5.0/getpolicylist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/policylist.xsd">https://analysiscenter.veracode.com/resource/4.0/policylist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the policylist XML document, which references the policylist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetPreScanResults(System.String)">
+            <summary>
+            Fetches the results of the pre-scan.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getprescanresults.do">https://analysiscenter.veracode.com/api/5.0/getprescanresults.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd">https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the prescanresults XML document, which references the prescanresults.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetPreScanResults(System.String,System.String)">
+            <summary>
+            Fetches the results of the pre-scan.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getprescanresults.do">https://analysiscenter.veracode.com/api/5.0/getprescanresults.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd">https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value. Defaults to
+            the most recent build.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the prescanresults XML document, which references the prescanresults.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetPreScanResults(System.String,System.String,System.String)">
+            <summary>
+            Fetches the results of the pre-scan.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getprescanresults.do">https://analysiscenter.veracode.com/api/5.0/getprescanresults.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd">https://analysiscenter.veracode.com/resource/2.0/prescanresults.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value. Defaults to
+            the most recent build.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the prescanresults XML document, which references the prescanresults.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetSandboxList(System.String)">
+            <summary>
+            Returns a list of all the sandboxes associated with the specified application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getsandboxlist.do">https://analysiscenter.veracode.com/api/5.0/getsandboxlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/sandboxlist.xsd">https://analysiscenter.veracode.com/resource/4.0/sandboxlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sandboxlist XML document, which references the sandboxlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.GetVendorList">
+            <summary>
+            Compiles a list of vendors for third-party scans for your organization.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/getvendorlist.do">https://analysiscenter.veracode.com/api/5.0/getvendorlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/vendorlist.xsd">https://analysiscenter.veracode.com/resource/2.0/vendorlist.xsd</a>
+            </remarks>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the vendorlist XML document, which references the vendorlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.RemoveFile(System.String,System.String)">
+            <summary>
+            Deletes a file from an existing build of an application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/removefile.do">https://analysiscenter.veracode.com/api/5.0/removefile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.RemoveFile(System.String,System.String,System.String)">
+            <summary>
+            Deletes a file from an existing build of an application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/removefile.do">https://analysiscenter.veracode.com/api/5.0/removefile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UpdateApp(System.String,System.String)">
+            <summary>
+            Amends an existing application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updateapp.do">https://analysiscenter.veracode.com/api/5.0/updateapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="business_criticality">Required. Matches the names of business criticality enums such as "Very High",
+            etc.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UpdateApp(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Amends an existing application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updateapp.do">https://analysiscenter.veracode.com/api/5.0/updateapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="description">No default.</param>
+            <param name="business_criticality">Required. Matches the names of business criticality enums such as "Very High",
+            etc.</param>
+            <param name="policy">Validates against the names of existing policies for this account. Defaults
+            to the policy set as default for the business criticality parameter.</param>
+            <param name="business_unit">Validates against the names of existing business units for this account. No
+            default.</param>
+            <param name="business_owner">No default.</param>
+            <param name="business_owner_email">No default.</param>
+            <param name="teams">Comma-separated list of team names. Validates against the names of existing
+            teams for this account. No default .</param>
+            <param name="origin">Validates against the names of the Origin enums. Defaults to "Not Specified".</param>
+            <param name="industry">Validates against the names of the Industry enums. Defaults to the same industry
+            of the account.</param>
+            <param name="app_type">Validates against the names of the Application Purpose enums. Defaults to "Not
+            Specified".</param>
+            <param name="deployment_type">Validates against the names of the Deployment Type enums. Defaults to "Not
+            Specified".</param>
+            <param name="archer_app_name">No default.</param>
+            <param name="tags">Comma-separated list of tags. No default.</param>
+            <param name="custom_field_name">Specifies the custom field that custom_field_value changes. If either is present,
+            then the other is required. It is only possible to change one field
+            per update call.</param>
+            <param name="custom_field_value">The value of the custom field that custom_field_name specifies. If either is
+            present, then the other is required.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UpdateApp(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Amends an existing application in the portfolio.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updateapp.do">https://analysiscenter.veracode.com/api/5.0/updateapp.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd">https://analysiscenter.veracode.com/resource/2.0/appinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="app_name">Required.</param>
+            <param name="description">No default.</param>
+            <param name="business_criticality">Required. Matches the names of business criticality enums such as "Very High",
+            etc.</param>
+            <param name="policy">Validates against the names of existing policies for this account. Defaults
+            to the policy set as default for the business criticality parameter.</param>
+            <param name="business_unit">Validates against the names of existing business units for this account. No
+            default.</param>
+            <param name="business_owner">No default.</param>
+            <param name="business_owner_email">No default.</param>
+            <param name="teams">Comma-separated list of team names. Validates against the names of existing
+            teams for this account. No default .</param>
+            <param name="origin">Validates against the names of the Origin enums. Defaults to "Not Specified".</param>
+            <param name="industry">Validates against the names of the Industry enums. Defaults to the same industry
+            of the account.</param>
+            <param name="app_type">Validates against the names of the Application Purpose enums. Defaults to "Not
+            Specified".</param>
+            <param name="deployment_type">Validates against the names of the Deployment Type enums. Defaults to "Not
+            Specified".</param>
+            <param name="archer_app_name">No default.</param>
+            <param name="tags">Comma-separated list of tags. No default.</param>
+            <param name="next_day_scheduling_enabled" > Specifies if a user can schedule next-day consultations.Defaults to false.</param>
+            <param name="custom_field_name">Specifies the custom field that custom_field_value changes. If either is present,
+            then the other is required. It is only possible to change one field
+            per update call.</param>
+            <param name="custom_field_value">The value of the custom field that custom_field_name specifies. If either is
+            present, then the other is required.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the appinfo XML document, which references the appinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UpdateBuild(System.String)">
+            <summary>
+            Amends the most recent build of an existing application in the portfolio. If
+            you want to update an earlier build, you must specify the build_id parameter.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updatebuild.do">https://analysiscenter.veracode.com/api/5.0/updatebuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UpdateBuild(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Amends the most recent build of an existing application in the portfolio. If
+            you want to update an earlier build, you must specify the build_id parameter.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updatebuild.do">https://analysiscenter.veracode.com/api/5.0/updatebuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="lifecycle_stage">Validates against the names of the lifecycle enums. Defaults to "Not Specified.</param>
+            <param name="launch_date">Validates against the "MM/dd/yyyy" date format. No default.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UpdateBuild(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Amends the most recent build of an existing application in the portfolio. If
+            you want to update an earlier build, you must specify the build_id parameter.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/updatebuild.do">https://analysiscenter.veracode.com/api/5.0/updatebuild.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd">https://analysiscenter.veracode.com/resource/4.0/buildinfo.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="build_id">A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="lifecycle_stage">Validates against the names of the lifecycle enums. Defaults to "Not Specified.</param>
+            <param name="launch_date">Validates against the "MM/dd/yyyy" date format. No default.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the buildinfo XML document, which references the buildinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UploadFile(System.String,System.String)">
+            <summary>
+            Uploads a file to an existing build of an application. You cannot upload to
+            a build that is in a pre-scan state. This call creates a build if one does
+            not already exist or if the most recent build has a published static scan,
+            therefore, it is not necessary to also call createbuild.do as part of the Upload
+            API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/uploadfile.do">https://analysiscenter.veracode.com/api/5.0/uploadfile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file">Required. A <see cref="T:System.String"/> that represents a filepath.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UploadFile(System.String,System.String,System.String)">
+            <summary>
+            Uploads a file to an existing build of an application. You cannot upload to
+            a build that is in a pre-scan state. This call creates a build if one does
+            not already exist or if the most recent build has a published static scan,
+            therefore, it is not necessary to also call createbuild.do as part of the Upload
+            API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/uploadfile.do">https://analysiscenter.veracode.com/api/5.0/uploadfile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file">Required. A <see cref="T:System.String"/> that represents a filepath.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UploadFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Uploads a file to an existing build of an application. You cannot upload to
+            a build that is in a pre-scan state. This call creates a build if one does
+            not already exist or if the most recent build has a published static scan,
+            therefore, it is not necessary to also call createbuild.do as part of the Upload
+            API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/uploadfile.do">https://analysiscenter.veracode.com/api/5.0/uploadfile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file">Required. A <see cref="T:System.String"/> that represents a filepath.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <param name="save_as">Optional. The new file name for the uploaded file.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UploadFileAsync(System.String,System.String)">
+            <summary>
+            Uploads a file to an existing build of an application. You cannot upload to
+            a build that is in a pre-scan state. This call creates a build if one does
+            not already exist or if the most recent build has a published static scan,
+            therefore, it is not necessary to also call createbuild.do as part of the Upload
+            API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/uploadfile.do">https://analysiscenter.veracode.com/api/5.0/uploadfile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file">Required. A <see cref="T:System.String"/> that represents a filepath.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UploadFileAsync(System.String,System.String,System.String)">
+            <summary>
+            Uploads a file to an existing build of an application. You cannot upload to
+            a build that is in a pre-scan state. This call creates a build if one does
+            not already exist or if the most recent build has a published static scan,
+            therefore, it is not necessary to also call createbuild.do as part of the Upload
+            API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/uploadfile.do">https://analysiscenter.veracode.com/api/5.0/uploadfile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file">Required. A <see cref="T:System.String"/> that represents a filepath.</param>
+            <param name="sandbox_id">A <see cref="T:System.String"/> that represents an Integer value. Optional. The
+            sandbox ID.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.UploadAPIWrapper.UploadFileAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            Uploads a file to an existing build of an application. You cannot upload to
+            a build that is in a pre-scan state. This call creates a build if one does
+            not already exist or if the most recent build has a published static scan,
+            therefore, it is not necessary to also call createbuild.do as part of the Upload
+            API workflow.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/5.0/uploadfile.do">https://analysiscenter.veracode.com/api/5.0/uploadfile.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/2.0/filelist.xsd">https://analysiscenter.veracode.com/resource/2.0/filelist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="file">Required. A <see cref="T:System.String"/> that represents a filepath.</param>
+            <param name="sandbox_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. The
+            sandbox ID.</param>
+            <param name="save_as">Optional. The new file name for the uploaded file.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the filelist XML document, which references the filelist.xsd schema.</returns>
+        </member>
+        <member name="T:com.veracode.apiwrapper.VastAPIWrapper">
+            <summary>
+            Provides access to the VAST API. The Veracode Vendor Application Security Testing program's APIs make it possible to automate vendor and enterprise tasks.
+            </summary>
+        </member>
+        <member name="M:com.veracode.apiwrapper.VastAPIWrapper.GetSharedReportInfo(System.String)">
+            <summary>
+            Returns the information about a specific shared report, or, if you do not specify
+            a shared report ID, of the latest report that was shared.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getsharedreportinfo.do">https://analysiscenter.veracode.com/api/3.0/getsharedreportinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/sharedreportinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/sharedreportinfo.xsd</a>
+            </remarks>
+            <param name="app_id">A <see cref="T:System.String"/> that represents an Integer value. Required</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sharedreportinfo XML document, which references the sharedreportinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.VastAPIWrapper.GetSharedReportInfo(System.String,System.String)">
+            <summary>
+            Returns the information about a specific shared report, or, if you do not specify
+            a shared report ID, of the latest report that was shared.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getsharedreportinfo.do">https://analysiscenter.veracode.com/api/3.0/getsharedreportinfo.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/sharedreportinfo.xsd">https://analysiscenter.veracode.com/resource/3.0/sharedreportinfo.xsd</a>
+            </remarks>
+            <param name="app_id">A <see cref="T:System.String"/> that represents an Integer value. Required</param>
+            <param name="shared_report_id">Optional. A <see cref="T:System.String"/> that represents an Integer value. You
+            can get the shared report ID from the sharedreportlist.xml file that is returned
+            by the getsharedreportlist.do call.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sharedreportinfo XML document, which references the sharedreportinfo.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.VastAPIWrapper.GetSharedReportList(System.String)">
+            <summary>
+            Returns a list of published, shared reports that are linked to the application.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/getsharedreportlist.do">https://analysiscenter.veracode.com/api/3.0/getsharedreportlist.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/3.0/sharedreportlist.xsd">https://analysiscenter.veracode.com/resource/3.0/sharedreportlist.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the sharedreportlist XML document, which references the sharedreportlist.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.VastAPIWrapper.SharedReport(System.String,System.String)">
+            <summary>
+            Returns the details of a shared report.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/sharedreport.do">https://analysiscenter.veracode.com/api/3.0/sharedreport.do</a>
+            Schema File: <a href="https://analysiscenter.veracode.com/resource/summaryreport.xsd">https://analysiscenter.veracode.com/resource/summaryreport.xsd</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="shared_report_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="T:System.String"/> that represents the summaryreport XML document, which references the summaryreport.xsd schema.</returns>
+        </member>
+        <member name="M:com.veracode.apiwrapper.VastAPIWrapper.SharedReportPdf(System.String,System.String)">
+            <summary>
+            Returns the shared report PDF document. You specify where you want the PDF to
+            save.
+            </summary>
+            <remarks>
+            Calls this URL: <a href="https://analysiscenter.veracode.com/api/3.0/sharedreportpdf.do">https://analysiscenter.veracode.com/api/3.0/sharedreportpdf.do</a>
+            </remarks>
+            <param name="app_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <param name="shared_report_id">Required. A <see cref="T:System.String"/> that represents an Integer value.</param>
+            <exception cref="T:System.NotSupportedException"/>
+            <exception cref="T:System.Net.WebException"/>
+            <returns>A <see cref="!:System.Byte[]"/> that represents the summaryreport PDF document, which references the summaryreportpdf.xsd schema.</returns>
+        </member>
+        <member name="T:com.veracode.http.Credentials">
+            <summary>
+            Credential class
+            </summary>
+        </member>
+        <member name="T:com.veracode.http.CredentialsStore">
+            <summary>
+            class to get credentials from the default credential file present in `\.veracode\credentials
+            </summary>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetValidatedCredentials(System.String,System.String)">
+            <summary>
+            Method to get credential from user
+            </summary>
+            <param name="id">API id</param>
+            <param name="key">Api key</param>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetValidatedCredentials">
+            <summary>
+             Method to get validated credential from credential file
+             when the credentialsFile path is null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetValidatedCredentials(System.String)">
+            <summary>
+            Method to get validated credential from credential file
+            </summary>
+            <param name="credentialsFile">Credentials file path</param>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetCredentials">
+            <summary>
+            Method to return credentials object
+            </summary>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetUnvalidatedCredentials">
+            <summary>
+            Method to get unvalidated credential from credential file
+            </summary>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetDefaultSection(com.veracode.http.Ini)">
+            <summary>
+            Method to get [default] Section from credential file
+            </summary>
+             <param name="credentials">Ini file handling object</param>
+        </member>
+        <member name="M:com.veracode.http.CredentialsStore.GetCredentials(System.String)">
+            <summary>
+            Method to access multiple profile sections : For the future use
+            </summary>
+            <param name="profile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.veracode.http.Ini">
+            <summary>
+            Create a New INI file to store or load data
+            </summary>
+        </member>
+        <member name="M:com.veracode.http.Ini.#ctor(System.String)">
+            <summary>
+            INIFile Constructor.
+            </summary>
+            <param name="INIPath"></param>
+        </member>
+        <member name="M:com.veracode.http.Ini.IniWriteValue(System.String,System.String,System.String)">
+            <summary>
+            Write Data to the INI File
+            </summary>
+            <param name="Section"></param>
+            Section name
+            <param name="Key"></param>
+            Key Name
+            <param name="Value"></param>
+            Value Name
+        </member>
+        <member name="M:com.veracode.http.Ini.IniReadValue(System.String,System.String)">
+            <summary>
+            Read Data Value From the Ini File
+            </summary>
+            <param name="Section"></param>
+            <param name="Key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.veracode.http.Ini.ReadConfigSection(System.String)">
+            <summary>
+            Read Section From the Ini File
+            </summary>
+            <param name="Section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.veracode.http.util.XmlUtils.GetDecodedXmlResponse(System.String,System.Boolean)">
+            <summary> 
+            This method an takes an encoded XML response as a
+            string and decodes it to UTF-8 then returns the 
+            decoded string.
+            </summary>
+            <remarks>
+            See PS-8823 for details
+            indented.
+            </remarks>
+            <param name="xmlString"> String, decoded XML response. </param>
+            <param name="indentXml"> bool, if true the decoded XML is indented</param>
+            <returns> A decode XML Response as a String.</returns>
+        </member>
+        <member name="M:com.veracode.http.util.HmacAuthHeader.IsValidId(System.String)">
+            <summary>
+            method to check the id is valid or not
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.veracode.http.util.HttpUtility.UrlEncode(System.String)">
+            <summary>
+            <p> This method is a placeholder.
+            URL encoding handled by WebClient class.
+            (Content-Type="multipart/form-data" -> No URL Encode)
+            </p>
+            </summary>
+        </member>
+    </members>
+</doc>

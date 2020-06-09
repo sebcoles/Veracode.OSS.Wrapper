@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="991dcf93-8411-4e25-b1b1-297a4a4873d8" Title="com.veracode.apiwrapper" Url="html/N_com_veracode_apiwrapper.htm">
+    <HelpTOCNode Id="870c9235-3c39-4cba-a124-b56eafa1dc2d" Title="AbstractAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_AbstractAPIWrapper.htm">
+      <HelpTOCNode Id="99020b79-127b-484f-bb9b-5aa788f49ba4" Title="AbstractAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_AbstractAPIWrapper.htm">
+        <HelpTOCNode Title="SetUpApiCredentials Method " Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpApiCredentials.htm" />
+        <HelpTOCNode Id="d3b8d24d-fbcd-4541-87f4-ff71955a7dc2" Title="SetUpCredentials Method " Url="html/Overload_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpCredentials.htm">
+          <HelpTOCNode Title="SetUpCredentials Method (ICredentials)" Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpCredentials.htm" />
+          <HelpTOCNode Title="SetUpCredentials Method (String, String)" Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpCredentials_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="8b9442d7-64b4-4608-914e-92812ba232ea" Title="SetUpProxy Method " Url="html/Overload_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpProxy.htm">
+          <HelpTOCNode Title="SetUpProxy Method (IWebProxy)" Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpProxy.htm" />
+          <HelpTOCNode Title="SetUpProxy Method (String, String)" Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpProxy_1.htm" />
+          <HelpTOCNode Title="SetUpProxy Method (String, String, String, String)" Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpProxy_2.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d0f61497-eea9-457c-88c7-5c07e67bb331" Title="AdminAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_AdminAPIWrapper.htm">
+      <HelpTOCNode Title="AdminAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="237193a8-791b-4e1b-8038-5a4d457ec79b" Title="AdminAPIWrapper Fields" Url="html/Fields_T_com_veracode_apiwrapper_AdminAPIWrapper.htm">
+        <HelpTOCNode Title="GET_TEAM_INFO_URI Field" Url="html/F_com_veracode_apiwrapper_AdminAPIWrapper_GET_TEAM_INFO_URI.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ce3333b2-702f-4027-ac82-c2aa35d94712" Title="AdminAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_AdminAPIWrapper.htm">
+        <HelpTOCNode Id="b8c3fdf0-6a66-4462-8dda-b11b652c77c0" Title="CreateTeam Method " Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_CreateTeam.htm">
+          <HelpTOCNode Title="CreateTeam Method (String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_CreateTeam.htm" />
+          <HelpTOCNode Title="CreateTeam Method (String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_CreateTeam_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="ea36064c-c0de-47e0-9bdd-26a434899cef" Title="CreateUser Method " Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_CreateUser.htm">
+          <HelpTOCNode Title="CreateUser Method (String, String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_CreateUser.htm" />
+          <HelpTOCNode Title="CreateUser Method (String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_CreateUser_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="DeleteTeam Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_DeleteTeam.htm" />
+        <HelpTOCNode Title="DeleteUser Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_DeleteUser.htm" />
+        <HelpTOCNode Title="GetCurriculumList Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetCurriculumList.htm" />
+        <HelpTOCNode Id="1811ff5c-1cbc-4759-8503-0143e80b906d" Title="GetTeamInfo Method " Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamInfo.htm">
+          <HelpTOCNode Title="GetTeamInfo Method (String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamInfo.htm" />
+          <HelpTOCNode Title="GetTeamInfo Method (String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamInfo_1.htm" />
+          <HelpTOCNode Title="GetTeamInfo Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamInfo_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetTeamList Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamList.htm" />
+        <HelpTOCNode Title="GetTrackList Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTrackList.htm" />
+        <HelpTOCNode Title="GetUserInfo Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetUserInfo.htm" />
+        <HelpTOCNode Id="db7d1f2b-8a5f-47f4-b70c-52f160df4b0a" Title="GetUserList Method " Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_GetUserList.htm">
+          <HelpTOCNode Title="GetUserList Method " Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetUserList.htm" />
+          <HelpTOCNode Title="GetUserList Method (String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetUserList_1.htm" />
+          <HelpTOCNode Title="GetUserList Method (String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetUserList_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="4c86842c-0217-4017-b000-270eef62f55b" Title="UpdateTeam Method " Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_UpdateTeam.htm">
+          <HelpTOCNode Title="UpdateTeam Method (String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_UpdateTeam.htm" />
+          <HelpTOCNode Title="UpdateTeam Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_UpdateTeam_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="161fa4b1-ae6c-4a4d-a3cf-7183d5fd2fa0" Title="UpdateUser Method " Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_UpdateUser.htm">
+          <HelpTOCNode Title="UpdateUser Method (String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_UpdateUser.htm" />
+          <HelpTOCNode Title="UpdateUser Method (String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_UpdateUser_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4b513ca1-53d1-44ec-8a97-51d992c08a72" Title="ArcherAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_ArcherAPIWrapper.htm">
+      <HelpTOCNode Title="ArcherAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="6ba523e4-8962-4923-8ae8-31a18447e7c8" Title="ArcherAPIWrapper Fields" Url="html/Fields_T_com_veracode_apiwrapper_ArcherAPIWrapper.htm">
+        <HelpTOCNode Title="DOWNLOAD_FLAW_REPORT_URI Field" Url="html/F_com_veracode_apiwrapper_ArcherAPIWrapper_DOWNLOAD_FLAW_REPORT_URI.htm" />
+        <HelpTOCNode Title="GENERATE_FLAW_REPORT_URI Field" Url="html/F_com_veracode_apiwrapper_ArcherAPIWrapper_GENERATE_FLAW_REPORT_URI.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="beba6151-0aa2-4d01-836c-0391d68f540f" Title="ArcherAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_ArcherAPIWrapper.htm">
+        <HelpTOCNode Id="38409aca-15af-4875-a645-457c296bdf3c" Title="Archer Method " Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_Archer.htm">
+          <HelpTOCNode Title="Archer Method " Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_Archer.htm" />
+          <HelpTOCNode Title="Archer Method (String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_Archer_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="50710208-3fcf-4db6-86bc-3a62c6d49eab" Title="DownloadArcherReport Method " Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadArcherReport.htm">
+          <HelpTOCNode Title="DownloadArcherReport Method " Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadArcherReport.htm" />
+          <HelpTOCNode Title="DownloadArcherReport Method (String)" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadArcherReport_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="32b6fe87-919c-4668-bb5d-aa284276a4f3" Title="DownloadFlawReport Method " Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadFlawReport.htm">
+          <HelpTOCNode Title="DownloadFlawReport Method " Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadFlawReport.htm" />
+          <HelpTOCNode Title="DownloadFlawReport Method (String)" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadFlawReport_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="5ed62e52-5555-430a-970f-c85ed23329b5" Title="GenerateArcherReport Method " Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateArcherReport.htm">
+          <HelpTOCNode Title="GenerateArcherReport Method " Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateArcherReport.htm" />
+          <HelpTOCNode Title="GenerateArcherReport Method (String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateArcherReport_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="e3945c6d-ddfb-4bff-9790-7613dfddb34b" Title="GenerateFlawReport Method " Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateFlawReport.htm">
+          <HelpTOCNode Title="GenerateFlawReport Method " Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateFlawReport.htm" />
+          <HelpTOCNode Title="GenerateFlawReport Method (String, String)" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateFlawReport_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="31173f70-c0bc-49a4-a2d1-df75211ca8e4" Title="MitigationAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_MitigationAPIWrapper.htm">
+      <HelpTOCNode Title="MitigationAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="0fbe0d46-b700-4344-acb1-ee4430422043" Title="MitigationAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_MitigationAPIWrapper.htm">
+        <HelpTOCNode Title="GetMitigationInfo Method " Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper_GetMitigationInfo.htm" />
+        <HelpTOCNode Title="UpdateMitigationInfo Method " Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper_UpdateMitigationInfo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5a94abd7-e089-4e40-a1d5-cef8c24d220c" Title="ResultsAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_ResultsAPIWrapper.htm">
+      <HelpTOCNode Title="ResultsAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="de6d98af-8922-46aa-bbf8-b2fc8ae8639f" Title="ResultsAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_ResultsAPIWrapper.htm">
+        <HelpTOCNode Title="DetailedReport Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_DetailedReport.htm" />
+        <HelpTOCNode Title="DetailedReportPdf Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_DetailedReportPdf.htm" />
+        <HelpTOCNode Id="b0cc3526-5ec6-41bd-ac80-3eda60d65e08" Title="GetAppBuilds Method " Url="html/Overload_com_veracode_apiwrapper_ResultsAPIWrapper_GetAppBuilds.htm">
+          <HelpTOCNode Title="GetAppBuilds Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_GetAppBuilds.htm" />
+          <HelpTOCNode Title="GetAppBuilds Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_GetAppBuilds_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetCallStacks Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_GetCallStacks.htm" />
+        <HelpTOCNode Title="SummaryReport Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_SummaryReport.htm" />
+        <HelpTOCNode Title="SummaryReportPdf Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_SummaryReportPdf.htm" />
+        <HelpTOCNode Title="ThirdPartyReportPdf Method " Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_ThirdPartyReportPdf.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="81b7e87f-547d-4afa-9194-20cec1bc0410" Title="SandboxAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_SandboxAPIWrapper.htm">
+      <HelpTOCNode Title="SandboxAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="c5bc1c41-1954-40b3-8a2b-5da074b31c89" Title="SandboxAPIWrapper Fields" Url="html/Fields_T_com_veracode_apiwrapper_SandboxAPIWrapper.htm">
+        <HelpTOCNode Title="CREATE_SANDBOX_URI Field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_CREATE_SANDBOX_URI.htm" />
+        <HelpTOCNode Title="GET_SANDBOX_LIST_URI Field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_GET_SANDBOX_LIST_URI.htm" />
+        <HelpTOCNode Title="PROMOTE_SANDBOX_URI Field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_PROMOTE_SANDBOX_URI.htm" />
+        <HelpTOCNode Title="UPDATE_SANDBOX_URI Field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_UPDATE_SANDBOX_URI.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="46bd92c7-cc26-46ac-90db-3f2d11e09769" Title="SandboxAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_SandboxAPIWrapper.htm">
+        <HelpTOCNode Title="CreateSandbox Method " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_CreateSandbox.htm" />
+        <HelpTOCNode Title="GetSandboxList Method " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_GetSandboxList.htm" />
+        <HelpTOCNode Title="PromoteSandbox Method " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_PromoteSandbox.htm" />
+        <HelpTOCNode Title="UpdateSandbox Method " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_UpdateSandbox.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a2e0ecda-a901-4ee7-b818-c9a2c91b4cbf" Title="UploadAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_UploadAPIWrapper.htm">
+      <HelpTOCNode Title="UploadAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="05f89eba-ff18-4bf6-a0fc-c5979264ae00" Title="UploadAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_UploadAPIWrapper.htm">
+        <HelpTOCNode Id="26172594-01fc-4b01-a077-7ffc59042c3a" Title="BeginPreScan Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan.htm">
+          <HelpTOCNode Title="BeginPreScan Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan.htm" />
+          <HelpTOCNode Title="BeginPreScan Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan_1.htm" />
+          <HelpTOCNode Title="BeginPreScan Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan_2.htm" />
+          <HelpTOCNode Title="BeginPreScan Method (String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan_3.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="2fbee556-9b93-450f-a441-212ed677743f" Title="BeginScan Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan.htm">
+          <HelpTOCNode Title="BeginScan Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan.htm" />
+          <HelpTOCNode Title="BeginScan Method (String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan_1.htm" />
+          <HelpTOCNode Title="BeginScan Method (String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan_2.htm" />
+          <HelpTOCNode Title="BeginScan Method (String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan_3.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="9ca55cc5-f6e4-4897-a72f-1536342d1762" Title="CreateApp Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_CreateApp.htm">
+          <HelpTOCNode Title="CreateApp Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateApp.htm" />
+          <HelpTOCNode Title="CreateApp Method (String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateApp_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="538ced9d-a3b5-42a7-beac-dab3149905b0" Title="CreateBuild Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild.htm">
+          <HelpTOCNode Title="CreateBuild Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild.htm" />
+          <HelpTOCNode Title="CreateBuild Method (String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild_1.htm" />
+          <HelpTOCNode Title="CreateBuild Method (String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild_2.htm" />
+          <HelpTOCNode Title="CreateBuild Method (String, String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild_3.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="CreateSandbox Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateSandbox.htm" />
+        <HelpTOCNode Title="DeleteApp Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_DeleteApp.htm" />
+        <HelpTOCNode Id="f69ef2e4-243a-405f-874f-197cc52a9398" Title="DeleteBuild Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_DeleteBuild.htm">
+          <HelpTOCNode Title="DeleteBuild Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_DeleteBuild.htm" />
+          <HelpTOCNode Title="DeleteBuild Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_DeleteBuild_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetAppInfo Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetAppInfo.htm" />
+        <HelpTOCNode Id="cf6c330e-1719-4070-9543-77531fe78e1f" Title="GetAppList Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetAppList.htm">
+          <HelpTOCNode Title="GetAppList Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetAppList.htm" />
+          <HelpTOCNode Title="GetAppList Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetAppList_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="5110649e-a077-438e-9a19-59f98b038e7a" Title="GetBuildInfo Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildInfo.htm">
+          <HelpTOCNode Title="GetBuildInfo Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildInfo.htm" />
+          <HelpTOCNode Title="GetBuildInfo Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildInfo_1.htm" />
+          <HelpTOCNode Title="GetBuildInfo Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildInfo_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="267f4de7-c7f9-46c4-ab0e-25be3d3463d7" Title="GetBuildList Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildList.htm">
+          <HelpTOCNode Title="GetBuildList Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildList.htm" />
+          <HelpTOCNode Title="GetBuildList Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildList_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="a29db066-c4db-49b4-806f-307a3bfb321b" Title="GetFileList Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetFileList.htm">
+          <HelpTOCNode Title="GetFileList Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetFileList.htm" />
+          <HelpTOCNode Title="GetFileList Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetFileList_1.htm" />
+          <HelpTOCNode Title="GetFileList Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetFileList_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetPolicyList Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetPolicyList.htm" />
+        <HelpTOCNode Id="0f9e1dc3-5b88-4112-8f49-5d353f18a161" Title="GetPreScanResults Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetPreScanResults.htm">
+          <HelpTOCNode Title="GetPreScanResults Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetPreScanResults.htm" />
+          <HelpTOCNode Title="GetPreScanResults Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetPreScanResults_1.htm" />
+          <HelpTOCNode Title="GetPreScanResults Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetPreScanResults_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetSandboxList Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetSandboxList.htm" />
+        <HelpTOCNode Title="GetVendorList Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetVendorList.htm" />
+        <HelpTOCNode Id="7b0d3586-838f-4386-b0e5-72a0bdfdf43c" Title="RemoveFile Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_RemoveFile.htm">
+          <HelpTOCNode Title="RemoveFile Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_RemoveFile.htm" />
+          <HelpTOCNode Title="RemoveFile Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_RemoveFile_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="SetUpApiCredentials Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_SetUpApiCredentials.htm" />
+        <HelpTOCNode Id="53f29b3f-4186-4faa-95a7-341969605a84" Title="SetUpCredentials Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_SetUpCredentials.htm">
+          <HelpTOCNode Title="SetUpCredentials Method (ICredentials)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_SetUpCredentials.htm" />
+          <HelpTOCNode Title="SetUpCredentials Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_SetUpCredentials_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="1da0359d-2712-4657-a3bc-ac318e9a1ccc" Title="UpdateApp Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UpdateApp.htm">
+          <HelpTOCNode Title="UpdateApp Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UpdateApp.htm" />
+          <HelpTOCNode Title="UpdateApp Method (String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UpdateApp_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="96572cc2-2f48-4b64-8849-ea51a4d51de0" Title="UpdateBuild Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UpdateBuild.htm">
+          <HelpTOCNode Title="UpdateBuild Method (String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UpdateBuild.htm" />
+          <HelpTOCNode Title="UpdateBuild Method (String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UpdateBuild_1.htm" />
+          <HelpTOCNode Title="UpdateBuild Method (String, String, String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UpdateBuild_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="3ec46190-df6b-44c6-ae65-45451a0059d1" Title="UploadFile Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UploadFile.htm">
+          <HelpTOCNode Title="UploadFile Method (String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UploadFile.htm" />
+          <HelpTOCNode Title="UploadFile Method (String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UploadFile_1.htm" />
+          <HelpTOCNode Title="UploadFile Method (String, String, String, String)" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_UploadFile_2.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="298e6ba2-5071-4253-bb41-400385448a12" Title="VastAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_VastAPIWrapper.htm">
+      <HelpTOCNode Title="VastAPIWrapper Constructor " Url="html/M_com_veracode_apiwrapper_VastAPIWrapper__ctor.htm" />
+      <HelpTOCNode Id="220df65a-7934-4e0f-b490-bf450c422a25" Title="VastAPIWrapper Methods" Url="html/Methods_T_com_veracode_apiwrapper_VastAPIWrapper.htm">
+        <HelpTOCNode Id="0f60dc07-1340-4d57-a956-ec5f19796e98" Title="GetSharedReportInfo Method " Url="html/Overload_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportInfo.htm">
+          <HelpTOCNode Title="GetSharedReportInfo Method (String)" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportInfo.htm" />
+          <HelpTOCNode Title="GetSharedReportInfo Method (String, String)" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportInfo_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetSharedReportList Method " Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportList.htm" />
+        <HelpTOCNode Title="SharedReport Method " Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_SharedReport.htm" />
+        <HelpTOCNode Title="SharedReportPdf Method " Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_SharedReportPdf.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="69a9670b-02a3-4a71-b541-69e34de7c62b" Title="com.veracode.http" Url="html/N_com_veracode_http.htm">
+    <HelpTOCNode Id="0d4e9bac-f4fb-4202-a41e-e0d29e019478" Title="WebClient Class" Url="html/T_com_veracode_http_WebClient.htm">
+      <HelpTOCNode Title="WebClient Constructor " Url="html/M_com_veracode_http_WebClient__ctor.htm" />
+      <HelpTOCNode Id="fb5011c4-a5ea-443b-b64c-f44c812de633" Title="WebClient Fields" Url="html/Fields_T_com_veracode_http_WebClient.htm">
+        <HelpTOCNode Title="BaseAddress Field" Url="html/F_com_veracode_http_WebClient_BaseAddress.htm" />
+        <HelpTOCNode Title="Credentials Field" Url="html/F_com_veracode_http_WebClient_Credentials.htm" />
+        <HelpTOCNode Title="Headers Field" Url="html/F_com_veracode_http_WebClient_Headers.htm" />
+        <HelpTOCNode Title="numberOfRetriesOn401 Field" Url="html/F_com_veracode_http_WebClient_numberOfRetriesOn401.htm" />
+        <HelpTOCNode Title="ProxyData Field" Url="html/F_com_veracode_http_WebClient_ProxyData.htm" />
+        <HelpTOCNode Title="QueryString Field" Url="html/F_com_veracode_http_WebClient_QueryString.htm" />
+        <HelpTOCNode Title="useStreamingMode Field" Url="html/F_com_veracode_http_WebClient_useStreamingMode.htm" />
+        <HelpTOCNode Title="verbose Field" Url="html/F_com_veracode_http_WebClient_verbose.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="fca83ff6-d9b9-4665-bdc9-d5ce012a4180" Title="WebClient Methods" Url="html/Methods_T_com_veracode_http_WebClient.htm">
+        <HelpTOCNode Title="DownloadData Method " Url="html/M_com_veracode_http_WebClient_DownloadData.htm" />
+        <HelpTOCNode Title="DownloadString Method " Url="html/M_com_veracode_http_WebClient_DownloadString.htm" />
+        <HelpTOCNode Title="UploadFile Method " Url="html/M_com_veracode_http_WebClient_UploadFile.htm" />
+        <HelpTOCNode Title="UploadFileAsync Method " Url="html/M_com_veracode_http_WebClient_UploadFileAsync.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c224deea-b422-4cba-a688-8d51bb858cf1" Title="WebClient Events" Url="html/Events_T_com_veracode_http_WebClient.htm">
+        <HelpTOCNode Title="PreMakeRequest Event" Url="html/E_com_veracode_http_WebClient_PreMakeRequest.htm" />
+        <HelpTOCNode Title="UploadFileCompleted Event" Url="html/E_com_veracode_http_WebClient_UploadFileCompleted.htm" />
+        <HelpTOCNode Title="UploadProgressChanged Event" Url="html/E_com_veracode_http_WebClient_UploadProgressChanged.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b6301656-f76b-4689-86da-5dcc36aeb3e9" Title="WebRequestHandler Class" Url="html/T_com_veracode_http_WebRequestHandler.htm">
+      <HelpTOCNode Id="cf8d5e6a-038d-4e04-a60b-8156a5e1628c" Title="WebRequestHandler Methods" Url="html/Methods_T_com_veracode_http_WebRequestHandler.htm">
+        <HelpTOCNode Title="AddHeader Method " Url="html/M_com_veracode_http_WebRequestHandler_AddHeader.htm" />
+        <HelpTOCNode Title="AddHeaders Method " Url="html/M_com_veracode_http_WebRequestHandler_AddHeaders.htm" />
+        <HelpTOCNode Title="AddUserAgentHeader Method " Url="html/M_com_veracode_http_WebRequestHandler_AddUserAgentHeader.htm" />
+        <HelpTOCNode Title="GetDefaultUserAgentHeaderValue Method " Url="html/M_com_veracode_http_WebRequestHandler_GetDefaultUserAgentHeaderValue.htm" />
+        <HelpTOCNode Title="GetResponse Method " Url="html/M_com_veracode_http_WebRequestHandler_GetResponse.htm" />
+        <HelpTOCNode Title="GetResponseCode Method " Url="html/M_com_veracode_http_WebRequestHandler_GetResponseCode.htm" />
+        <HelpTOCNode Title="GetUnauthorizedResponseCodeConstant Method " Url="html/M_com_veracode_http_WebRequestHandler_GetUnauthorizedResponseCodeConstant.htm" />
+        <HelpTOCNode Title="Init Method " Url="html/M_com_veracode_http_WebRequestHandler_Init.htm" />
+        <HelpTOCNode Title="IsUnauthorized Method " Url="html/M_com_veracode_http_WebRequestHandler_IsUnauthorized.htm" />
+        <HelpTOCNode Title="MakeFormUrlEncodedPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandler_MakeFormUrlEncodedPostRequest.htm" />
+        <HelpTOCNode Title="MakeMultiPartPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandler_MakeMultiPartPostRequest.htm" />
+        <HelpTOCNode Title="MakeOctetStreamPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandler_MakeOctetStreamPostRequest.htm" />
+        <HelpTOCNode Title="ReleaseResources Method " Url="html/M_com_veracode_http_WebRequestHandler_ReleaseResources.htm" />
+        <HelpTOCNode Title="SetConnectTimeout Method " Url="html/M_com_veracode_http_WebRequestHandler_SetConnectTimeout.htm" />
+        <HelpTOCNode Title="SetReadTimeout Method " Url="html/M_com_veracode_http_WebRequestHandler_SetReadTimeout.htm" />
+        <HelpTOCNode Title="SetVerboseMode Method " Url="html/M_com_veracode_http_WebRequestHandler_SetVerboseMode.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ecc23045-4ad4-4e37-9d2a-d4d0d6f7a401" Title="WebRequestHandlerImpl Class" Url="html/T_com_veracode_http_WebRequestHandlerImpl.htm">
+      <HelpTOCNode Title="WebRequestHandlerImpl Constructor " Url="html/M_com_veracode_http_WebRequestHandlerImpl__ctor.htm" />
+      <HelpTOCNode Id="bed544fc-e1d6-42bb-9b79-ff024141afb8" Title="WebRequestHandlerImpl Methods" Url="html/Methods_T_com_veracode_http_WebRequestHandlerImpl.htm">
+        <HelpTOCNode Title="AddHeader Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_AddHeader.htm" />
+        <HelpTOCNode Title="AddUserAgentHeader Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_AddUserAgentHeader.htm" />
+        <HelpTOCNode Title="GetDefaultUserAgentHeaderValue Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetDefaultUserAgentHeaderValue.htm" />
+        <HelpTOCNode Title="GetResponse Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetResponse.htm" />
+        <HelpTOCNode Title="GetResponseCode Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetResponseCode.htm" />
+        <HelpTOCNode Title="GetUnauthorizedResponseCodeConstant Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetUnauthorizedResponseCodeConstant.htm" />
+        <HelpTOCNode Title="Init Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_Init.htm" />
+        <HelpTOCNode Title="MakeFormUrlEncodedPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeFormUrlEncodedPostRequest.htm" />
+        <HelpTOCNode Title="MakeMultiPartPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeMultiPartPostRequest.htm" />
+        <HelpTOCNode Title="MakeOctetStreamPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeOctetStreamPostRequest.htm" />
+        <HelpTOCNode Title="ReleaseResources Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_ReleaseResources.htm" />
+        <HelpTOCNode Title="SetConnectTimeout Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_SetConnectTimeout.htm" />
+        <HelpTOCNode Title="SetReadTimeout Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_SetReadTimeout.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="993b18fe-fa8f-4303-b7c9-40c9038e18c5" Title="com.veracode.http.events" Url="html/N_com_veracode_http_events.htm">
+    <HelpTOCNode Id="fb77f382-2902-4306-bb23-810c64b6bfa0" Title="PreMakeRequestEventArgs Class" Url="html/T_com_veracode_http_events_PreMakeRequestEventArgs.htm">
+      <HelpTOCNode Title="PreMakeRequestEventArgs Constructor " Url="html/M_com_veracode_http_events_PreMakeRequestEventArgs__ctor.htm" />
+      <HelpTOCNode Id="c9c6b79c-2837-4497-aacb-430e060323ed" Title="PreMakeRequestEventArgs Properties" Url="html/Properties_T_com_veracode_http_events_PreMakeRequestEventArgs.htm">
+        <HelpTOCNode Title="HostName Property " Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_HostName.htm" />
+        <HelpTOCNode Title="HttpMethod Property " Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_HttpMethod.htm" />
+        <HelpTOCNode Title="UriString Property " Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_UriString.htm" />
+        <HelpTOCNode Title="UrlParams Property " Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_UrlParams.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="PreMakeRequestEventHandler Delegate" Url="html/T_com_veracode_http_events_PreMakeRequestEventHandler.htm" />
+    <HelpTOCNode Id="d384fa89-ed20-4e97-8a18-7ba592da6805" Title="UploadFileCompletedEventArgs Class" Url="html/T_com_veracode_http_events_UploadFileCompletedEventArgs.htm">
+      <HelpTOCNode Title="UploadFileCompletedEventArgs Constructor " Url="html/M_com_veracode_http_events_UploadFileCompletedEventArgs__ctor.htm" />
+      <HelpTOCNode Id="463c9ff3-4495-40f2-b767-119537dd5f61" Title="UploadFileCompletedEventArgs Properties" Url="html/Properties_T_com_veracode_http_events_UploadFileCompletedEventArgs.htm">
+        <HelpTOCNode Title="Error Property " Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_Error.htm" />
+        <HelpTOCNode Title="Result Property " Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_Result.htm" />
+        <HelpTOCNode Title="UserState Property " Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_UserState.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="UploadFileCompletedEventHandler Delegate" Url="html/T_com_veracode_http_events_UploadFileCompletedEventHandler.htm" />
+    <HelpTOCNode Id="930f5f39-1d12-497a-9611-0c4371e43000" Title="UploadProgressChangedEventArgs Class" Url="html/T_com_veracode_http_events_UploadProgressChangedEventArgs.htm">
+      <HelpTOCNode Title="UploadProgressChangedEventArgs Constructor " Url="html/M_com_veracode_http_events_UploadProgressChangedEventArgs__ctor.htm" />
+      <HelpTOCNode Id="6af37b25-ee93-42a8-85f6-b926648bbcd7" Title="UploadProgressChangedEventArgs Properties" Url="html/Properties_T_com_veracode_http_events_UploadProgressChangedEventArgs.htm">
+        <HelpTOCNode Title="BytesSent Property " Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_BytesSent.htm" />
+        <HelpTOCNode Title="IsSignificant Property " Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_IsSignificant.htm" />
+        <HelpTOCNode Title="ProgressPercentage Property " Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_ProgressPercentage.htm" />
+        <HelpTOCNode Title="TotalBytesToSend Property " Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_TotalBytesToSend.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="UploadProgressChangedEventHandler Delegate" Url="html/T_com_veracode_http_events_UploadProgressChangedEventHandler.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="d4c14487-1dd2-4cc6-98fd-5d7562a8c120" Title="com.veracode.http.proxy" Url="html/N_com_veracode_http_proxy.htm">
+    <HelpTOCNode Id="73b03dd6-5eb7-48db-9f18-56e61c32e6c5" Title="ProxyData Class" Url="html/T_com_veracode_http_proxy_ProxyData.htm">
+      <HelpTOCNode Id="3a649ea1-9e49-48d1-a5b6-3bd1ea794f77" Title="ProxyData Constructor " Url="html/Overload_com_veracode_http_proxy_ProxyData__ctor.htm">
+        <HelpTOCNode Title="ProxyData Constructor (IWebProxy, String, Char[])" Url="html/M_com_veracode_http_proxy_ProxyData__ctor.htm" />
+        <HelpTOCNode Title="ProxyData Constructor (String, Int32, String, Char[])" Url="html/M_com_veracode_http_proxy_ProxyData__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7c2b16a8-5e51-4763-856e-9dbe65935dab" Title="ProxyData Fields" Url="html/Fields_T_com_veracode_http_proxy_ProxyData.htm">
+        <HelpTOCNode Title="host Field" Url="html/F_com_veracode_http_proxy_ProxyData_host.htm" />
+        <HelpTOCNode Title="password Field" Url="html/F_com_veracode_http_proxy_ProxyData_password.htm" />
+        <HelpTOCNode Title="port Field" Url="html/F_com_veracode_http_proxy_ProxyData_port.htm" />
+        <HelpTOCNode Title="proxy Field" Url="html/F_com_veracode_http_proxy_ProxyData_proxy.htm" />
+        <HelpTOCNode Title="username Field" Url="html/F_com_veracode_http_proxy_ProxyData_username.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="ea5eff90-8a05-4144-832a-c40607a494dc" Title="com.veracode.http.util" Url="html/N_com_veracode_http_util.htm">
+    <HelpTOCNode Id="b569b17a-9398-4526-8fe3-2f6a765cec7f" Title="HmacAuthHeader Class" Url="html/T_com_veracode_http_util_HmacAuthHeader.htm">
+      <HelpTOCNode Id="ba6fafc1-ff58-4412-8a54-b7b76d2bf459" Title="HmacAuthHeader Fields" Url="html/Fields_T_com_veracode_http_util_HmacAuthHeader.htm">
+        <HelpTOCNode Title="HmacSha256 Field" Url="html/F_com_veracode_http_util_HmacAuthHeader_HmacSha256.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e5d2e76d-1da6-4462-bcdb-f8726c3b35d9" Title="HmacAuthHeader Methods" Url="html/Methods_T_com_veracode_http_util_HmacAuthHeader.htm">
+        <HelpTOCNode Title="CalculateAuthorizationHeader Method " Url="html/M_com_veracode_http_util_HmacAuthHeader_CalculateAuthorizationHeader.htm" />
+        <HelpTOCNode Title="FromHexBinary Method " Url="html/M_com_veracode_http_util_HmacAuthHeader_FromHexBinary.htm" />
+        <HelpTOCNode Title="IsValidAuthHeaderToken Method " Url="html/M_com_veracode_http_util_HmacAuthHeader_IsValidAuthHeaderToken.htm" />
+        <HelpTOCNode Title="IsValidHexBinary Method " Url="html/M_com_veracode_http_util_HmacAuthHeader_IsValidHexBinary.htm" />
+        <HelpTOCNode Title="ToHexBinary Method " Url="html/M_com_veracode_http_util_HmacAuthHeader_ToHexBinary.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

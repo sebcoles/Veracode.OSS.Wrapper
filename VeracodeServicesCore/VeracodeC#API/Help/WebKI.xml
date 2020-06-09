@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AbstractAPIWrapper class">
+    <HelpKINode Title="AbstractAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_AbstractAPIWrapper.htm" />
+    <HelpKINode Title="about AbstractAPIWrapper class" Url="html/T_com_veracode_apiwrapper_AbstractAPIWrapper.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_AbstractAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AbstractAPIWrapper.SetUpApiCredentials method" Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpApiCredentials.htm" />
+  <HelpKINode Title="AbstractAPIWrapper.SetUpCredentials method" Url="html/Overload_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpCredentials.htm" />
+  <HelpKINode Title="AbstractAPIWrapper.SetUpProxy method" Url="html/Overload_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpProxy.htm" />
+  <HelpKINode Title="AddHeader method">
+    <HelpKINode Title="WebRequestHandler.AddHeader Method " Url="html/M_com_veracode_http_WebRequestHandler_AddHeader.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.AddHeader Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_AddHeader.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddHeaders method" Url="html/M_com_veracode_http_WebRequestHandler_AddHeaders.htm" />
+  <HelpKINode Title="AddUserAgentHeader method">
+    <HelpKINode Title="WebRequestHandler.AddUserAgentHeader Method " Url="html/M_com_veracode_http_WebRequestHandler_AddUserAgentHeader.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.AddUserAgentHeader Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_AddUserAgentHeader.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AdminAPIWrapper class">
+    <HelpKINode Title="AdminAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_AdminAPIWrapper.htm" />
+    <HelpKINode Title="about AdminAPIWrapper class" Url="html/T_com_veracode_apiwrapper_AdminAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_com_veracode_apiwrapper_AdminAPIWrapper.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_AdminAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AdminAPIWrapper.AdminAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper__ctor.htm" />
+  <HelpKINode Title="AdminAPIWrapper.CreateTeam method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_CreateTeam.htm" />
+  <HelpKINode Title="AdminAPIWrapper.CreateUser method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_CreateUser.htm" />
+  <HelpKINode Title="AdminAPIWrapper.DeleteTeam method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_DeleteTeam.htm" />
+  <HelpKINode Title="AdminAPIWrapper.DeleteUser method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_DeleteUser.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GetCurriculumList method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetCurriculumList.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GetTeamInfo method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamInfo.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GetTeamList method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamList.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GetTrackList method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTrackList.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GetUserInfo method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetUserInfo.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GetUserList method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_GetUserList.htm" />
+  <HelpKINode Title="AdminAPIWrapper.GET_TEAM_INFO_URI field" Url="html/F_com_veracode_apiwrapper_AdminAPIWrapper_GET_TEAM_INFO_URI.htm" />
+  <HelpKINode Title="AdminAPIWrapper.UpdateTeam method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_UpdateTeam.htm" />
+  <HelpKINode Title="AdminAPIWrapper.UpdateUser method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_UpdateUser.htm" />
+  <HelpKINode Title="Archer method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_Archer.htm" />
+  <HelpKINode Title="ArcherAPIWrapper class">
+    <HelpKINode Title="ArcherAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_ArcherAPIWrapper.htm" />
+    <HelpKINode Title="about ArcherAPIWrapper class" Url="html/T_com_veracode_apiwrapper_ArcherAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_com_veracode_apiwrapper_ArcherAPIWrapper.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_ArcherAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ArcherAPIWrapper.Archer method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_Archer.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.ArcherAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_ArcherAPIWrapper__ctor.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.DownloadArcherReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadArcherReport.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.DownloadFlawReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadFlawReport.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.DOWNLOAD_FLAW_REPORT_URI field" Url="html/F_com_veracode_apiwrapper_ArcherAPIWrapper_DOWNLOAD_FLAW_REPORT_URI.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.GenerateArcherReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateArcherReport.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.GenerateFlawReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateFlawReport.htm" />
+  <HelpKINode Title="ArcherAPIWrapper.GENERATE_FLAW_REPORT_URI field" Url="html/F_com_veracode_apiwrapper_ArcherAPIWrapper_GENERATE_FLAW_REPORT_URI.htm" />
+  <HelpKINode Title="BaseAddress field" Url="html/F_com_veracode_http_WebClient_BaseAddress.htm" />
+  <HelpKINode Title="BeginPreScan method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan.htm" />
+  <HelpKINode Title="BeginScan method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan.htm" />
+  <HelpKINode Title="BytesSent property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_BytesSent.htm" />
+  <HelpKINode Title="CalculateAuthorizationHeader method" Url="html/M_com_veracode_http_util_HmacAuthHeader_CalculateAuthorizationHeader.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper namespace" Url="html/N_com_veracode_apiwrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.AbstractAPIWrapper class" Url="html/T_com_veracode_apiwrapper_AbstractAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.AdminAPIWrapper class" Url="html/T_com_veracode_apiwrapper_AdminAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.ArcherAPIWrapper class" Url="html/T_com_veracode_apiwrapper_ArcherAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.MitigationAPIWrapper class" Url="html/T_com_veracode_apiwrapper_MitigationAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.ResultsAPIWrapper class" Url="html/T_com_veracode_apiwrapper_ResultsAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.SandboxAPIWrapper class" Url="html/T_com_veracode_apiwrapper_SandboxAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.UploadAPIWrapper class" Url="html/T_com_veracode_apiwrapper_UploadAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.apiwrapper.VastAPIWrapper class" Url="html/T_com_veracode_apiwrapper_VastAPIWrapper.htm" />
+  <HelpKINode Title="com.veracode.http namespace" Url="html/N_com_veracode_http.htm" />
+  <HelpKINode Title="com.veracode.http.events namespace" Url="html/N_com_veracode_http_events.htm" />
+  <HelpKINode Title="com.veracode.http.events.PreMakeRequestEventArgs class" Url="html/T_com_veracode_http_events_PreMakeRequestEventArgs.htm" />
+  <HelpKINode Title="com.veracode.http.events.PreMakeRequestEventHandler delegate" Url="html/T_com_veracode_http_events_PreMakeRequestEventHandler.htm" />
+  <HelpKINode Title="com.veracode.http.events.UploadFileCompletedEventArgs class" Url="html/T_com_veracode_http_events_UploadFileCompletedEventArgs.htm" />
+  <HelpKINode Title="com.veracode.http.events.UploadFileCompletedEventHandler delegate" Url="html/T_com_veracode_http_events_UploadFileCompletedEventHandler.htm" />
+  <HelpKINode Title="com.veracode.http.events.UploadProgressChangedEventArgs class" Url="html/T_com_veracode_http_events_UploadProgressChangedEventArgs.htm" />
+  <HelpKINode Title="com.veracode.http.events.UploadProgressChangedEventHandler delegate" Url="html/T_com_veracode_http_events_UploadProgressChangedEventHandler.htm" />
+  <HelpKINode Title="com.veracode.http.proxy namespace" Url="html/N_com_veracode_http_proxy.htm" />
+  <HelpKINode Title="com.veracode.http.proxy.ProxyData class" Url="html/T_com_veracode_http_proxy_ProxyData.htm" />
+  <HelpKINode Title="com.veracode.http.util namespace" Url="html/N_com_veracode_http_util.htm" />
+  <HelpKINode Title="com.veracode.http.util.HmacAuthHeader class" Url="html/T_com_veracode_http_util_HmacAuthHeader.htm" />
+  <HelpKINode Title="com.veracode.http.WebClient class" Url="html/T_com_veracode_http_WebClient.htm" />
+  <HelpKINode Title="com.veracode.http.WebRequestHandler class" Url="html/T_com_veracode_http_WebRequestHandler.htm" />
+  <HelpKINode Title="com.veracode.http.WebRequestHandlerImpl class" Url="html/T_com_veracode_http_WebRequestHandlerImpl.htm" />
+  <HelpKINode Title="CreateApp method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_CreateApp.htm" />
+  <HelpKINode Title="CreateBuild method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild.htm" />
+  <HelpKINode Title="CreateSandbox method">
+    <HelpKINode Title="SandboxAPIWrapper.CreateSandbox Method " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_CreateSandbox.htm" />
+    <HelpKINode Title="UploadAPIWrapper.CreateSandbox Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateSandbox.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateTeam method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_CreateTeam.htm" />
+  <HelpKINode Title="CreateUser method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_CreateUser.htm" />
+  <HelpKINode Title="CREATE_SANDBOX_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_CREATE_SANDBOX_URI.htm" />
+  <HelpKINode Title="Credentials field" Url="html/F_com_veracode_http_WebClient_Credentials.htm" />
+  <HelpKINode Title="DeleteApp method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_DeleteApp.htm" />
+  <HelpKINode Title="DeleteBuild method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_DeleteBuild.htm" />
+  <HelpKINode Title="DeleteTeam method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_DeleteTeam.htm" />
+  <HelpKINode Title="DeleteUser method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_DeleteUser.htm" />
+  <HelpKINode Title="DetailedReport method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_DetailedReport.htm" />
+  <HelpKINode Title="DetailedReportPdf method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_DetailedReportPdf.htm" />
+  <HelpKINode Title="DownloadArcherReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadArcherReport.htm" />
+  <HelpKINode Title="DownloadData method" Url="html/M_com_veracode_http_WebClient_DownloadData.htm" />
+  <HelpKINode Title="DownloadFlawReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_DownloadFlawReport.htm" />
+  <HelpKINode Title="DownloadString method" Url="html/M_com_veracode_http_WebClient_DownloadString.htm" />
+  <HelpKINode Title="DOWNLOAD_FLAW_REPORT_URI field" Url="html/F_com_veracode_apiwrapper_ArcherAPIWrapper_DOWNLOAD_FLAW_REPORT_URI.htm" />
+  <HelpKINode Title="Error property" Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_Error.htm" />
+  <HelpKINode Title="FromHexBinary method" Url="html/M_com_veracode_http_util_HmacAuthHeader_FromHexBinary.htm" />
+  <HelpKINode Title="GenerateArcherReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateArcherReport.htm" />
+  <HelpKINode Title="GenerateFlawReport method" Url="html/Overload_com_veracode_apiwrapper_ArcherAPIWrapper_GenerateFlawReport.htm" />
+  <HelpKINode Title="GENERATE_FLAW_REPORT_URI field" Url="html/F_com_veracode_apiwrapper_ArcherAPIWrapper_GENERATE_FLAW_REPORT_URI.htm" />
+  <HelpKINode Title="GetAppBuilds method" Url="html/Overload_com_veracode_apiwrapper_ResultsAPIWrapper_GetAppBuilds.htm" />
+  <HelpKINode Title="GetAppInfo method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetAppInfo.htm" />
+  <HelpKINode Title="GetAppList method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetAppList.htm" />
+  <HelpKINode Title="GetBuildInfo method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildInfo.htm" />
+  <HelpKINode Title="GetBuildList method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildList.htm" />
+  <HelpKINode Title="GetCallStacks method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_GetCallStacks.htm" />
+  <HelpKINode Title="GetCurriculumList method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetCurriculumList.htm" />
+  <HelpKINode Title="GetDefaultUserAgentHeaderValue method">
+    <HelpKINode Title="WebRequestHandler.GetDefaultUserAgentHeaderValue Method " Url="html/M_com_veracode_http_WebRequestHandler_GetDefaultUserAgentHeaderValue.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.GetDefaultUserAgentHeaderValue Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetDefaultUserAgentHeaderValue.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetFileList method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetFileList.htm" />
+  <HelpKINode Title="GetMitigationInfo method" Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper_GetMitigationInfo.htm" />
+  <HelpKINode Title="GetPolicyList method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetPolicyList.htm" />
+  <HelpKINode Title="GetPreScanResults method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetPreScanResults.htm" />
+  <HelpKINode Title="GetResponse method">
+    <HelpKINode Title="WebRequestHandler.GetResponse Method " Url="html/M_com_veracode_http_WebRequestHandler_GetResponse.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.GetResponse Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetResponse.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetResponseCode method">
+    <HelpKINode Title="WebRequestHandler.GetResponseCode Method " Url="html/M_com_veracode_http_WebRequestHandler_GetResponseCode.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.GetResponseCode Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetResponseCode.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetSandboxList method">
+    <HelpKINode Title="SandboxAPIWrapper.GetSandboxList Method " Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_GetSandboxList.htm" />
+    <HelpKINode Title="UploadAPIWrapper.GetSandboxList Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetSandboxList.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetSharedReportInfo method" Url="html/Overload_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportInfo.htm" />
+  <HelpKINode Title="GetSharedReportList method" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportList.htm" />
+  <HelpKINode Title="GetTeamInfo method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamInfo.htm" />
+  <HelpKINode Title="GetTeamList method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTeamList.htm" />
+  <HelpKINode Title="GetTrackList method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetTrackList.htm" />
+  <HelpKINode Title="GetUnauthorizedResponseCodeConstant method">
+    <HelpKINode Title="WebRequestHandler.GetUnauthorizedResponseCodeConstant Method " Url="html/M_com_veracode_http_WebRequestHandler_GetUnauthorizedResponseCodeConstant.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.GetUnauthorizedResponseCodeConstant Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetUnauthorizedResponseCodeConstant.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetUserInfo method" Url="html/M_com_veracode_apiwrapper_AdminAPIWrapper_GetUserInfo.htm" />
+  <HelpKINode Title="GetUserList method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_GetUserList.htm" />
+  <HelpKINode Title="GetVendorList method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetVendorList.htm" />
+  <HelpKINode Title="GET_SANDBOX_LIST_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_GET_SANDBOX_LIST_URI.htm" />
+  <HelpKINode Title="GET_TEAM_INFO_URI field" Url="html/F_com_veracode_apiwrapper_AdminAPIWrapper_GET_TEAM_INFO_URI.htm" />
+  <HelpKINode Title="Headers field" Url="html/F_com_veracode_http_WebClient_Headers.htm" />
+  <HelpKINode Title="HmacAuthHeader class">
+    <HelpKINode Title="HmacAuthHeader Class" Url="html/T_com_veracode_http_util_HmacAuthHeader.htm" />
+    <HelpKINode Title="about HmacAuthHeader class" Url="html/T_com_veracode_http_util_HmacAuthHeader.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_com_veracode_http_util_HmacAuthHeader.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_http_util_HmacAuthHeader.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HmacAuthHeader.CalculateAuthorizationHeader method" Url="html/M_com_veracode_http_util_HmacAuthHeader_CalculateAuthorizationHeader.htm" />
+  <HelpKINode Title="HmacAuthHeader.FromHexBinary method" Url="html/M_com_veracode_http_util_HmacAuthHeader_FromHexBinary.htm" />
+  <HelpKINode Title="HmacAuthHeader.HmacSha256 field" Url="html/F_com_veracode_http_util_HmacAuthHeader_HmacSha256.htm" />
+  <HelpKINode Title="HmacAuthHeader.IsValidAuthHeaderToken method" Url="html/M_com_veracode_http_util_HmacAuthHeader_IsValidAuthHeaderToken.htm" />
+  <HelpKINode Title="HmacAuthHeader.IsValidHexBinary method" Url="html/M_com_veracode_http_util_HmacAuthHeader_IsValidHexBinary.htm" />
+  <HelpKINode Title="HmacAuthHeader.ToHexBinary method" Url="html/M_com_veracode_http_util_HmacAuthHeader_ToHexBinary.htm" />
+  <HelpKINode Title="HmacSha256 field" Url="html/F_com_veracode_http_util_HmacAuthHeader_HmacSha256.htm" />
+  <HelpKINode Title="host field" Url="html/F_com_veracode_http_proxy_ProxyData_host.htm" />
+  <HelpKINode Title="HostName property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_HostName.htm" />
+  <HelpKINode Title="HttpMethod property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_HttpMethod.htm" />
+  <HelpKINode Title="Init method">
+    <HelpKINode Title="WebRequestHandler.Init Method " Url="html/M_com_veracode_http_WebRequestHandler_Init.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.Init Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_Init.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsSignificant property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_IsSignificant.htm" />
+  <HelpKINode Title="IsUnauthorized method" Url="html/M_com_veracode_http_WebRequestHandler_IsUnauthorized.htm" />
+  <HelpKINode Title="IsValidAuthHeaderToken method" Url="html/M_com_veracode_http_util_HmacAuthHeader_IsValidAuthHeaderToken.htm" />
+  <HelpKINode Title="IsValidHexBinary method" Url="html/M_com_veracode_http_util_HmacAuthHeader_IsValidHexBinary.htm" />
+  <HelpKINode Title="MakeFormUrlEncodedPostRequest method">
+    <HelpKINode Title="WebRequestHandler.MakeFormUrlEncodedPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandler_MakeFormUrlEncodedPostRequest.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.MakeFormUrlEncodedPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeFormUrlEncodedPostRequest.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MakeMultiPartPostRequest method">
+    <HelpKINode Title="WebRequestHandler.MakeMultiPartPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandler_MakeMultiPartPostRequest.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.MakeMultiPartPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeMultiPartPostRequest.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MakeOctetStreamPostRequest method">
+    <HelpKINode Title="WebRequestHandler.MakeOctetStreamPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandler_MakeOctetStreamPostRequest.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.MakeOctetStreamPostRequest Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeOctetStreamPostRequest.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MitigationAPIWrapper class">
+    <HelpKINode Title="MitigationAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_MitigationAPIWrapper.htm" />
+    <HelpKINode Title="about MitigationAPIWrapper class" Url="html/T_com_veracode_apiwrapper_MitigationAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_MitigationAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MitigationAPIWrapper.GetMitigationInfo method" Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper_GetMitigationInfo.htm" />
+  <HelpKINode Title="MitigationAPIWrapper.MitigationAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper__ctor.htm" />
+  <HelpKINode Title="MitigationAPIWrapper.UpdateMitigationInfo method" Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper_UpdateMitigationInfo.htm" />
+  <HelpKINode Title="numberOfRetriesOn401 field" Url="html/F_com_veracode_http_WebClient_numberOfRetriesOn401.htm" />
+  <HelpKINode Title="password field" Url="html/F_com_veracode_http_proxy_ProxyData_password.htm" />
+  <HelpKINode Title="port field" Url="html/F_com_veracode_http_proxy_ProxyData_port.htm" />
+  <HelpKINode Title="PreMakeRequest event" Url="html/E_com_veracode_http_WebClient_PreMakeRequest.htm" />
+  <HelpKINode Title="PreMakeRequestEventArgs class">
+    <HelpKINode Title="PreMakeRequestEventArgs Class" Url="html/T_com_veracode_http_events_PreMakeRequestEventArgs.htm" />
+    <HelpKINode Title="about PreMakeRequestEventArgs class" Url="html/T_com_veracode_http_events_PreMakeRequestEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_http_events_PreMakeRequestEventArgs__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_com_veracode_http_events_PreMakeRequestEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PreMakeRequestEventArgs.HostName property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_HostName.htm" />
+  <HelpKINode Title="PreMakeRequestEventArgs.HttpMethod property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_HttpMethod.htm" />
+  <HelpKINode Title="PreMakeRequestEventArgs.PreMakeRequestEventArgs constructor" Url="html/M_com_veracode_http_events_PreMakeRequestEventArgs__ctor.htm" />
+  <HelpKINode Title="PreMakeRequestEventArgs.UriString property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_UriString.htm" />
+  <HelpKINode Title="PreMakeRequestEventArgs.UrlParams property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_UrlParams.htm" />
+  <HelpKINode Title="PreMakeRequestEventHandler delegate" Url="html/T_com_veracode_http_events_PreMakeRequestEventHandler.htm" />
+  <HelpKINode Title="ProgressPercentage property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_ProgressPercentage.htm" />
+  <HelpKINode Title="PromoteSandbox method" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_PromoteSandbox.htm" />
+  <HelpKINode Title="PROMOTE_SANDBOX_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_PROMOTE_SANDBOX_URI.htm" />
+  <HelpKINode Title="proxy field" Url="html/F_com_veracode_http_proxy_ProxyData_proxy.htm" />
+  <HelpKINode Title="ProxyData class">
+    <HelpKINode Title="ProxyData Class" Url="html/T_com_veracode_http_proxy_ProxyData.htm" />
+    <HelpKINode Title="about ProxyData class" Url="html/T_com_veracode_http_proxy_ProxyData.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_com_veracode_http_proxy_ProxyData__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_com_veracode_http_proxy_ProxyData.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProxyData field" Url="html/F_com_veracode_http_WebClient_ProxyData.htm" />
+  <HelpKINode Title="ProxyData.host field" Url="html/F_com_veracode_http_proxy_ProxyData_host.htm" />
+  <HelpKINode Title="ProxyData.password field" Url="html/F_com_veracode_http_proxy_ProxyData_password.htm" />
+  <HelpKINode Title="ProxyData.port field" Url="html/F_com_veracode_http_proxy_ProxyData_port.htm" />
+  <HelpKINode Title="ProxyData.proxy field" Url="html/F_com_veracode_http_proxy_ProxyData_proxy.htm" />
+  <HelpKINode Title="ProxyData.ProxyData constructor" Url="html/Overload_com_veracode_http_proxy_ProxyData__ctor.htm" />
+  <HelpKINode Title="ProxyData.username field" Url="html/F_com_veracode_http_proxy_ProxyData_username.htm" />
+  <HelpKINode Title="QueryString field" Url="html/F_com_veracode_http_WebClient_QueryString.htm" />
+  <HelpKINode Title="ReleaseResources method">
+    <HelpKINode Title="WebRequestHandler.ReleaseResources Method " Url="html/M_com_veracode_http_WebRequestHandler_ReleaseResources.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.ReleaseResources Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_ReleaseResources.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RemoveFile method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_RemoveFile.htm" />
+  <HelpKINode Title="Result property" Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_Result.htm" />
+  <HelpKINode Title="ResultsAPIWrapper class">
+    <HelpKINode Title="ResultsAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_ResultsAPIWrapper.htm" />
+    <HelpKINode Title="about ResultsAPIWrapper class" Url="html/T_com_veracode_apiwrapper_ResultsAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_ResultsAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ResultsAPIWrapper.DetailedReport method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_DetailedReport.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.DetailedReportPdf method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_DetailedReportPdf.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.GetAppBuilds method" Url="html/Overload_com_veracode_apiwrapper_ResultsAPIWrapper_GetAppBuilds.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.GetCallStacks method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_GetCallStacks.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.ResultsAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper__ctor.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.SummaryReport method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_SummaryReport.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.SummaryReportPdf method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_SummaryReportPdf.htm" />
+  <HelpKINode Title="ResultsAPIWrapper.ThirdPartyReportPdf method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_ThirdPartyReportPdf.htm" />
+  <HelpKINode Title="SandboxAPIWrapper class">
+    <HelpKINode Title="SandboxAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_SandboxAPIWrapper.htm" />
+    <HelpKINode Title="about SandboxAPIWrapper class" Url="html/T_com_veracode_apiwrapper_SandboxAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_com_veracode_apiwrapper_SandboxAPIWrapper.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_SandboxAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SandboxAPIWrapper.CreateSandbox method" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_CreateSandbox.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.CREATE_SANDBOX_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_CREATE_SANDBOX_URI.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.GetSandboxList method" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_GetSandboxList.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.GET_SANDBOX_LIST_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_GET_SANDBOX_LIST_URI.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.PromoteSandbox method" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_PromoteSandbox.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.PROMOTE_SANDBOX_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_PROMOTE_SANDBOX_URI.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.SandboxAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper__ctor.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.UpdateSandbox method" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_UpdateSandbox.htm" />
+  <HelpKINode Title="SandboxAPIWrapper.UPDATE_SANDBOX_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_UPDATE_SANDBOX_URI.htm" />
+  <HelpKINode Title="SetConnectTimeout method">
+    <HelpKINode Title="WebRequestHandler.SetConnectTimeout Method " Url="html/M_com_veracode_http_WebRequestHandler_SetConnectTimeout.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.SetConnectTimeout Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_SetConnectTimeout.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetReadTimeout method">
+    <HelpKINode Title="WebRequestHandler.SetReadTimeout Method " Url="html/M_com_veracode_http_WebRequestHandler_SetReadTimeout.htm" />
+    <HelpKINode Title="WebRequestHandlerImpl.SetReadTimeout Method " Url="html/M_com_veracode_http_WebRequestHandlerImpl_SetReadTimeout.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetUpApiCredentials method">
+    <HelpKINode Title="AbstractAPIWrapper.SetUpApiCredentials Method " Url="html/M_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpApiCredentials.htm" />
+    <HelpKINode Title="UploadAPIWrapper.SetUpApiCredentials Method " Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_SetUpApiCredentials.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetUpCredentials method">
+    <HelpKINode Title="AbstractAPIWrapper.SetUpCredentials Method " Url="html/Overload_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpCredentials.htm" />
+    <HelpKINode Title="UploadAPIWrapper.SetUpCredentials Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_SetUpCredentials.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetUpProxy method" Url="html/Overload_com_veracode_apiwrapper_AbstractAPIWrapper_SetUpProxy.htm" />
+  <HelpKINode Title="SetVerboseMode method" Url="html/M_com_veracode_http_WebRequestHandler_SetVerboseMode.htm" />
+  <HelpKINode Title="SharedReport method" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_SharedReport.htm" />
+  <HelpKINode Title="SharedReportPdf method" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_SharedReportPdf.htm" />
+  <HelpKINode Title="SummaryReport method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_SummaryReport.htm" />
+  <HelpKINode Title="SummaryReportPdf method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_SummaryReportPdf.htm" />
+  <HelpKINode Title="ThirdPartyReportPdf method" Url="html/M_com_veracode_apiwrapper_ResultsAPIWrapper_ThirdPartyReportPdf.htm" />
+  <HelpKINode Title="ToHexBinary method" Url="html/M_com_veracode_http_util_HmacAuthHeader_ToHexBinary.htm" />
+  <HelpKINode Title="TotalBytesToSend property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_TotalBytesToSend.htm" />
+  <HelpKINode Title="UpdateApp method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UpdateApp.htm" />
+  <HelpKINode Title="UpdateBuild method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UpdateBuild.htm" />
+  <HelpKINode Title="UpdateMitigationInfo method" Url="html/M_com_veracode_apiwrapper_MitigationAPIWrapper_UpdateMitigationInfo.htm" />
+  <HelpKINode Title="UpdateSandbox method" Url="html/M_com_veracode_apiwrapper_SandboxAPIWrapper_UpdateSandbox.htm" />
+  <HelpKINode Title="UpdateTeam method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_UpdateTeam.htm" />
+  <HelpKINode Title="UpdateUser method" Url="html/Overload_com_veracode_apiwrapper_AdminAPIWrapper_UpdateUser.htm" />
+  <HelpKINode Title="UPDATE_SANDBOX_URI field" Url="html/F_com_veracode_apiwrapper_SandboxAPIWrapper_UPDATE_SANDBOX_URI.htm" />
+  <HelpKINode Title="UploadAPIWrapper class">
+    <HelpKINode Title="UploadAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_UploadAPIWrapper.htm" />
+    <HelpKINode Title="about UploadAPIWrapper class" Url="html/T_com_veracode_apiwrapper_UploadAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_UploadAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UploadAPIWrapper.BeginPreScan method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_BeginPreScan.htm" />
+  <HelpKINode Title="UploadAPIWrapper.BeginScan method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_BeginScan.htm" />
+  <HelpKINode Title="UploadAPIWrapper.CreateApp method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_CreateApp.htm" />
+  <HelpKINode Title="UploadAPIWrapper.CreateBuild method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_CreateBuild.htm" />
+  <HelpKINode Title="UploadAPIWrapper.CreateSandbox method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_CreateSandbox.htm" />
+  <HelpKINode Title="UploadAPIWrapper.DeleteApp method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_DeleteApp.htm" />
+  <HelpKINode Title="UploadAPIWrapper.DeleteBuild method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_DeleteBuild.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetAppInfo method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetAppInfo.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetAppList method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetAppList.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetBuildInfo method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildInfo.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetBuildList method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetBuildList.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetFileList method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetFileList.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetPolicyList method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetPolicyList.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetPreScanResults method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_GetPreScanResults.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetSandboxList method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetSandboxList.htm" />
+  <HelpKINode Title="UploadAPIWrapper.GetVendorList method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_GetVendorList.htm" />
+  <HelpKINode Title="UploadAPIWrapper.RemoveFile method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_RemoveFile.htm" />
+  <HelpKINode Title="UploadAPIWrapper.SetUpApiCredentials method" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper_SetUpApiCredentials.htm" />
+  <HelpKINode Title="UploadAPIWrapper.SetUpCredentials method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_SetUpCredentials.htm" />
+  <HelpKINode Title="UploadAPIWrapper.UpdateApp method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UpdateApp.htm" />
+  <HelpKINode Title="UploadAPIWrapper.UpdateBuild method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UpdateBuild.htm" />
+  <HelpKINode Title="UploadAPIWrapper.UploadAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_UploadAPIWrapper__ctor.htm" />
+  <HelpKINode Title="UploadAPIWrapper.UploadFile method" Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UploadFile.htm" />
+  <HelpKINode Title="UploadFile method">
+    <HelpKINode Title="UploadAPIWrapper.UploadFile Method " Url="html/Overload_com_veracode_apiwrapper_UploadAPIWrapper_UploadFile.htm" />
+    <HelpKINode Title="WebClient.UploadFile Method " Url="html/M_com_veracode_http_WebClient_UploadFile.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UploadFileAsync method" Url="html/M_com_veracode_http_WebClient_UploadFileAsync.htm" />
+  <HelpKINode Title="UploadFileCompleted event" Url="html/E_com_veracode_http_WebClient_UploadFileCompleted.htm" />
+  <HelpKINode Title="UploadFileCompletedEventArgs class">
+    <HelpKINode Title="UploadFileCompletedEventArgs Class" Url="html/T_com_veracode_http_events_UploadFileCompletedEventArgs.htm" />
+    <HelpKINode Title="about UploadFileCompletedEventArgs class" Url="html/T_com_veracode_http_events_UploadFileCompletedEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_http_events_UploadFileCompletedEventArgs__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_com_veracode_http_events_UploadFileCompletedEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UploadFileCompletedEventArgs.Error property" Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_Error.htm" />
+  <HelpKINode Title="UploadFileCompletedEventArgs.Result property" Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_Result.htm" />
+  <HelpKINode Title="UploadFileCompletedEventArgs.UploadFileCompletedEventArgs constructor" Url="html/M_com_veracode_http_events_UploadFileCompletedEventArgs__ctor.htm" />
+  <HelpKINode Title="UploadFileCompletedEventArgs.UserState property" Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_UserState.htm" />
+  <HelpKINode Title="UploadFileCompletedEventHandler delegate" Url="html/T_com_veracode_http_events_UploadFileCompletedEventHandler.htm" />
+  <HelpKINode Title="UploadProgressChanged event" Url="html/E_com_veracode_http_WebClient_UploadProgressChanged.htm" />
+  <HelpKINode Title="UploadProgressChangedEventArgs class">
+    <HelpKINode Title="UploadProgressChangedEventArgs Class" Url="html/T_com_veracode_http_events_UploadProgressChangedEventArgs.htm" />
+    <HelpKINode Title="about UploadProgressChangedEventArgs class" Url="html/T_com_veracode_http_events_UploadProgressChangedEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_http_events_UploadProgressChangedEventArgs__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_com_veracode_http_events_UploadProgressChangedEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UploadProgressChangedEventArgs.BytesSent property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_BytesSent.htm" />
+  <HelpKINode Title="UploadProgressChangedEventArgs.IsSignificant property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_IsSignificant.htm" />
+  <HelpKINode Title="UploadProgressChangedEventArgs.ProgressPercentage property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_ProgressPercentage.htm" />
+  <HelpKINode Title="UploadProgressChangedEventArgs.TotalBytesToSend property" Url="html/P_com_veracode_http_events_UploadProgressChangedEventArgs_TotalBytesToSend.htm" />
+  <HelpKINode Title="UploadProgressChangedEventArgs.UploadProgressChangedEventArgs constructor" Url="html/M_com_veracode_http_events_UploadProgressChangedEventArgs__ctor.htm" />
+  <HelpKINode Title="UploadProgressChangedEventHandler delegate" Url="html/T_com_veracode_http_events_UploadProgressChangedEventHandler.htm" />
+  <HelpKINode Title="UriString property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_UriString.htm" />
+  <HelpKINode Title="UrlParams property" Url="html/P_com_veracode_http_events_PreMakeRequestEventArgs_UrlParams.htm" />
+  <HelpKINode Title="username field" Url="html/F_com_veracode_http_proxy_ProxyData_username.htm" />
+  <HelpKINode Title="UserState property" Url="html/P_com_veracode_http_events_UploadFileCompletedEventArgs_UserState.htm" />
+  <HelpKINode Title="useStreamingMode field" Url="html/F_com_veracode_http_WebClient_useStreamingMode.htm" />
+  <HelpKINode Title="VastAPIWrapper class">
+    <HelpKINode Title="VastAPIWrapper Class" Url="html/T_com_veracode_apiwrapper_VastAPIWrapper.htm" />
+    <HelpKINode Title="about VastAPIWrapper class" Url="html/T_com_veracode_apiwrapper_VastAPIWrapper.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_apiwrapper_VastAPIWrapper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VastAPIWrapper.GetSharedReportInfo method" Url="html/Overload_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportInfo.htm" />
+  <HelpKINode Title="VastAPIWrapper.GetSharedReportList method" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_GetSharedReportList.htm" />
+  <HelpKINode Title="VastAPIWrapper.SharedReport method" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_SharedReport.htm" />
+  <HelpKINode Title="VastAPIWrapper.SharedReportPdf method" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper_SharedReportPdf.htm" />
+  <HelpKINode Title="VastAPIWrapper.VastAPIWrapper constructor" Url="html/M_com_veracode_apiwrapper_VastAPIWrapper__ctor.htm" />
+  <HelpKINode Title="verbose field" Url="html/F_com_veracode_http_WebClient_verbose.htm" />
+  <HelpKINode Title="WebClient class">
+    <HelpKINode Title="WebClient Class" Url="html/T_com_veracode_http_WebClient.htm" />
+    <HelpKINode Title="about WebClient class" Url="html/T_com_veracode_http_WebClient.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_http_WebClient__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_com_veracode_http_WebClient.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_com_veracode_http_WebClient.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_http_WebClient.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WebClient.BaseAddress field" Url="html/F_com_veracode_http_WebClient_BaseAddress.htm" />
+  <HelpKINode Title="WebClient.Credentials field" Url="html/F_com_veracode_http_WebClient_Credentials.htm" />
+  <HelpKINode Title="WebClient.DownloadData method" Url="html/M_com_veracode_http_WebClient_DownloadData.htm" />
+  <HelpKINode Title="WebClient.DownloadString method" Url="html/M_com_veracode_http_WebClient_DownloadString.htm" />
+  <HelpKINode Title="WebClient.Headers field" Url="html/F_com_veracode_http_WebClient_Headers.htm" />
+  <HelpKINode Title="WebClient.numberOfRetriesOn401 field" Url="html/F_com_veracode_http_WebClient_numberOfRetriesOn401.htm" />
+  <HelpKINode Title="WebClient.PreMakeRequest event" Url="html/E_com_veracode_http_WebClient_PreMakeRequest.htm" />
+  <HelpKINode Title="WebClient.ProxyData field" Url="html/F_com_veracode_http_WebClient_ProxyData.htm" />
+  <HelpKINode Title="WebClient.QueryString field" Url="html/F_com_veracode_http_WebClient_QueryString.htm" />
+  <HelpKINode Title="WebClient.UploadFile method" Url="html/M_com_veracode_http_WebClient_UploadFile.htm" />
+  <HelpKINode Title="WebClient.UploadFileAsync method" Url="html/M_com_veracode_http_WebClient_UploadFileAsync.htm" />
+  <HelpKINode Title="WebClient.UploadFileCompleted event" Url="html/E_com_veracode_http_WebClient_UploadFileCompleted.htm" />
+  <HelpKINode Title="WebClient.UploadProgressChanged event" Url="html/E_com_veracode_http_WebClient_UploadProgressChanged.htm" />
+  <HelpKINode Title="WebClient.useStreamingMode field" Url="html/F_com_veracode_http_WebClient_useStreamingMode.htm" />
+  <HelpKINode Title="WebClient.verbose field" Url="html/F_com_veracode_http_WebClient_verbose.htm" />
+  <HelpKINode Title="WebClient.WebClient constructor" Url="html/M_com_veracode_http_WebClient__ctor.htm" />
+  <HelpKINode Title="WebRequestHandler class">
+    <HelpKINode Title="WebRequestHandler Class" Url="html/T_com_veracode_http_WebRequestHandler.htm" />
+    <HelpKINode Title="about WebRequestHandler class" Url="html/T_com_veracode_http_WebRequestHandler.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_http_WebRequestHandler.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WebRequestHandler.AddHeader method" Url="html/M_com_veracode_http_WebRequestHandler_AddHeader.htm" />
+  <HelpKINode Title="WebRequestHandler.AddHeaders method" Url="html/M_com_veracode_http_WebRequestHandler_AddHeaders.htm" />
+  <HelpKINode Title="WebRequestHandler.AddUserAgentHeader method" Url="html/M_com_veracode_http_WebRequestHandler_AddUserAgentHeader.htm" />
+  <HelpKINode Title="WebRequestHandler.GetDefaultUserAgentHeaderValue method" Url="html/M_com_veracode_http_WebRequestHandler_GetDefaultUserAgentHeaderValue.htm" />
+  <HelpKINode Title="WebRequestHandler.GetResponse method" Url="html/M_com_veracode_http_WebRequestHandler_GetResponse.htm" />
+  <HelpKINode Title="WebRequestHandler.GetResponseCode method" Url="html/M_com_veracode_http_WebRequestHandler_GetResponseCode.htm" />
+  <HelpKINode Title="WebRequestHandler.GetUnauthorizedResponseCodeConstant method" Url="html/M_com_veracode_http_WebRequestHandler_GetUnauthorizedResponseCodeConstant.htm" />
+  <HelpKINode Title="WebRequestHandler.Init method" Url="html/M_com_veracode_http_WebRequestHandler_Init.htm" />
+  <HelpKINode Title="WebRequestHandler.IsUnauthorized method" Url="html/M_com_veracode_http_WebRequestHandler_IsUnauthorized.htm" />
+  <HelpKINode Title="WebRequestHandler.MakeFormUrlEncodedPostRequest method" Url="html/M_com_veracode_http_WebRequestHandler_MakeFormUrlEncodedPostRequest.htm" />
+  <HelpKINode Title="WebRequestHandler.MakeMultiPartPostRequest method" Url="html/M_com_veracode_http_WebRequestHandler_MakeMultiPartPostRequest.htm" />
+  <HelpKINode Title="WebRequestHandler.MakeOctetStreamPostRequest method" Url="html/M_com_veracode_http_WebRequestHandler_MakeOctetStreamPostRequest.htm" />
+  <HelpKINode Title="WebRequestHandler.ReleaseResources method" Url="html/M_com_veracode_http_WebRequestHandler_ReleaseResources.htm" />
+  <HelpKINode Title="WebRequestHandler.SetConnectTimeout method" Url="html/M_com_veracode_http_WebRequestHandler_SetConnectTimeout.htm" />
+  <HelpKINode Title="WebRequestHandler.SetReadTimeout method" Url="html/M_com_veracode_http_WebRequestHandler_SetReadTimeout.htm" />
+  <HelpKINode Title="WebRequestHandler.SetVerboseMode method" Url="html/M_com_veracode_http_WebRequestHandler_SetVerboseMode.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl class">
+    <HelpKINode Title="WebRequestHandlerImpl Class" Url="html/T_com_veracode_http_WebRequestHandlerImpl.htm" />
+    <HelpKINode Title="about WebRequestHandlerImpl class" Url="html/T_com_veracode_http_WebRequestHandlerImpl.htm" />
+    <HelpKINode Title="constructor" Url="html/M_com_veracode_http_WebRequestHandlerImpl__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_com_veracode_http_WebRequestHandlerImpl.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WebRequestHandlerImpl.AddHeader method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_AddHeader.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.AddUserAgentHeader method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_AddUserAgentHeader.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.GetDefaultUserAgentHeaderValue method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetDefaultUserAgentHeaderValue.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.GetResponse method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetResponse.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.GetResponseCode method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetResponseCode.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.GetUnauthorizedResponseCodeConstant method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_GetUnauthorizedResponseCodeConstant.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.Init method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_Init.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.MakeFormUrlEncodedPostRequest method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeFormUrlEncodedPostRequest.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.MakeMultiPartPostRequest method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeMultiPartPostRequest.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.MakeOctetStreamPostRequest method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_MakeOctetStreamPostRequest.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.ReleaseResources method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_ReleaseResources.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.SetConnectTimeout method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_SetConnectTimeout.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.SetReadTimeout method" Url="html/M_com_veracode_http_WebRequestHandlerImpl_SetReadTimeout.htm" />
+  <HelpKINode Title="WebRequestHandlerImpl.WebRequestHandlerImpl constructor" Url="html/M_com_veracode_http_WebRequestHandlerImpl__ctor.htm" />
+</HelpKI>
