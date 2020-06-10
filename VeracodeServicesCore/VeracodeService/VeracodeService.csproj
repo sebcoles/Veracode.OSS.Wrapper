@@ -8,7 +8,9 @@
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <IncludeContentFilesProjectOutputGroup>true</IncludeContentFilesProjectOutputGroup>
   </PropertyGroup>
-	
+	<Target Name="NugetPackAutoVersioning" AfterTargets="Build">
+		<Exec Command="dotnet pack -p:PackageVersion=$([System.DateTime]::Now.ToString(&quot;yyyy.MM.dd.HHmmss&quot;)) --no-build --configuration $(Configuration) --output &quot;$(SolutionDir)nuget" />
+	</Target>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.3" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.3" />
