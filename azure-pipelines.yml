@@ -16,22 +16,11 @@ steps:
 
 # The first task is the dotnet command build, pointing to our csproj file
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
+  displayName: 'dotnet build and pack'
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
     projects: '$(project)'
-
-# The second task is dotnet pack command again pointing to the csproj file
-# The nobuild means the project will not be compiled before running pack, because its already built in above step
-- task: DotNetCoreCLI@2
-  displayName: "dotnet pack"
-  inputs:
-    command: 'pack'
-    arguments: '--configuration $(buildConfiguration)'
-    packagesToPack: '$(project)'
-    nobuild: true
-    versioningScheme: 'off'
 
 - task: PublishBuildArtifacts@1
   inputs:
