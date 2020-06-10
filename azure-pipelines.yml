@@ -32,3 +32,8 @@ steps:
     packagesToPack: '$(project)'
     nobuild: true
     versioningScheme: 'off'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    artifactName: drop
