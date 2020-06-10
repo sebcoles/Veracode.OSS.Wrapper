@@ -5,8 +5,6 @@
 	  <PackageId>VeracodeCoreServices</PackageId>
 	  <Authors>sebcoles</Authors>
 	  <Company>none</Company>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <IncludeContentFilesProjectOutputGroup>true</IncludeContentFilesProjectOutputGroup>
   </PropertyGroup>
 	<Target Name="NugetPackAutoVersioning" AfterTargets="Build">
 		<Exec Command="dotnet pack -p:PackageVersion=$([System.DateTime]::Now.ToString(&quot;yyyy.MM.dd.HHmmss&quot;)) --no-build --configuration $(Configuration)" />
