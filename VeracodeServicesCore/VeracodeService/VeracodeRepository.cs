@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using VeracodeService.Http;
 using VeracodeService.Models;
+using VeracodeService.Security;
+using VeracodeWebhooks.Configuration;
 
 namespace VeracodeService.Repositories
 {
@@ -22,6 +26,10 @@ namespace VeracodeService.Repositories
     public class VeracodeRepository : IVeracodeRepository
     {
         private readonly IVeracodeWrapper _wrapper;
+        public VeracodeRepository(IOptions<VeracodeConfiguration> config)
+        {
+            _wrapper = new VeracodeWrapper(new HttpService(config, new CryptoService()));
+        }
         public VeracodeRepository(IVeracodeWrapper wrapper)
         {
             _wrapper = wrapper;

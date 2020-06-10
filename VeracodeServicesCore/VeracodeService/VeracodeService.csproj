@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <PackageId>VeracodeCoreServices</PackageId>
-	  <Version>1.0.7</Version>
 	  <Authors>sebcoles</Authors>
 	  <Company>none</Company>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
