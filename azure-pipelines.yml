@@ -1,30 +1,26 @@
 trigger:
 - master
 
+# the build will run on a Microsoft hosted agent, using the lastest Windows VM Image
 pool:
   vmImage: 'windows-latest'
 
+# these variables are available throughout the build file
+# just the build configuration is defined, in this case we are building Release packages
 variables:
   buildConfiguration: 'Release'
   project: 'VeracodeServicesCore/VeracodeService/VeracodeService.csproj'
 
+#The build has 3 seperate tasks run under 1 step
 steps:
 
+# The first task is the dotnet command build, pointing to our csproj file
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
+  displayName: 'dotnet build and pack'
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
     projects: '$(project)'
-
-- task: DotNetCoreCLI@2
-  displayName: "dotnet pack"
-  inputs:
-    command: 'pack'
-    arguments: '--configuration $(buildConfiguration)'
-    packagesToPack: '$(project)'
-    nobuild: true
-    versioningScheme: 'off'
 
 - task: PublishBuildArtifacts@1
   inputs:
