@@ -15,11 +15,11 @@ namespace VeracodeService.Repositories
         IEnumerable<BuildType> GetAllBuildsForApp(string appId);
         appinfo GetAppDetail(string appId);
         IEnumerable<SandboxType> GetSandboxesForApp(string appId);
-        buildinfo GetBuildDetail(string buildId);
+        buildinfo GetBuildDetail(string appId, string buildId);
         IEnumerable<FileListFileType> GetFilesForBuild(string appId, string buildId);
         IEnumerable<ModuleType> GetModules(string appId, string buildId);
         detailedreport GetDetailedReport(string buildId);
-        IssueType GetAllMitigationsForBuild(string buildIds);
+        MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildIds);
         FlawType[] GetFlaws(string buildId);
         SeverityType[] GetSeverity(string buildId);
     }
@@ -69,7 +69,7 @@ namespace VeracodeService.Repositories
 
             return builds;
         }
-        public IssueType GetAllMitigationsForBuild(string buildId)
+        public MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildId)
         {
             var flawIds = GetFlaws(buildId).Select(x => x.issueid).ToArray();
             var flaw_string = string.Join(",", flawIds);
@@ -78,7 +78,8 @@ namespace VeracodeService.Repositories
             if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
-            return XmlParseHelper.Parse<IssueType>(xml);
+            var issueType = XmlParseHelper.Parse<mitigationinfo>(xml);
+            return issueType.issue;
         }
 
         public detailedreport GetDetailedReport(string buildId)
@@ -123,19 +124,19 @@ namespace VeracodeService.Repositories
 
         public IEnumerable<SandboxType> GetSandboxesForApp(string appId)
         {
-            var sandboxXml = _wrapper.GetSandboxes(appId);
+            var xml = _wrapper.GetSandboxes(appId);
 
-            if (!string.IsNullOrWhiteSpace(sandboxXml))
+            if (string.IsNullOrWhiteSpace(xml))
                 return new SandboxType[0];
 
-            return XmlParseHelper.Parse<sandboxlist>(sandboxXml).sandbox;
+            return XmlParseHelper.Parse<sandboxlist>(xml).sandbox;
         }
 
         public IEnumerable<FileListFileType> GetFilesForBuild(string appId, string buildId)
         {
             var xml = _wrapper.GetFiles(appId, buildId);
 
-            if (!string.IsNullOrWhiteSpace(xml))
+            if (string.IsNullOrWhiteSpace(xml))
                 return new FileListFileType[0];
 
             return XmlParseHelper.Parse<filelist>(xml).file;
@@ -145,7 +146,7 @@ namespace VeracodeService.Repositories
         {
             var xml = _wrapper.GetPreScanResults(appId, buildId);
 
-            if (!string.IsNullOrWhiteSpace(xml))
+            if (string.IsNullOrWhiteSpace(xml))
                 return new ModuleType[0];
 
             return XmlParseHelper.Parse<prescanresults>(xml).module;
@@ -155,17 +156,17 @@ namespace VeracodeService.Repositories
         {
             var xml = _wrapper.GetAppInfo(appId);
 
-            if (!string.IsNullOrWhiteSpace(xml))
+            if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
             return XmlParseHelper.Parse<appinfo>(xml);
         }
 
-        public buildinfo GetBuildDetail(string buildId)
+        public buildinfo GetBuildDetail(string appId, string buildId)
         {
-            var xml = _wrapper.GetBuildInfo(buildId);
+            var xml = _wrapper.GetBuildInfo(appId, buildId);
 
-            if (!string.IsNullOrWhiteSpace(xml))
+            if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
             return XmlParseHelper.Parse<buildinfo>(xml);

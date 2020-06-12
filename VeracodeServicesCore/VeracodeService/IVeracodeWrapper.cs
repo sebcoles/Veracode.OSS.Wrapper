@@ -8,7 +8,7 @@ namespace VeracodeService
     {
         string GetAppList();
         string GetAppInfo(string app_id);
-        string GetBuildInfo(string buildId);
+        string GetBuildInfo(string app_id, string build_Id);
         string GetBuildList(string app_id);
         string GetBuildListForSandbox(string app_id, string sandboxId);
         string GetFiles(string app_id, string buildId);
@@ -115,7 +115,7 @@ namespace VeracodeService
                 { nameof(app_id), app_id }
             };
 
-            return _httpService.Get(GET_APP_LIST_URI, nameValueCollection);
+            return _httpService.Get(GET_APP_INFO_URI, nameValueCollection);
         }
 
         public string GetFiles(string app_id, string build_id)
@@ -132,7 +132,7 @@ namespace VeracodeService
                 { nameof(build_id), build_id }
             };
 
-            return _httpService.Get(GET_BUILD_LIST_URI, nameValueCollection);
+            return _httpService.Get(GET_FILE_LIST_URI, nameValueCollection);
         }
 
         public string GetPreScanResults(string app_id, string build_id)
@@ -165,14 +165,18 @@ namespace VeracodeService
             return _httpService.Get(GET_SANDBOX_LIST_URI, nameValueCollection);
         }
 
-        public string GetBuildInfo(string build_Id)
+        public string GetBuildInfo(string app_id, string build_Id)
         {
             if (build_Id == null)
                 throw new ArgumentException(build_Id);
 
+            if (app_id == null)
+                throw new ArgumentException(app_id);
+
             var nameValueCollection = new NameValueCollection
             {
-                { nameof(build_Id), build_Id }
+                { nameof(app_id), app_id },
+                { nameof(build_Id), build_Id },
             };
 
             return _httpService.Get(GET_BUILD_INFO_URI, nameValueCollection);
