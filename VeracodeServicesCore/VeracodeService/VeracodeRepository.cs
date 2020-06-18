@@ -67,7 +67,9 @@ namespace VeracodeService.Repositories
                 }
             }
 
-            return builds;
+            return builds.GroupBy(p => p.build_id)
+                .Select(g => g.First())
+                .ToList();
         }
         public MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildId)
         {
