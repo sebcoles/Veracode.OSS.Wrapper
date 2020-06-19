@@ -80,7 +80,7 @@ namespace VeracodeServicesCoreTests.Integration
         public void GetFilesForBuild()
         {
             var result = _repo.GetFilesForBuild(testData.AppId, testData.BuildId);
-            Assert.IsNotEmpty(result);
+            Assert.IsNotNull(result);
         }
 
         [Test]

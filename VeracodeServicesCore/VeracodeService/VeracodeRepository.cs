@@ -141,7 +141,7 @@ namespace VeracodeService.Repositories
             if (string.IsNullOrWhiteSpace(xml))
                 return new FileListFileType[0];
 
-            return XmlParseHelper.Parse<filelist>(xml).file;
+            return XmlParseHelper.Parse<filelist>(xml).file ?? new FileListFileType[0]; ;
         }
 
         public IEnumerable<ModuleType> GetModules(string appId, string buildId)
