@@ -110,5 +110,12 @@ namespace VeracodeServicesCoreTests.Integration
             var result = _repo.GetSeverity(testData.BuildId);
             Assert.IsNotEmpty(result);
         }
+
+        [Test]
+        public void GetEntryPoints()
+        {
+            var result = _repo.GetEntryPoints(testData.BuildId);
+            Assert.IsNotEmpty(result);
+        }
     }
 }
