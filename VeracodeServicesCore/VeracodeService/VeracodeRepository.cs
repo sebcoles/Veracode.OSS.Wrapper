@@ -22,6 +22,7 @@ namespace VeracodeService.Repositories
         MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildIds);
         FlawType[] GetFlaws(string buildId);
         SeverityType[] GetSeverity(string buildId);
+        DetailedReportModuleType[] GetEntryPoints(string buildId);
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -111,6 +112,22 @@ namespace VeracodeService.Repositories
                 .SelectMany(cat => cat.cwe.Where(x => x.staticflaws != null && x.staticflaws.Any())
                 .SelectMany(cwe => cwe.staticflaws)))
                 .ToArray();
+        }
+
+        public DetailedReportModuleType[] GetEntryPoints(string buildId)
+        {
+            var xml = _wrapper.GetDetailedResults(buildId);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return new DetailedReportModuleType[0];
+
+            var report = XmlParseHelper.Parse<detailedreport>(xml);
+
+            if (report.staticanalysis == null || report.staticanalysis.modules == null
+                || !report.staticanalysis.modules.Any())
+                return new DetailedReportModuleType[0];
+
+            return report.staticanalysis.modules.ToArray();
         }
 
         public SeverityType[] GetSeverity(string buildId)

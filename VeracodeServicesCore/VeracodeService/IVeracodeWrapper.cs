@@ -58,18 +58,18 @@ namespace VeracodeService
             return _httpService.Get(GET_BUILD_LIST_URI, nameValueCollection);
         }
 
-        public string GetBuildListForSandbox(string app_id, string sandboxId)
+        public string GetBuildListForSandbox(string app_id, string sandbox_id)
         {
             if (app_id == null)
                 throw new ArgumentException(app_id);
 
-            if (sandboxId == null)
-                throw new ArgumentException(sandboxId);
+            if (sandbox_id == null)
+                throw new ArgumentException(sandbox_id);
 
             var nameValueCollection = new NameValueCollection
             {
                 { nameof(app_id), app_id },
-                { nameof(sandboxId), sandboxId }
+                { nameof(sandbox_id), sandbox_id }
             };
 
             return _httpService.Get(GET_BUILD_LIST_URI, nameValueCollection);
