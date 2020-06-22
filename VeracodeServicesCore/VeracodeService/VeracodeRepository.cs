@@ -23,6 +23,7 @@ namespace VeracodeService.Repositories
         FlawType[] GetFlaws(string buildId);
         SeverityType[] GetSeverity(string buildId);
         DetailedReportModuleType[] GetEntryPoints(string buildId);
+        Callstacks GetCallStacks(string buildId, string flawId);
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -189,6 +190,16 @@ namespace VeracodeService.Repositories
                 return null;
 
             return XmlParseHelper.Parse<buildinfo>(xml);
+        }
+
+        public Callstacks GetCallStacks(string buildId, string flawId)
+        {
+            var xml = _wrapper.GetCallStack(buildId, flawId);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<Callstacks>(xml);
         }
     }
 }

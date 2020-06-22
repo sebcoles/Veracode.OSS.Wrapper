@@ -117,5 +117,12 @@ namespace VeracodeServicesCoreTests.Integration
             var result = _repo.GetEntryPoints(testData.BuildId);
             Assert.IsNotEmpty(result);
         }
+
+        [Test]
+        public void GetCallStacks()
+        {
+            var result = _repo.GetCallStacks(testData.BuildId, testData.FlawId);
+            Assert.IsNotNull(result);
+        }
     }
 }

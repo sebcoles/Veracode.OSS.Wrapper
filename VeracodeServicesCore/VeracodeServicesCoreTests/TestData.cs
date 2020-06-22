@@ -8,5 +8,6 @@ namespace VeracodeServicesCoreTests
     {
         public string AppId { get; set; }
         public string BuildId { get; set; }
+        public string FlawId { get; set; }
     }
 }

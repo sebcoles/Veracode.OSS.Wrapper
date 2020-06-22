@@ -16,11 +16,12 @@ namespace VeracodeService
         string GetSandboxes(string app_id);
         string GetDetailedResults(string buildId);
         string GetMitigationInfo(string build_id, string flaw_id_list);
+        string GetCallStack(string build_id, string flaw_id);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
     {
-        public const string DETAILED_REPORT_URI = "/api/5.0/detailedreport.do"; 
+        public const string DETAILED_REPORT_URI = "/api/5.0/detailedreport.do";
         public const string GET_CALL_STACKS_URI = "/api/5.0/getcallstacks.do";
         public const string GET_SANDBOX_LIST_URI = "/api/5.0/getsandboxlist.do";
         public const string GET_APP_INFO_URI = "/api/5.0/getappinfo.do";
@@ -181,6 +182,22 @@ namespace VeracodeService
 
             return _httpService.Get(GET_BUILD_INFO_URI, nameValueCollection);
         }
-    }
 
+        public string GetCallStack(string build_id, string flaw_id)
+        {
+            if (build_id == null)
+                throw new ArgumentException(build_id);
+
+            if (flaw_id == null)
+                throw new ArgumentException(flaw_id);
+
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(build_id), build_id },
+                { nameof(flaw_id), flaw_id }
+            };
+
+            return _httpService.Get(GET_CALL_STACKS_URI, nameValueCollection);
+        }
+    }
 }
