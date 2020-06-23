@@ -27,6 +27,7 @@ namespace VeracodeService.Repositories
     }
     public class VeracodeRepository : IVeracodeRepository
     {
+        private const int FLAW_BATCH_LIMIT = 500;
         private readonly IVeracodeWrapper _wrapper;
         public VeracodeRepository(IOptions<VeracodeConfiguration> config)
         {
@@ -75,15 +76,24 @@ namespace VeracodeService.Repositories
         }
         public MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildId)
         {
+            var mitgations = new List<MitigationInfoIssueType>();
             var flawIds = GetFlaws(buildId).Select(x => x.issueid).ToArray();
-            var flaw_string = string.Join(",", flawIds);
-            var xml = _wrapper.GetMitigationInfo(buildId, flaw_string);
 
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
+            for(var i = 0; i < flawIds.Length; i += FLAW_BATCH_LIMIT)
+            {
+                var batch = flawIds.Skip(i).Take(FLAW_BATCH_LIMIT);
+                var flaw_string = string.Join(",", batch);
+                var xml = _wrapper.GetMitigationInfo(buildId, flaw_string);
 
-            var issueType = XmlParseHelper.Parse<mitigationinfo>(xml);
-            return issueType.issue;
+                if (string.IsNullOrWhiteSpace(xml))
+                    continue;
+
+                var issueType = XmlParseHelper.Parse<mitigationinfo>(xml);
+                var issuesWithActions = issueType.issue.Where(x => x.mitigation_action != null && !x.mitigation_action.Any());
+                mitgations.AddRange(issuesWithActions);
+            }
+           
+            return mitgations.ToArray();
         }
 
         public detailedreport GetDetailedReport(string buildId)

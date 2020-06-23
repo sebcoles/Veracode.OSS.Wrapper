@@ -51,7 +51,7 @@ namespace VeracodeServicesCoreTests.Integration
         public void GetAllMitigationsForBuild()
         {
             var result = _repo.GetAllMitigationsForBuild(testData.BuildId);
-            Assert.IsNotEmpty(result);
+            Assert.IsNotNull(result);
         }
 
         [Test]
