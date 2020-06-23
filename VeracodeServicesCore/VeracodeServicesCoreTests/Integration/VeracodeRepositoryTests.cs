@@ -30,8 +30,7 @@ namespace VeracodeServicesCoreTests.Integration
             Configuration.Bind("TestData", testData);
 
             var options = Options.Create(veracodeConfig);
-            _repo = new VeracodeRepository(
-                new VeracodeWrapper(new HttpService(options, new CryptoService())));
+            _repo = new VeracodeRepository(options);
         }
 
         [Test]
