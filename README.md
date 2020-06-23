@@ -17,6 +17,13 @@ XML APIs for retrieving:
 
 ## Usage
 
+The package can be included via NuGet Package Manager. The package is [here](https://www.nuget.org/packages/VeracodeCoreServices/)
+
+```
+Install-Package VeracodeCoreServices -Version 1.0.7
+dotnet add package VeracodeCoreServices --version 1.0.7
+```
+
 The wrapper requires your Veracode API credentials. Please view Veracode help to find out how to get your credentials 
 [how to get your credentials from Veracode Platform](https://help.veracode.com/reader/JVdG5ruGOiJnRpaJmQVCSQ/CzrWjLoJABEwD1Tozaqciw).
 
