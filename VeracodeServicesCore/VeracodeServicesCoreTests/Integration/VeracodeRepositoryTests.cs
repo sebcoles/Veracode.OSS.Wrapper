@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
 using System.IO;
+using VeracodeService;
 using VeracodeService.Configuration;
-using VeracodeService.Repositories;
 
 namespace VeracodeServicesCoreTests.Integration
 {

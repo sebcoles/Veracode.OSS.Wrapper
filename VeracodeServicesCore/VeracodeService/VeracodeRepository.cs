@@ -6,7 +6,7 @@ using VeracodeService.Http;
 using VeracodeService.Models;
 using VeracodeService.Security;
 
-namespace VeracodeService.Repositories
+namespace VeracodeService
 {
     public interface IVeracodeRepository
     {
@@ -78,7 +78,7 @@ namespace VeracodeService.Repositories
             var mitgations = new List<MitigationInfoIssueType>();
             var flawIds = GetFlaws(buildId).Select(x => x.issueid).ToArray();
 
-            for(var i = 0; i < flawIds.Length; i += FLAW_BATCH_LIMIT)
+            for (var i = 0; i < flawIds.Length; i += FLAW_BATCH_LIMIT)
             {
                 var batch = flawIds.Skip(i).Take(FLAW_BATCH_LIMIT);
                 var flaw_string = string.Join(",", batch);
@@ -91,7 +91,7 @@ namespace VeracodeService.Repositories
                 var issuesWithActions = issueType.issue.Where(x => x.mitigation_action != null && !x.mitigation_action.Any());
                 mitgations.AddRange(issuesWithActions);
             }
-           
+
             return mitgations.ToArray();
         }
 
