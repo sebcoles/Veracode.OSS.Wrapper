@@ -34,10 +34,10 @@ steps:
     version: '$(build.buildNumber)'
     filepath: '$(build.artifactstagingdirectory)'
     createSandBox: false
-    createProfile: false
-    failTheBuildIfVeracodeScanDidNotInitiate: false
+    createProfile: true
+    failTheBuildIfVeracodeScanDidNotInitiate: true
     scanStatusCheckInterval: '60'
-    importResults: false
+    importResults: true
     failBuildOnPolicyFail: true
 
 - task: PublishBuildArtifacts@1
