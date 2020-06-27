@@ -17,6 +17,12 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     projects: '$(project)'
 
+- task: Copy to Staging
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)/VeracodeServicesCore/VeracodeService/bin/Release/'
+    contents: '*.nupkg' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
