@@ -1,4 +1,4 @@
-﻿namespace VeracodeWebhooks.Configuration
+﻿namespace VeracodeService.Configuration
 {
     public class VeracodeConfiguration
     {

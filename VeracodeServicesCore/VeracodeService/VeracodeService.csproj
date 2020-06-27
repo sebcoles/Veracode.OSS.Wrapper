@@ -2,9 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <PackageId>VeracodeCoreServices</PackageId>
+	  <PackageId>Veracode OSS Wrapper</PackageId>
 	  <Authors>sebcoles</Authors>
-	  <Company>none</Company>
+	  <Company>Veracode OSS</Company>
+	  <PackageTags>Veracode;VeracodeOSS;</PackageTags>
+	  <RepositoryUrl>https://github.com/sebcoles/VeracodeServicesCore</RepositoryUrl>
+	  <Description>
+		  This is an unoffical open source wrapper for the Veracode XML APIs. Please feel free to contribute!
+	  </Description>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 	<Target Name="NugetPackAutoVersioning" AfterTargets="Build">
 		<Exec Command="dotnet pack -p:PackageVersion=$([System.DateTime]::Now.ToString(&quot;yyyy.MM.dd.HHmmss&quot;)) --no-build --configuration $(Configuration)" />

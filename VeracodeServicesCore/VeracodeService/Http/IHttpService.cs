@@ -1,15 +1,11 @@
 ﻿using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
-using System.Xml;
+using VeracodeService.Configuration;
 using VeracodeService.Security;
-using VeracodeWebhooks.Configuration;
 
 namespace VeracodeService.Http
 {

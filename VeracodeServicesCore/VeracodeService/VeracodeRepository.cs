@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using VeracodeService.Configuration;
 using VeracodeService.Http;
 using VeracodeService.Models;
 using VeracodeService.Security;
-using VeracodeWebhooks.Configuration;
 
 namespace VeracodeService.Repositories
 {

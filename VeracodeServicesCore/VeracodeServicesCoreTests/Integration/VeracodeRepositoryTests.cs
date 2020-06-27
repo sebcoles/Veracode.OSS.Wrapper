@@ -2,11 +2,8 @@
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
 using System.IO;
-using VeracodeService;
-using VeracodeService.Http;
+using VeracodeService.Configuration;
 using VeracodeService.Repositories;
-using VeracodeService.Security;
-using VeracodeWebhooks.Configuration;
 
 namespace VeracodeServicesCoreTests.Integration
 {
