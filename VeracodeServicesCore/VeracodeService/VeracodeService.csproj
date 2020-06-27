@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <PackageId>Veracode OSS Wrapper</PackageId>
+	  <PackageId>Veracode.OSS.Wrapper</PackageId>
 	  <Authors>sebcoles</Authors>
 	  <Company>Veracode OSS</Company>
 	  <PackageTags>Veracode;VeracodeOSS;</PackageTags>
