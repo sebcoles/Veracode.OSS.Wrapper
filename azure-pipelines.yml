@@ -24,22 +24,6 @@ steps:
     contents: '*.nupkg' 
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: Veracode@3
-  displayName: "Veracode scan"
-  inputs:
-    ConnectionDetailsSelection: 'Credentials'
-    apiId: '$(VeracodeApiId)'
-    apiKey: '$(VeracodeApiKey)'
-    veracodeAppProfile: '$(system.teamProject)'
-    version: '$(build.buildNumber)'
-    filepath: '$(build.artifactstagingdirectory)'
-    createSandBox: false
-    createProfile: true
-    failTheBuildIfVeracodeScanDidNotInitiate: true
-    scanStatusCheckInterval: '60'
-    importResults: true
-    failBuildOnPolicyFail: true
-
 - task: PublishBuildArtifacts@1
   displayName: "Publish drop to Azure Devops"
   inputs:
