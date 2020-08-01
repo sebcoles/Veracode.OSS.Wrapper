@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using VeracodeService.Http;
+using VeracodeService.Models;
 
 namespace VeracodeService
 {
@@ -8,6 +9,7 @@ namespace VeracodeService
     {
         string GetAppList();
         string GetAppInfo(string app_id);
+        string NewApp(string app_name, BusinessCriticalityType business_criticality);
         string GetBuildInfo(string app_id, string build_Id);
         string GetBuildList(string app_id);
         string GetBuildListForSandbox(string app_id, string sandboxId);
@@ -17,6 +19,8 @@ namespace VeracodeService
         string GetDetailedResults(string buildId);
         string GetMitigationInfo(string build_id, string flaw_id_list);
         string GetCallStack(string build_id, string flaw_id);
+        string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality);
+        string DeleteApp(long app_id);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
@@ -25,6 +29,9 @@ namespace VeracodeService
         public const string GET_CALL_STACKS_URI = "/api/5.0/getcallstacks.do";
         public const string GET_SANDBOX_LIST_URI = "/api/5.0/getsandboxlist.do";
         public const string GET_APP_INFO_URI = "/api/5.0/getappinfo.do";
+        public const string CREATE_APP_URI = "/api/5.0/createapp.do";
+        public const string DELETE_APP_URI = "/api/5.0/deleteapp.do";
+        public const string UPDATE_APP_URI = "/api/5.0/updateapp.do";
         public const string GET_APP_LIST_URI = "/api/5.0/getapplist.do";
         public const string GET_BUILD_INFO_URI = "/api/5.0/getbuildinfo.do";
         public const string GET_BUILD_LIST_URI = "/api/5.0/getbuildlist.do";
@@ -198,6 +205,73 @@ namespace VeracodeService
             };
 
             return _httpService.Get(GET_CALL_STACKS_URI, nameValueCollection);
+        }
+
+        public string NewApp(string app_name, BusinessCriticalityType business_criticality)
+        {
+            if (app_name == null)
+                throw new ArgumentException(app_name);
+
+            string parsed_business_criticality;
+            switch (business_criticality)
+            {
+                case BusinessCriticalityType.VeryHigh:
+                    parsed_business_criticality = "Very High";
+                    break;
+                case BusinessCriticalityType.VeryLow:
+                    parsed_business_criticality = "Very Low";
+                    break;
+                default:
+                    parsed_business_criticality = business_criticality.ToString("g");
+                    break;
+            }
+
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_name), app_name },
+                { nameof(business_criticality), parsed_business_criticality}
+            };
+
+            return _httpService.Get(CREATE_APP_URI, nameValueCollection);
+        }
+
+        public string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality)
+        {
+            if (app_name == null)
+                throw new ArgumentException(app_name);
+
+            string parsed_business_criticality;
+            switch (business_criticality)
+            {
+                case BusinessCriticalityType.VeryHigh:
+                    parsed_business_criticality = "Very High";
+                    break;
+                case BusinessCriticalityType.VeryLow:
+                    parsed_business_criticality = "Very Low";
+                    break;
+                default:
+                    parsed_business_criticality = business_criticality.ToString("g");
+                    break;
+            }
+
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), $"{app_id}" },
+                { nameof(app_name), app_name },
+                { nameof(business_criticality), parsed_business_criticality}
+            };
+
+            return _httpService.Get(UPDATE_APP_URI, nameValueCollection);
+        }
+
+        public string DeleteApp(long app_id)
+        {            
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), $"{app_id}" },
+            };
+
+            return _httpService.Get(DELETE_APP_URI, nameValueCollection);
         }
     }
 }

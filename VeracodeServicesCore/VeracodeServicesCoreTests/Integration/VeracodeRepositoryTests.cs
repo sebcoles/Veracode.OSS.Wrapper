@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
 using System.IO;
+using System.Linq;
 using VeracodeService;
 using VeracodeService.Configuration;
+using VeracodeService.Models;
 
 namespace VeracodeServicesCoreTests.Integration
 {
@@ -49,6 +51,40 @@ namespace VeracodeServicesCoreTests.Integration
         {
             var result = _repo.GetAllMitigationsForBuild(testData.BuildId);
             Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void CreateAndUpdateAndDeleteApp()
+        {
+            var newApp = new ApplicationType
+            {
+                app_name = testData.NewAppName,
+                business_criticality = testData.NewAppCriticality
+            };
+            var result = _repo.CreateApp(newApp);
+            Assert.IsNotNull(result);
+
+            var created = _repo.GetAllApps()
+                .Single(x => x.app_name == newApp.app_name);
+
+            Assert.IsNotNull(created);
+
+            result.app_name = testData.UpdatedAppName;
+            result.business_criticality = testData.UpdatedAppCriticality;
+
+            var updatedApp = _repo.UpdateApp(result);
+
+            Assert.AreEqual(testData.UpdatedAppName, updatedApp.app_name);
+            Assert.AreEqual(testData.UpdatedAppCriticality, updatedApp.business_criticality);
+
+            _repo.DeleteApp(
+                new ApplicationType { app_id = created.app_id }
+            );
+
+            created = _repo.GetAllApps()
+                .SingleOrDefault(x => x.app_name == newApp.app_name);
+
+            Assert.IsNull(created);
         }
 
         [Test]

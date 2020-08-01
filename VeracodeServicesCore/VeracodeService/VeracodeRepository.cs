@@ -11,6 +11,9 @@ namespace VeracodeService
     public interface IVeracodeRepository
     {
         IEnumerable<AppType> GetAllApps();
+        ApplicationType CreateApp(ApplicationType app);
+        ApplicationType UpdateApp(ApplicationType app);
+        applist DeleteApp(ApplicationType app);
         IEnumerable<BuildType> GetAllBuildsForApp(string appId);
         appinfo GetAppDetail(string appId);
         IEnumerable<SandboxType> GetSandboxesForApp(string appId);
@@ -209,6 +212,47 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<Callstacks>(xml);
+        }
+
+        public ApplicationType CreateApp(ApplicationType newApp)
+        {
+            var xml = _wrapper.NewApp(newApp.app_name, newApp.business_criticality);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            var appinfo = XmlParseHelper.Parse<appinfo>(xml);
+            if (appinfo.application.Count() == 0)
+                return null;
+
+            return XmlParseHelper.Parse<appinfo>(xml).application[0];
+        }
+
+        public ApplicationType UpdateApp(ApplicationType app)
+        {
+            var xml = _wrapper.UpdateApp(
+                app.app_id,
+                app.app_name,
+                app.business_criticality);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            var appinfo = XmlParseHelper.Parse<appinfo>(xml);
+            if (appinfo.application.Count() == 0)
+                return null;
+
+            return XmlParseHelper.Parse<appinfo>(xml).application[0];
+        }
+
+        public applist DeleteApp(ApplicationType app)
+        {
+            var xml = _wrapper.DeleteApp(app.app_id);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<applist>(xml);
         }
     }
 }
