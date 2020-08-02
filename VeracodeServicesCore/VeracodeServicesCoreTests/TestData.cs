@@ -14,5 +14,7 @@ namespace VeracodeServicesCoreTests
         public string UpdatedAppName { get; set; }
         public BusinessCriticalityType NewAppCriticality { get; set; }
         public BusinessCriticalityType UpdatedAppCriticality { get; set; }
+        public string NewBuildVersion { get; set; }
+        public string UpdatedBuildVersion { get; set; }
     }
 }

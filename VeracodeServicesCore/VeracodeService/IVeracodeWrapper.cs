@@ -21,6 +21,9 @@ namespace VeracodeService
         string GetCallStack(string build_id, string flaw_id);
         string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality);
         string DeleteApp(long app_id);
+        string NewBuild(string app_id, string version);
+        string UpdateBuild(string app_id, long build_id, string version);
+        string DeleteBuild(string app_id, string sandbox_id);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
@@ -32,6 +35,9 @@ namespace VeracodeService
         public const string CREATE_APP_URI = "/api/5.0/createapp.do";
         public const string DELETE_APP_URI = "/api/5.0/deleteapp.do";
         public const string UPDATE_APP_URI = "/api/5.0/updateapp.do";
+        public const string CREATE_BUILD_URI = "/api/5.0/createbuild.do";
+        public const string DELETE_BUILD_URI = "/api/5.0/deletebuild.do";
+        public const string UPDATE_BUILD_URI = "/api/5.0/updatebuild.do";
         public const string GET_APP_LIST_URI = "/api/5.0/getapplist.do";
         public const string GET_BUILD_INFO_URI = "/api/5.0/getbuildinfo.do";
         public const string GET_BUILD_LIST_URI = "/api/5.0/getbuildlist.do";
@@ -272,6 +278,46 @@ namespace VeracodeService
             };
 
             return _httpService.Get(DELETE_APP_URI, nameValueCollection);
+        }
+
+        public string NewBuild(string app_id, string version)
+        {
+            if (app_id == null)
+                throw new ArgumentException(app_id);
+
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), app_id },
+                { nameof(version), version}
+            };
+
+            return _httpService.Get(CREATE_BUILD_URI, nameValueCollection);
+        }
+
+        public string UpdateBuild(string app_id, long build_id, string version)
+        {
+            if (app_id == null)
+                throw new ArgumentException(app_id);
+
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), app_id },
+                { nameof(build_id), $"{build_id}" },
+                { nameof(version), version}
+            };
+
+            return _httpService.Get(UPDATE_BUILD_URI, nameValueCollection);
+        }
+
+        public string DeleteBuild(string app_id, string sandbox_id)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), $"{app_id}" },
+                { nameof(sandbox_id), $"{sandbox_id}" },
+            };
+
+            return _httpService.Get(DELETE_BUILD_URI, nameValueCollection);
         }
     }
 }

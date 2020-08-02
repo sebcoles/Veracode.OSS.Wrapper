@@ -26,6 +26,9 @@ namespace VeracodeService
         SeverityType[] GetSeverity(string buildId);
         DetailedReportModuleType[] GetEntryPoints(string buildId);
         Callstacks GetCallStacks(string buildId, string flawId);
+        BuildInfoBuildType CreateBuild(string app_id, BuildInfoBuildType build);
+        BuildInfoBuildType UpdateBuild(string app_id, BuildInfoBuildType build);
+        buildlist DeleteBuild(string app_id, string sandbox_id = "");
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -58,18 +61,22 @@ namespace VeracodeService
             var xml = _wrapper.GetBuildList(appId);
 
             if (!string.IsNullOrWhiteSpace(xml))
-                builds.AddRange(XmlParseHelper.Parse<buildlist>(xml).build);
+                if(XmlParseHelper.Parse<buildlist>(xml).build != null)
+                    builds.AddRange(XmlParseHelper.Parse<buildlist>(xml).build);
 
             var sandboxXml = _wrapper.GetSandboxes(appId);
             if (!string.IsNullOrWhiteSpace(sandboxXml))
             {
                 var sandboxes = XmlParseHelper.Parse<sandboxlist>(sandboxXml);
-                foreach (var sandbox in sandboxes.sandbox)
+                if(sandboxes.sandbox != null)
                 {
-                    var sandboxBuildXml = _wrapper.GetBuildListForSandbox(appId, $"{sandbox.sandbox_id}");
-                    if (!string.IsNullOrWhiteSpace(sandboxBuildXml))
-                        builds.AddRange(XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build);
-                }
+                    foreach (var sandbox in sandboxes.sandbox)
+                    {
+                        var sandboxBuildXml = _wrapper.GetBuildListForSandbox(appId, $"{sandbox.sandbox_id}");
+                        if (!string.IsNullOrWhiteSpace(sandboxBuildXml))
+                            builds.AddRange(XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build);
+                    }
+                }               
             }
 
             return builds.GroupBy(p => p.build_id)
@@ -253,6 +260,47 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<applist>(xml);
+        }
+
+        public BuildInfoBuildType CreateBuild(string app_id, BuildInfoBuildType build)
+        {
+            var xml = _wrapper.NewBuild(app_id, build.version);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            var appinfo = XmlParseHelper.Parse<buildinfo>(xml);
+            if (appinfo.build == null)
+                return null;
+
+            return XmlParseHelper.Parse<buildinfo>(xml).build;
+        }
+
+        public BuildInfoBuildType UpdateBuild(string app_id, BuildInfoBuildType build)
+        {
+            var xml = _wrapper.UpdateBuild(
+                app_id,
+                build.build_id,
+                build.version);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            var appinfo = XmlParseHelper.Parse<buildinfo>(xml);
+            if (appinfo.build == null)
+                return null;
+
+            return XmlParseHelper.Parse<buildinfo>(xml).build;
+        }
+
+        public buildlist DeleteBuild(string app_id, string sandbox_id)
+        {
+            var xml = _wrapper.DeleteBuild(app_id, sandbox_id);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<buildlist>(xml);
         }
     }
 }
