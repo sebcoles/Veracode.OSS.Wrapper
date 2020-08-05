@@ -16,5 +16,16 @@ namespace VeracodeServicesCoreTests
         public BusinessCriticalityType UpdatedAppCriticality { get; set; }
         public string NewBuildVersion { get; set; }
         public string UpdatedBuildVersion { get; set; }
+        public string NewUserName { get; set; }
+        public string NewFirstName { get; set; }
+        public string NewLastName { get; set; }
+        public string NewUserEmail { get; set; }
+        public string NewUserTeam { get; set; }
+        public int[] NewUserRoles { get; set; }
+        public int[] UpdatedUserRoles { get; set; }
+        public string UpdatedFirstName { get; set; }
+        public string UpdatedLastName { get; set; }
+        public string NewTeamName { get; set; }
+        public string UpdatedTeamName { get; set; }
     }
 }

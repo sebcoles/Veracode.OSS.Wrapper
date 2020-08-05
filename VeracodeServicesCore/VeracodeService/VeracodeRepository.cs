@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using VeracodeService.Configuration;
+using VeracodeService.Enums;
 using VeracodeService.Http;
 using VeracodeService.Models;
 using VeracodeService.Security;
@@ -29,6 +30,15 @@ namespace VeracodeService
         BuildInfoBuildType CreateBuild(string app_id, BuildInfoBuildType build);
         BuildInfoBuildType UpdateBuild(string app_id, BuildInfoBuildType build);
         buildlist DeleteBuild(string app_id, string sandbox_id = "");
+        string[] GetUsers();
+        teamlistTeam[] GetTeams();
+        string[] DeleteUser(string username);
+        teamlistTeam[] DeleteTeam(string team_id);
+        LoginAccount CreateUser(LoginAccount user, Roles[] roles);
+        teaminfo CreateTeam(teaminfo team);
+        LoginAccount UpdateUser(LoginAccount user, Roles[] roles);
+        teaminfo UpdateTeam(teaminfo team);
+        LoginAccount GetUser(string username);
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -301,6 +311,108 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<buildlist>(xml);
+        }
+
+        public string[] GetUsers()
+        {
+            var xml = _wrapper.GetUserList();
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return new string[0];
+
+            var userlist = XmlParseHelper.Parse<userlist>(xml);
+            if (userlist.users == null || string.IsNullOrWhiteSpace(userlist.users.usernames))
+                return new string[0];
+
+            return userlist.users.usernames.Split(",");
+        }
+
+        public teamlistTeam[] GetTeams()
+        {
+            var xml = _wrapper.GetTeamList();
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return new teamlistTeam[0];
+
+            return XmlParseHelper.Parse<teamlist>(xml).team;
+        }
+
+        public string[] DeleteUser(string username)
+        {
+            var xml = _wrapper.DeleteUser(username);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return new string[0];
+
+            var userlist = XmlParseHelper.Parse<userlist>(xml);
+            if (userlist.users == null || string.IsNullOrWhiteSpace(userlist.users.usernames))
+                return new string[0];
+
+            return userlist.users.usernames.Split(",");
+        }
+
+        public teamlistTeam[] DeleteTeam(string team_id)
+        {
+            var xml = _wrapper.DeleteTeam(team_id);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return new teamlistTeam[0];
+
+            return XmlParseHelper.Parse<teamlist>(xml).team;
+        }
+
+        public LoginAccount CreateUser(LoginAccount user, Roles[] roles)
+        {
+            var roles_parsed = string.Join(",", roles.Select(EnumToStringConverter.Convert).ToArray());
+            var xml = _wrapper.CreateUser(user.first_name, user.last_name, 
+                user.email_address, roles_parsed, user.teams);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<userinfo>(xml).login_account;
+        }
+
+        public teaminfo CreateTeam(teaminfo team)
+        {
+            var xml = _wrapper.CreateTeam(team.team_name);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<teaminfo>(xml);
+        }
+
+        public LoginAccount UpdateUser(LoginAccount user, Roles[] roles)
+        {
+            var roles_parsed = string.Join(",", roles.Select(EnumToStringConverter.Convert).ToArray());
+            var xml = _wrapper.UpdateUser(user.username, user.first_name,
+                user.last_name, user.email_address, roles_parsed, user.teams);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<userinfo>(xml).login_account;
+        }
+
+        public teaminfo UpdateTeam(teaminfo team)
+        {
+            var xml = _wrapper.UpdateTeam(team.team_id, team.team_name);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<teaminfo>(xml);
+        }
+
+        public LoginAccount GetUser(string username)
+        {
+            var xml = _wrapper.GetUserDetail(username);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<userinfo>(xml).login_account;
         }
     }
 }

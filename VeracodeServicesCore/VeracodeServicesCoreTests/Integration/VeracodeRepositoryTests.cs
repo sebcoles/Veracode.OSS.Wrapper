@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using VeracodeService;
 using VeracodeService.Configuration;
+using VeracodeService.Enums;
 using VeracodeService.Models;
 
 namespace VeracodeServicesCoreTests.Integration
@@ -39,9 +41,16 @@ namespace VeracodeServicesCoreTests.Integration
         public void TearDown()
         {
             var apps = _repo.GetAllApps();
-            var appsToRemove = new List<AppType>();
             foreach (var app in apps.Where(x => x.app_name.StartsWith(testData.NewAppName)))
                 _repo.DeleteApp(new ApplicationType { app_id = app.app_id });
+
+            var users = _repo.GetUsers();
+            foreach (var username in users.Where(x => x.StartsWith(testData.NewUserEmail)))
+                _repo.DeleteUser(username);
+
+            var teams = _repo.GetTeams();
+            foreach (var team in teams.Where(x => x.team_name.StartsWith(testData.NewTeamName)))
+                _repo.DeleteTeam(team.team_id);
         }
 
         [Test]
@@ -138,6 +147,81 @@ namespace VeracodeServicesCoreTests.Integration
             _repo.DeleteApp(
                 new ApplicationType { app_id = app.app_id }
             );
+        }
+
+        [Test]
+        public void Create_Update_Delete_User()
+        {
+            var user = new LoginAccount
+            {
+                first_name = testData.NewFirstName,
+                last_name = testData.NewLastName,
+                email_address = testData.NewUserEmail,
+                teams = testData.NewUserTeam
+            };
+            var role = testData.NewUserRoles
+                .Select(x => (Roles)x).ToArray();
+
+            _repo.CreateUser(user, role);            
+
+            var retrievedUserName = _repo.GetUsers()
+                .SingleOrDefault(x => x.Equals(testData.NewUserEmail));
+
+            Assert.IsNotNull(retrievedUserName);
+
+            user.username = testData.NewUserEmail;
+            user.first_name = testData.UpdatedFirstName;
+            user.last_name = testData.UpdatedLastName;
+            role = testData.UpdatedUserRoles
+                .Select(x => (Roles)x).ToArray();
+
+            user = _repo.UpdateUser(user, role);
+
+            var updatedUser = _repo.GetUser(testData.NewUserEmail);
+
+            Assert.AreEqual(testData.UpdatedFirstName, updatedUser.first_name);
+            Assert.AreEqual(testData.UpdatedLastName, updatedUser.last_name);
+
+            _repo.DeleteUser(testData.NewUserEmail);
+
+            retrievedUserName = _repo.GetUsers()
+                .SingleOrDefault(x => x.Equals(testData.NewUserEmail));
+
+            Assert.IsNull(retrievedUserName);           
+        }
+
+        [Test]
+        public void Create_Update_Delete_Team()
+        {
+            var team = new teaminfo
+            {
+                team_name = testData.NewTeamName
+            };
+
+            _repo.CreateTeam(team);
+
+            var retrievedTeam = _repo.GetTeams()
+                .SingleOrDefault(x => x.team_name.Equals(testData.NewTeamName));
+
+            Assert.IsNotNull(retrievedTeam);
+
+            retrievedTeam.team_name = testData.UpdatedTeamName;
+
+            var teaminfo = new teaminfo
+            {
+                team_id = retrievedTeam.team_id,
+                team_name = retrievedTeam.team_name
+            };
+
+            var checkTeam = _repo.UpdateTeam(teaminfo);
+            Assert.AreEqual(checkTeam.team_name, testData.UpdatedTeamName);
+
+            _repo.DeleteTeam(checkTeam.team_id);
+
+            retrievedTeam = _repo.GetTeams()
+                .SingleOrDefault(x => x.team_name.Equals(testData.UpdatedTeamName));
+
+            Assert.IsNull(retrievedTeam);
         }
 
         [Test]

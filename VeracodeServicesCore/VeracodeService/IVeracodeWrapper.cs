@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Web;
 using VeracodeService.Http;
 using VeracodeService.Models;
 
@@ -24,6 +25,15 @@ namespace VeracodeService
         string NewBuild(string app_id, string version);
         string UpdateBuild(string app_id, long build_id, string version);
         string DeleteBuild(string app_id, string sandbox_id);
+        string UpdateTeam(string team_id, string team_name);
+        string UpdateUser(string username, string first_name, string last_name, string email_address, string roles, string teams);
+        string GetTeamList();
+        string GetUserList();
+        string CreateTeam(string team_name);
+        string CreateUser(string first_name, string last_name, string email_address, string roles, string teams);
+        string DeleteUser(string username);
+        string DeleteTeam(string team_id);
+        string GetUserDetail(string username);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
@@ -46,6 +56,16 @@ namespace VeracodeService
         public const string UPLOAD_FILE_URI = "/api/5.0/uploadlargefile.do";
         public const string GET_MITIGATION_INFO_URI = "/api/getmitigationinfo.do";
         public const string UPDATE_MITIGATION_INFO_URI = "/api/updatemitigationinfo.do";
+        public const string GET_TEAM_LIST_URI = "/api/3.0/getteamlist.do";
+        public const string CREATE_TEAM_URI = "/api/3.0/createteam.do";
+        public const string DELETE_TEAM_URI = "/api/3.0/deleteteam.do";
+        public const string UPDATE_TEAM_URI = "/api/3.0/updateteam.do";
+        public const string CREATE_USER_URI = "/api/3.0/createuser.do";
+        public const string DELETE_USER_URI = "/api/3.0/deleteuser.do";
+        public const string UPDATE_USER_URI = "/api/3.0/updateuser.do";
+        public const string GET_USER_LIST_URI = "/api/3.0/getuserlist.do";
+        public const string GET_USER_INFO_URI = "/api/3.0/getuserinfo.do";
+
         private readonly IHttpService _httpService;
 
         public VeracodeWrapper(IHttpService httpService)
@@ -218,24 +238,10 @@ namespace VeracodeService
             if (app_name == null)
                 throw new ArgumentException(app_name);
 
-            string parsed_business_criticality;
-            switch (business_criticality)
-            {
-                case BusinessCriticalityType.VeryHigh:
-                    parsed_business_criticality = "Very High";
-                    break;
-                case BusinessCriticalityType.VeryLow:
-                    parsed_business_criticality = "Very Low";
-                    break;
-                default:
-                    parsed_business_criticality = business_criticality.ToString("g");
-                    break;
-            }
-
             var nameValueCollection = new NameValueCollection
             {
                 { nameof(app_name), app_name },
-                { nameof(business_criticality), parsed_business_criticality}
+                { nameof(business_criticality), EnumToStringConverter.Convert(business_criticality)}
             };
 
             return _httpService.Get(CREATE_APP_URI, nameValueCollection);
@@ -244,27 +250,13 @@ namespace VeracodeService
         public string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality)
         {
             if (app_name == null)
-                throw new ArgumentException(app_name);
-
-            string parsed_business_criticality;
-            switch (business_criticality)
-            {
-                case BusinessCriticalityType.VeryHigh:
-                    parsed_business_criticality = "Very High";
-                    break;
-                case BusinessCriticalityType.VeryLow:
-                    parsed_business_criticality = "Very Low";
-                    break;
-                default:
-                    parsed_business_criticality = business_criticality.ToString("g");
-                    break;
-            }
+                throw new ArgumentException(app_name);            
 
             var nameValueCollection = new NameValueCollection
             {
                 { nameof(app_id), $"{app_id}" },
                 { nameof(app_name), app_name },
-                { nameof(business_criticality), parsed_business_criticality}
+                { nameof(business_criticality), EnumToStringConverter.Convert(business_criticality)}
             };
 
             return _httpService.Get(UPDATE_APP_URI, nameValueCollection);
@@ -318,6 +310,100 @@ namespace VeracodeService
             };
 
             return _httpService.Get(DELETE_BUILD_URI, nameValueCollection);
+        }
+
+        public string DeleteTeam(string team_id)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(team_id), $"{team_id}" }
+            };
+
+            return _httpService.Get(DELETE_TEAM_URI, nameValueCollection);
+        }
+
+        public string DeleteUser(string username)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(username), $"{username}" }
+            };
+
+            return _httpService.Get(DELETE_USER_URI, nameValueCollection);
+        }
+
+        public string CreateUser(string first_name, string last_name,
+              string email_address, string roles, string teams)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(first_name), first_name},
+                { nameof(last_name), last_name},
+                { nameof(email_address), email_address },
+                { nameof(roles), roles },
+                { nameof(teams), teams }
+            };
+
+            return _httpService.Get(CREATE_USER_URI, nameValueCollection);
+        }
+
+        public string CreateTeam(string team_name)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(team_name), $"{team_name}" }
+            };
+
+            return _httpService.Get(CREATE_TEAM_URI, nameValueCollection);
+        }
+
+        public string UpdateTeam(string team_id, string team_name)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(team_id), $"{team_id}" },
+                { nameof(team_name), $"{team_name}" }
+            };
+
+            return _httpService.Get(UPDATE_TEAM_URI, nameValueCollection);
+        }
+
+        public string UpdateUser(string username, string first_name, string last_name, 
+            string email_address, string roles, string teams)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(username), username },
+                { nameof(first_name), first_name },
+                { nameof(last_name), last_name },
+                { nameof(email_address), email_address },
+                { nameof(roles), roles },
+                { nameof(teams), teams }
+            };
+
+            return _httpService.Get(UPDATE_USER_URI, nameValueCollection);
+        }
+
+        public string GetTeamList()
+        {
+            var nameValueCollection = new NameValueCollection();
+            return _httpService.Get(GET_TEAM_LIST_URI, nameValueCollection);
+        }
+
+        public string GetUserList()
+        {
+            var nameValueCollection = new NameValueCollection();
+            return _httpService.Get(GET_USER_LIST_URI, nameValueCollection);
+        }
+
+        public string GetUserDetail(string username)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(username), username }
+            };
+            
+            return _httpService.Get(GET_USER_INFO_URI, nameValueCollection);
         }
     }
 }
