@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -12,6 +13,7 @@ namespace VeracodeService.Http
     public interface IHttpService
     {
         string Get(string path, NameValueCollection queryParams);
+        string PostFile(string path, NameValueCollection queryParams, string filepath);
     }
     public class HttpService : IHttpService
     {
@@ -48,6 +50,29 @@ namespace VeracodeService.Http
             webClient.Headers.Add(_authHeader, authorization);
             var response = webClient.DownloadString($"{path}{queryString}");
             return XmlParseHelper.GetDecodedXmlResponse(response, true);
+        }
+
+        public string PostFile(string path, NameValueCollection queryParams, string filepath)
+        {
+            var webClient = new WebClient { BaseAddress = $"https://{_base}" };
+            var queryString = ToQueryString(queryParams);
+            var hmacRequest = new HmacRequest
+            {
+                ApiId = _apiId,
+                ApiKey = _apiKey,
+                HostName = _base,
+                HttpMethod = "POST",
+                UrlQueryParams = queryString,
+                UriString = path
+            };
+
+            var authorization = _cryptoService.GetHmacHeader(hmacRequest);
+            webClient.Headers.Add(_authHeader, authorization);
+            webClient.Headers[HttpRequestHeader.ContentType] = "binary/octet-stream";
+            byte[] bytes = File.ReadAllBytes(filepath);
+            var responseBytes = webClient.UploadData($"{path}{queryString}", "POST", bytes);
+            var responseString = Encoding.ASCII.GetString(responseBytes);
+            return XmlParseHelper.GetDecodedXmlResponse(responseString, true);
         }
 
         private string ToQueryString(NameValueCollection nvc)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.IO;
 using System.Web;
 using VeracodeService.Http;
 using VeracodeService.Models;
@@ -34,6 +35,8 @@ namespace VeracodeService
         string DeleteUser(string username);
         string DeleteTeam(string team_id);
         string GetUserDetail(string username);
+        string UploadFileForPrescan(string app_id, string filepath, string filename);
+        string StartPrescan(string app_id);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
@@ -65,6 +68,7 @@ namespace VeracodeService
         public const string UPDATE_USER_URI = "/api/3.0/updateuser.do";
         public const string GET_USER_LIST_URI = "/api/3.0/getuserlist.do";
         public const string GET_USER_INFO_URI = "/api/3.0/getuserinfo.do";
+        public const string START_PRESCAN_URI = "/api/3.0/beginprescan.do";
 
         private readonly IHttpService _httpService;
 
@@ -404,6 +408,31 @@ namespace VeracodeService
             };
             
             return _httpService.Get(GET_USER_INFO_URI, nameValueCollection);
+        }
+
+        public string UploadFileForPrescan(string app_id, string filepath, string filename)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), app_id },
+                { nameof(filename), filename }
+            };
+
+            return _httpService.PostFile(UPLOAD_FILE_URI, nameValueCollection, filepath);
+        }
+
+        public string StartPrescan(string app_id)
+        {
+            var autoscan = false;
+            var scan_all_nonfatal_top_level_modules = false;
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), app_id },
+                { nameof(autoscan), $"{autoscan}" },
+                { nameof(scan_all_nonfatal_top_level_modules), $"{scan_all_nonfatal_top_level_modules}" }
+            };
+
+            return _httpService.Get(START_PRESCAN_URI, nameValueCollection);
         }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using VeracodeService;
 using VeracodeService.Configuration;
 using VeracodeService.Enums;
@@ -143,6 +144,67 @@ namespace VeracodeServicesCoreTests.Integration
             var buildList = _repo.GetAllBuildsForApp($"{app.app_id}");
 
             Assert.IsNull(buildList.SingleOrDefault(x => x.build_id == retrievedBuild.build.build_id));
+
+            _repo.DeleteApp(
+                new ApplicationType { app_id = app.app_id }
+            );
+        }
+
+        [Test]
+        public void Upload_File_For_Prescan()
+        {
+            var app = new ApplicationType
+            {
+                app_name = testData.NewAppName + _rand.Next(99999),
+                business_criticality = testData.NewAppCriticality
+            };
+            app = _repo.CreateApp(app);
+
+            var build = new BuildInfoBuildType
+            {
+                version = testData.NewBuildVersion
+            };
+            _repo.CreateBuild($"{app.app_id}", build);
+
+            var files = _repo.UploadFileForPrescan($"{app.app_id}", "Assets/testapp1.zip");
+            Assert.AreEqual(1, files.Count());
+
+            files = _repo.UploadFileForPrescan($"{app.app_id}", "Assets/testapp2.zip");
+            Assert.AreEqual(2, files.Count());
+
+            _repo.DeleteApp(
+                new ApplicationType { app_id = app.app_id }
+            );
+        }
+
+        [Test]
+        public void Start_Finish_Prescan_And_Results()
+        {
+            var app = new ApplicationType
+            {
+                app_name = testData.NewAppName + _rand.Next(99999),
+                business_criticality = testData.NewAppCriticality
+            };
+            app = _repo.CreateApp(app);
+
+            var build = new BuildInfoBuildType
+            {
+                version = testData.NewBuildVersion
+            };
+            _repo.CreateBuild($"{app.app_id}", build);
+            _repo.UploadFileForPrescan($"{app.app_id}", "Assets/testapp1.zip");
+
+            var buildinfo = _repo.StartPrescan($"{app.app_id}");
+            var buildFinished = BuildStatusType.PreScanSubmitted;
+            while (buildFinished == BuildStatusType.PreScanSubmitted)
+            {
+                buildFinished = _repo
+                    .GetBuildDetail($"{app.app_id}", $"{buildinfo.Build_id}")
+                    .build.analysis_unit[0].status;
+                Thread.Sleep(30000);
+            }
+
+            Assert.AreEqual(BuildStatusType.PreScanSuccess, buildFinished);
 
             _repo.DeleteApp(
                 new ApplicationType { app_id = app.app_id }

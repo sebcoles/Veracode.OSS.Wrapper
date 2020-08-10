@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using VeracodeService.Configuration;
 using VeracodeService.Enums;
@@ -39,6 +40,8 @@ namespace VeracodeService
         LoginAccount UpdateUser(LoginAccount user, Roles[] roles);
         teaminfo UpdateTeam(teaminfo team);
         LoginAccount GetUser(string username);
+        FileListFileType[] UploadFileForPrescan(string app_id, string filepath);
+        PrescanBuildinfo StartPrescan(string app_id);
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -413,6 +416,27 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<userinfo>(xml).login_account;
+        }
+
+        public FileListFileType[] UploadFileForPrescan(string app_id, string filepath)
+        {
+            var fileInfo = new FileInfo(filepath);            
+            var xml = _wrapper.UploadFileForPrescan(app_id, filepath, fileInfo.Name);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<filelist>(xml).file;
+        }
+
+        public PrescanBuildinfo StartPrescan(string app_id)
+        {
+            var xml = _wrapper.StartPrescan(app_id);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<PrescanBuildinfo>(xml);
         }
     }
 }
