@@ -42,35 +42,6 @@ namespace VeracodeService
 
     public class VeracodeWrapper : IVeracodeWrapper
     {
-        public const string DETAILED_REPORT_URI = "/api/5.0/detailedreport.do";
-        public const string GET_CALL_STACKS_URI = "/api/5.0/getcallstacks.do";
-        public const string GET_SANDBOX_LIST_URI = "/api/5.0/getsandboxlist.do";
-        public const string GET_APP_INFO_URI = "/api/5.0/getappinfo.do";
-        public const string CREATE_APP_URI = "/api/5.0/createapp.do";
-        public const string DELETE_APP_URI = "/api/5.0/deleteapp.do";
-        public const string UPDATE_APP_URI = "/api/5.0/updateapp.do";
-        public const string CREATE_BUILD_URI = "/api/5.0/createbuild.do";
-        public const string DELETE_BUILD_URI = "/api/5.0/deletebuild.do";
-        public const string UPDATE_BUILD_URI = "/api/5.0/updatebuild.do";
-        public const string GET_APP_LIST_URI = "/api/5.0/getapplist.do";
-        public const string GET_BUILD_INFO_URI = "/api/5.0/getbuildinfo.do";
-        public const string GET_BUILD_LIST_URI = "/api/5.0/getbuildlist.do";
-        public const string GET_FILE_LIST_URI = "/api/5.0/getfilelist.do";
-        public const string GET_PRE_SCAN_RESULTS_URI = "/api/5.0/getprescanresults.do";
-        public const string UPLOAD_FILE_URI = "/api/5.0/uploadlargefile.do";
-        public const string GET_MITIGATION_INFO_URI = "/api/getmitigationinfo.do";
-        public const string UPDATE_MITIGATION_INFO_URI = "/api/updatemitigationinfo.do";
-        public const string GET_TEAM_LIST_URI = "/api/3.0/getteamlist.do";
-        public const string CREATE_TEAM_URI = "/api/3.0/createteam.do";
-        public const string DELETE_TEAM_URI = "/api/3.0/deleteteam.do";
-        public const string UPDATE_TEAM_URI = "/api/3.0/updateteam.do";
-        public const string CREATE_USER_URI = "/api/3.0/createuser.do";
-        public const string DELETE_USER_URI = "/api/3.0/deleteuser.do";
-        public const string UPDATE_USER_URI = "/api/3.0/updateuser.do";
-        public const string GET_USER_LIST_URI = "/api/3.0/getuserlist.do";
-        public const string GET_USER_INFO_URI = "/api/3.0/getuserinfo.do";
-        public const string START_PRESCAN_URI = "/api/3.0/beginprescan.do";
-        public const string START_SCAN_URI = "/api/5.0/beginscan.do";
         private readonly IHttpService _httpService;
 
         public VeracodeWrapper(IHttpService httpService)
@@ -81,7 +52,7 @@ namespace VeracodeService
         public string GetAppList()
         {
             var nameValueCollection = new NameValueCollection();
-            return _httpService.Get(GET_APP_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_APP_LIST, nameValueCollection);
         }
 
         public string GetBuildList(string app_id)
@@ -94,7 +65,7 @@ namespace VeracodeService
                 { nameof(app_id), app_id }
             };
 
-            return _httpService.Get(GET_BUILD_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_BUILD_LIST, nameValueCollection);
         }
 
         public string GetBuildListForSandbox(string app_id, string sandbox_id)
@@ -111,7 +82,7 @@ namespace VeracodeService
                 { nameof(sandbox_id), sandbox_id }
             };
 
-            return _httpService.Get(GET_BUILD_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_BUILD_LIST, nameValueCollection);
         }
 
         public string GetDetailedResults(string build_id)
@@ -124,7 +95,7 @@ namespace VeracodeService
                 { nameof(build_id), build_id }
             };
 
-            return _httpService.Get(DETAILED_REPORT_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_DETAILED_REPORT, nameValueCollection);
         }
 
         public string GetMitigationInfo(string build_id, string flaw_id_list)
@@ -141,7 +112,7 @@ namespace VeracodeService
                 { nameof(flaw_id_list), flaw_id_list }
             };
 
-            return _httpService.Get(GET_MITIGATION_INFO_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_MITIGATION_INFO, nameValueCollection);
         }
 
         public string GetAppInfo(string app_id)
@@ -154,7 +125,7 @@ namespace VeracodeService
                 { nameof(app_id), app_id }
             };
 
-            return _httpService.Get(GET_APP_INFO_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_APP_INFO, nameValueCollection);
         }
 
         public string GetFiles(string app_id, string build_id)
@@ -171,7 +142,7 @@ namespace VeracodeService
                 { nameof(build_id), build_id }
             };
 
-            return _httpService.Get(GET_FILE_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_FILE_LIST, nameValueCollection);
         }
 
         public string GetPreScanResults(string app_id, string build_id)
@@ -188,7 +159,7 @@ namespace VeracodeService
                 { nameof(build_id), build_id }
             };
 
-            return _httpService.Get(GET_PRE_SCAN_RESULTS_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_PRE_SCAN_RESULTS, nameValueCollection);
         }
 
         public string GetSandboxes(string app_id)
@@ -201,7 +172,7 @@ namespace VeracodeService
                 { nameof(app_id), app_id }
             };
 
-            return _httpService.Get(GET_SANDBOX_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_SANDBOX_LIST, nameValueCollection);
         }
 
         public string GetBuildInfo(string app_id, string build_Id)
@@ -218,7 +189,7 @@ namespace VeracodeService
                 { nameof(build_Id), build_Id },
             };
 
-            return _httpService.Get(GET_BUILD_INFO_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_BUILD_INFO, nameValueCollection);
         }
 
         public string GetCallStack(string build_id, string flaw_id)
@@ -235,7 +206,7 @@ namespace VeracodeService
                 { nameof(flaw_id), flaw_id }
             };
 
-            return _httpService.Get(GET_CALL_STACKS_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_CALL_STACKS, nameValueCollection);
         }
 
         public string NewApp(string app_name, BusinessCriticalityType business_criticality)
@@ -249,7 +220,7 @@ namespace VeracodeService
                 { nameof(business_criticality), EnumToStringConverter.Convert(business_criticality)}
             };
 
-            return _httpService.Get(CREATE_APP_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.CREATE_APP, nameValueCollection);
         }
 
         public string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality)
@@ -264,7 +235,7 @@ namespace VeracodeService
                 { nameof(business_criticality), EnumToStringConverter.Convert(business_criticality)}
             };
 
-            return _httpService.Get(UPDATE_APP_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.UPDATE_APP, nameValueCollection);
         }
 
         public string DeleteApp(long app_id)
@@ -274,7 +245,7 @@ namespace VeracodeService
                 { nameof(app_id), $"{app_id}" },
             };
 
-            return _httpService.Get(DELETE_APP_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.DELETE_APP, nameValueCollection);
         }
 
         public string NewBuild(string app_id, string version)
@@ -288,7 +259,7 @@ namespace VeracodeService
                 { nameof(version), version}
             };
 
-            return _httpService.Get(CREATE_BUILD_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.CREATE_BUILD, nameValueCollection);
         }
 
         public string UpdateBuild(string app_id, long build_id, string version)
@@ -303,7 +274,7 @@ namespace VeracodeService
                 { nameof(version), version}
             };
 
-            return _httpService.Get(UPDATE_BUILD_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.UPDATE_BUILD, nameValueCollection);
         }
 
         public string DeleteBuild(string app_id, string sandbox_id)
@@ -314,7 +285,7 @@ namespace VeracodeService
                 { nameof(sandbox_id), $"{sandbox_id}" },
             };
 
-            return _httpService.Get(DELETE_BUILD_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.DELETE_BUILD, nameValueCollection);
         }
 
         public string DeleteTeam(string team_id)
@@ -324,7 +295,7 @@ namespace VeracodeService
                 { nameof(team_id), $"{team_id}" }
             };
 
-            return _httpService.Get(DELETE_TEAM_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.DELETE_TEAM, nameValueCollection);
         }
 
         public string DeleteUser(string username)
@@ -334,7 +305,7 @@ namespace VeracodeService
                 { nameof(username), $"{username}" }
             };
 
-            return _httpService.Get(DELETE_USER_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.DELETE_USER, nameValueCollection);
         }
 
         public string CreateUser(string first_name, string last_name,
@@ -349,7 +320,7 @@ namespace VeracodeService
                 { nameof(teams), teams }
             };
 
-            return _httpService.Get(CREATE_USER_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.CREATE_USER, nameValueCollection);
         }
 
         public string CreateTeam(string team_name)
@@ -359,7 +330,7 @@ namespace VeracodeService
                 { nameof(team_name), $"{team_name}" }
             };
 
-            return _httpService.Get(CREATE_TEAM_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.CREATE_TEAM, nameValueCollection);
         }
 
         public string UpdateTeam(string team_id, string team_name)
@@ -370,7 +341,7 @@ namespace VeracodeService
                 { nameof(team_name), $"{team_name}" }
             };
 
-            return _httpService.Get(UPDATE_TEAM_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.UPDATE_TEAM, nameValueCollection);
         }
 
         public string UpdateUser(string username, string first_name, string last_name, 
@@ -386,19 +357,19 @@ namespace VeracodeService
                 { nameof(teams), teams }
             };
 
-            return _httpService.Get(UPDATE_USER_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.UPDATE_USER, nameValueCollection);
         }
 
         public string GetTeamList()
         {
             var nameValueCollection = new NameValueCollection();
-            return _httpService.Get(GET_TEAM_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_TEAM_LIST, nameValueCollection);
         }
 
         public string GetUserList()
         {
             var nameValueCollection = new NameValueCollection();
-            return _httpService.Get(GET_USER_LIST_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_USER_LIST, nameValueCollection);
         }
 
         public string GetUserDetail(string username)
@@ -408,7 +379,7 @@ namespace VeracodeService
                 { nameof(username), username }
             };
             
-            return _httpService.Get(GET_USER_INFO_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.GET_USER_INFO, nameValueCollection);
         }
 
         public string UploadFileForPrescan(string app_id, string filepath, string filename)
@@ -419,7 +390,7 @@ namespace VeracodeService
                 { nameof(filename), filename }
             };
 
-            return _httpService.PostFile(UPLOAD_FILE_URI, nameValueCollection, filepath);
+            return _httpService.PostFile(VeracodeEndpoints.UPLOAD_FILE, nameValueCollection, filepath);
         }
 
         public string StartPrescan(string app_id)
@@ -433,7 +404,7 @@ namespace VeracodeService
                 { nameof(scan_all_nonfatal_top_level_modules), $"{scan_all_nonfatal_top_level_modules}" }
             };
 
-            return _httpService.Get(START_PRESCAN_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.START_PRESCAN, nameValueCollection);
         }
 
         public string StartScan(string app_id, string modules)
@@ -444,7 +415,7 @@ namespace VeracodeService
                 { nameof(modules), $"{modules}" }
             };
 
-            return _httpService.Get(START_SCAN_URI, nameValueCollection);
+            return _httpService.Get(VeracodeEndpoints.START_SCAN, nameValueCollection);
         }
     }
 }
