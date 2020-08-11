@@ -151,7 +151,7 @@ namespace VeracodeServicesCoreTests.Integration
         }
 
         [Test]
-        public void Upload_File_For_Prescan()
+        public void Upload_Files_Prescan_And_Scan()
         {
             var app = new ApplicationType
             {
@@ -172,28 +172,6 @@ namespace VeracodeServicesCoreTests.Integration
             files = _repo.UploadFileForPrescan($"{app.app_id}", "Assets/testapp2.zip");
             Assert.AreEqual(2, files.Count());
 
-            _repo.DeleteApp(
-                new ApplicationType { app_id = app.app_id }
-            );
-        }
-
-        [Test]
-        public void Start_Finish_Prescan_And_Results()
-        {
-            var app = new ApplicationType
-            {
-                app_name = testData.NewAppName + _rand.Next(99999),
-                business_criticality = testData.NewAppCriticality
-            };
-            app = _repo.CreateApp(app);
-
-            var build = new BuildInfoBuildType
-            {
-                version = testData.NewBuildVersion
-            };
-            _repo.CreateBuild($"{app.app_id}", build);
-            _repo.UploadFileForPrescan($"{app.app_id}", "Assets/testapp1.zip");
-
             var buildinfo = _repo.StartPrescan($"{app.app_id}");
             var buildFinished = BuildStatusType.PreScanSubmitted;
             while (buildFinished == BuildStatusType.PreScanSubmitted)
@@ -204,12 +182,23 @@ namespace VeracodeServicesCoreTests.Integration
                 Thread.Sleep(30000);
             }
 
-            Assert.AreEqual(BuildStatusType.PreScanSuccess, buildFinished);
+            var modules = _repo.GetModules($"{app.app_id}", $"{buildinfo.Build_id}");
+            var scannableModuleIds = modules.Where(x => !x.has_fatal_errors).Select(x => x.id).ToArray();
+            var scaninfo = _repo.StartScan($"{app.app_id}", string.Join(",", scannableModuleIds));
+
+            buildFinished = BuildStatusType.ScanInProcess;
+            while (buildFinished == BuildStatusType.ScanInProcess)
+            {
+                buildFinished = _repo
+                    .GetBuildDetail($"{app.app_id}", $"{buildinfo.Build_id}")
+                    .build.analysis_unit[0].status;
+                Thread.Sleep(30000);
+            }
 
             _repo.DeleteApp(
                 new ApplicationType { app_id = app.app_id }
             );
-        }
+        }           
 
         [Test]
         public void Create_Update_Delete_User()

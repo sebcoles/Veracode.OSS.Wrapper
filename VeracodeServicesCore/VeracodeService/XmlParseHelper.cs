@@ -10,11 +10,8 @@ namespace VeracodeService
         public static T Parse<T>(string xml)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-
-            using (var reader = new StringReader(xml))
-            {
-                return (T)serializer.Deserialize(reader);
-            }
+            using var reader = new StringReader(xml);
+            return (T)serializer.Deserialize(reader);
         }
 
         public static string GetDecodedXmlResponse(string xmlString, bool indentXml)
@@ -31,11 +28,9 @@ namespace VeracodeService
 
             using (var writer = new StringWriterWithEncoding(Encoding.UTF8))
             {
-                using (var w = XmlWriter.Create(writer, settings))
-                {
-                    xmlDocument.Save(w);
-                    response = writer.ToString();
-                }
+                using var w = XmlWriter.Create(writer, settings);
+                xmlDocument.Save(w);
+                response = writer.ToString();
             }
 
             return response;

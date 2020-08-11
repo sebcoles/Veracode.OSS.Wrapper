@@ -37,6 +37,7 @@ namespace VeracodeService
         string GetUserDetail(string username);
         string UploadFileForPrescan(string app_id, string filepath, string filename);
         string StartPrescan(string app_id);
+        string StartScan(string app_id, string modules);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
@@ -69,7 +70,7 @@ namespace VeracodeService
         public const string GET_USER_LIST_URI = "/api/3.0/getuserlist.do";
         public const string GET_USER_INFO_URI = "/api/3.0/getuserinfo.do";
         public const string START_PRESCAN_URI = "/api/3.0/beginprescan.do";
-
+        public const string START_SCAN_URI = "/api/5.0/beginscan.do";
         private readonly IHttpService _httpService;
 
         public VeracodeWrapper(IHttpService httpService)
@@ -433,6 +434,17 @@ namespace VeracodeService
             };
 
             return _httpService.Get(START_PRESCAN_URI, nameValueCollection);
+        }
+
+        public string StartScan(string app_id, string modules)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), app_id },
+                { nameof(modules), $"{modules}" }
+            };
+
+            return _httpService.Get(START_SCAN_URI, nameValueCollection);
         }
     }
 }

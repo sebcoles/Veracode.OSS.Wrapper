@@ -42,6 +42,7 @@ namespace VeracodeService
         LoginAccount GetUser(string username);
         FileListFileType[] UploadFileForPrescan(string app_id, string filepath);
         PrescanBuildinfo StartPrescan(string app_id);
+        buildinfo StartScan(string app_id, string modules);
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -437,6 +438,16 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<PrescanBuildinfo>(xml);
+        }
+
+        public buildinfo StartScan(string app_id, string modules)
+        {
+            var xml = _wrapper.StartScan(app_id, modules);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<buildinfo>(xml);
         }
     }
 }
