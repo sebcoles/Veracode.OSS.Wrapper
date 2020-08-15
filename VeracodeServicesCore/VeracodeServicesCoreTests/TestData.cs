@@ -27,5 +27,18 @@ namespace VeracodeServicesCoreTests
         public string UpdatedLastName { get; set; }
         public string NewTeamName { get; set; }
         public string UpdatedTeamName { get; set; }
+        public string Policyname { get; set; }
+        public string Policydescription { get; set; }
+        public int Policysca_blacklist_grace_period { get; set; }
+        public int Policyscore_grace_period { get; set; }
+        public int Policysev0_grace_period { get; set; }
+        public int Policysev1_grace_period { get; set; }
+        public int Policysev2_grace_period { get; set; }
+        public int Policysev3_grace_period { get; set; }
+        public int Policysev4_grace_period { get; set; }
+        public int Policysev5_grace_period { get; set; }
+        public string Policytype { get; set; }
+        public bool Policyvendor_policy { get; set; }
+        public string Policynameupdated { get; set; }
     }
 }

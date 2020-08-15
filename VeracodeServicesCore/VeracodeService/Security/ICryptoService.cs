@@ -59,10 +59,7 @@ namespace VeracodeService.Security
 
         public string GetHmacHeader(HmacRequest request)
         {
-            if (request.UrlQueryParams != null)
-                request.UriString += request.UrlQueryParams;
-
-            var data = $"id={request.ApiId}&host={request.HostName}&url={request.UriString}&method={request.HttpMethod}";
+            var data = $"id={request.ApiId}&host={request.HostName}&url={request.Url}&method={request.HttpMethod}";
             var dateStamp = ((long)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds).ToString();
             var nonce = GetNonce(16);
             byte[] dataSignature = CalculateDataSignature(FromHexBinary(request.ApiKey), nonce, dateStamp, data);

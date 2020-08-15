@@ -217,7 +217,7 @@ namespace VeracodeService
             var nameValueCollection = new NameValueCollection
             {
                 { nameof(app_name), app_name },
-                { nameof(business_criticality), EnumToStringConverter.Convert(business_criticality)}
+                { nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality)}
             };
 
             return _httpService.Get(VeracodeEndpoints.CREATE_APP, nameValueCollection);
@@ -232,7 +232,7 @@ namespace VeracodeService
             {
                 { nameof(app_id), $"{app_id}" },
                 { nameof(app_name), app_name },
-                { nameof(business_criticality), EnumToStringConverter.Convert(business_criticality)}
+                { nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality)}
             };
 
             return _httpService.Get(VeracodeEndpoints.UPDATE_APP, nameValueCollection);

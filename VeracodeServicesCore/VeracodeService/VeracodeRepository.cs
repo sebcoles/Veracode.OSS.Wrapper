@@ -6,6 +6,7 @@ using VeracodeService.Configuration;
 using VeracodeService.Enums;
 using VeracodeService.Http;
 using VeracodeService.Models;
+using VeracodeService.Rest;
 using VeracodeService.Security;
 
 namespace VeracodeService
@@ -43,14 +44,21 @@ namespace VeracodeService
         FileListFileType[] UploadFileForPrescan(string app_id, string filepath);
         PrescanBuildinfo StartPrescan(string app_id);
         buildinfo StartScan(string app_id, string modules);
+        PolicyVersion[] GetPolicies();
+        PolicyVersion[] DeletePolicy(string policyGuid);
+        PolicyVersion UpdatePolicy(PolicyVersion policy, string policyGuid);
+        PolicyVersion CreatePolicy(PolicyVersion policy);
+
     }
     public class VeracodeRepository : IVeracodeRepository
     {
         private const int FLAW_BATCH_LIMIT = 500;
         private readonly IVeracodeWrapper _wrapper;
+        private readonly IPolicyClient _policyClient;
         public VeracodeRepository(IOptions<VeracodeConfiguration> config)
         {
             _wrapper = new VeracodeWrapper(new HttpService(config, new CryptoService()));
+            _policyClient = new PolicyClient(new HttpService(config, new CryptoService()));
         }
         public VeracodeRepository(IVeracodeWrapper wrapper)
         {
@@ -367,7 +375,7 @@ namespace VeracodeService
 
         public LoginAccount CreateUser(LoginAccount user, Roles[] roles)
         {
-            var roles_parsed = string.Join(",", roles.Select(EnumToStringConverter.Convert).ToArray());
+            var roles_parsed = string.Join(",", roles.Select(VeracodeEnumConverter.Convert).ToArray());
             var xml = _wrapper.CreateUser(user.first_name, user.last_name, 
                 user.email_address, roles_parsed, user.teams);
 
@@ -389,7 +397,7 @@ namespace VeracodeService
 
         public LoginAccount UpdateUser(LoginAccount user, Roles[] roles)
         {
-            var roles_parsed = string.Join(",", roles.Select(EnumToStringConverter.Convert).ToArray());
+            var roles_parsed = string.Join(",", roles.Select(VeracodeEnumConverter.Convert).ToArray());
             var xml = _wrapper.UpdateUser(user.username, user.first_name,
                 user.last_name, user.email_address, roles_parsed, user.teams);
 
@@ -448,6 +456,49 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<buildinfo>(xml);
+        }
+
+        public PolicyVersion[] GetPolicies()
+        {
+            return _policyClient.Get(null, null)
+                .Result._embedded.policy_versions
+                .ToArray();
+        }
+
+        public PolicyVersion[] DeletePolicy(string policyGuid)
+        {
+            var result = _policyClient.Delete(policyGuid, null, null).Result;
+            if (result)
+                return GetPolicies();
+            else
+                return null;
+        }
+
+        public PolicyVersion UpdatePolicy(PolicyVersion policy, string policyGuid)
+        {
+            return _policyClient.Update(policy, policyGuid).Result;
+        }
+
+        public PolicyVersion CreatePolicy(PolicyVersion policy)
+        {
+            var sendPolicy = new SendPolicyVersion
+            {
+                name = policy.name,
+                description = policy.description,
+                sca_blacklist_grace_period = policy.sca_blacklist_grace_period,
+                score_grace_period = policy.score_grace_period,
+                sev0_grace_period = policy.sev0_grace_period,
+                sev1_grace_period = policy.sev1_grace_period,
+                sev2_grace_period = policy.sev2_grace_period,
+                sev3_grace_period = policy.sev3_grace_period,
+                sev4_grace_period = policy.sev4_grace_period,
+                sev5_grace_period = policy.sev5_grace_period,
+                type = policy.type,
+                vendor_policy = policy.vendor_policy,
+                scan_frequency_rules = policy.scan_frequency_rules,
+                finding_rules = policy.finding_rules
+            };
+            return _policyClient.Create(sendPolicy).Result;
         }
     }
 }

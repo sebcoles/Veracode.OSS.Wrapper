@@ -11,6 +11,7 @@ using VeracodeService;
 using VeracodeService.Configuration;
 using VeracodeService.Enums;
 using VeracodeService.Models;
+using VeracodeService.Rest;
 
 namespace VeracodeServicesCoreTests.Integration
 {
@@ -343,6 +344,40 @@ namespace VeracodeServicesCoreTests.Integration
         {
             var result = _repo.GetCallStacks(testData.BuildId, testData.FlawId);
             Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void Create_Update_Delete_Policy()
+        {
+            var newPolicy = new PolicyVersion
+            {
+                name = testData.Policyname,
+                description = testData.Policydescription,
+                sca_blacklist_grace_period = testData.Policysca_blacklist_grace_period,
+                score_grace_period = testData.Policyscore_grace_period,
+                sev0_grace_period = testData.Policysev0_grace_period,
+                sev1_grace_period = testData.Policysev1_grace_period,
+                sev2_grace_period = testData.Policysev2_grace_period,
+                sev3_grace_period = testData.Policysev3_grace_period,
+                sev4_grace_period = testData.Policysev4_grace_period,
+                sev5_grace_period = testData.Policysev5_grace_period,
+                type = testData.Policytype,
+                vendor_policy = testData.Policyvendor_policy,
+                scan_frequency_rules = new List<ScanFrequencyRule>(),
+                finding_rules = new List<FindingRule>()
+            };
+
+            var policy = _repo.CreatePolicy(newPolicy);
+            Assert.IsNotNull(policy);
+
+            policy.name = testData.Policynameupdated;
+            _ = _repo.UpdatePolicy(policy, policy.guid);
+
+            var retrievedPolicy = _repo.GetPolicies().SingleOrDefault(x => x.name.Contains(testData.Policynameupdated));
+            Assert.AreEqual(testData.Policynameupdated, retrievedPolicy.name);
+
+            var deleted = _repo.DeletePolicy(policy.guid).SingleOrDefault(x => x.name.Contains(testData.Policynameupdated));
+            Assert.IsNull(deleted);
         }
     }
 }

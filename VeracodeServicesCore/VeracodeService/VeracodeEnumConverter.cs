@@ -6,7 +6,7 @@ using VeracodeService.Models;
 
 namespace VeracodeService
 {
-    public static class EnumToStringConverter
+    public static class VeracodeEnumConverter
     {
         public static string Convert(BusinessCriticalityType business_criticality)
         {
@@ -21,6 +21,24 @@ namespace VeracodeService
                     break;
                 default:
                     parsed_business_criticality = business_criticality.ToString("g");
+                    break;
+            }
+            return parsed_business_criticality;
+        }
+
+        public static BusinessCriticalityType Convert(string business_criticality)
+        {
+            BusinessCriticalityType parsed_business_criticality;
+            switch (business_criticality)
+            {
+                case "Very High":
+                    parsed_business_criticality = BusinessCriticalityType.VeryHigh;
+                    break;
+                case "Very Low":
+                    parsed_business_criticality = BusinessCriticalityType.VeryLow;
+                    break;
+                default:
+                    parsed_business_criticality = (BusinessCriticalityType)Enum.Parse(typeof(BusinessCriticalityType), business_criticality);
                     break;
             }
             return parsed_business_criticality;
