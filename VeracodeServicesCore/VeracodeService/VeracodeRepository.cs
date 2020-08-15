@@ -21,6 +21,7 @@ namespace VeracodeService
         appinfo GetAppDetail(string appId);
         IEnumerable<SandboxType> GetSandboxesForApp(string appId);
         buildinfo GetBuildDetail(string appId, string buildId);
+        buildinfo GetLatestcan(string appId);
         IEnumerable<FileListFileType> GetFilesForBuild(string appId, string buildId);
         IEnumerable<ModuleType> GetModules(string appId, string buildId);
         detailedreport GetDetailedReport(string buildId);
@@ -499,6 +500,16 @@ namespace VeracodeService
                 finding_rules = policy.finding_rules
             };
             return _policyClient.Create(sendPolicy).Result;
+        }
+
+        public buildinfo GetLatestcan(string appId)
+        {
+            var xml = _wrapper.GetBuildInfo(appId, null);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<buildinfo>(xml);
         }
     }
 }

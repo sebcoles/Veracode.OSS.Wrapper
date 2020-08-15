@@ -177,17 +177,18 @@ namespace VeracodeService
 
         public string GetBuildInfo(string app_id, string build_Id)
         {
-            if (build_Id == null)
-                throw new ArgumentException(build_Id);
-
             if (app_id == null)
                 throw new ArgumentException(app_id);
 
             var nameValueCollection = new NameValueCollection
             {
-                { nameof(app_id), app_id },
-                { nameof(build_Id), build_Id },
+                { nameof(app_id), app_id }
             };
+
+            if (build_Id != null)
+                nameValueCollection.Add(new NameValueCollection{
+                    { nameof(build_Id), build_Id }
+                });
 
             return _httpService.Get(VeracodeEndpoints.GET_BUILD_INFO, nameValueCollection);
         }

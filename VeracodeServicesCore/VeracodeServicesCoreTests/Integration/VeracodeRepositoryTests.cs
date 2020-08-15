@@ -70,6 +70,14 @@ namespace VeracodeServicesCoreTests.Integration
         }
 
         [Test]
+        public void GetLatestBuildForApp()
+        {
+            var result = _repo.GetLatestcan(testData.AppId);
+            Assert.IsNotNull(result);
+        }
+
+
+        [Test]
         public void GetAllMitigationsForBuild()
         {
             var result = _repo.GetAllMitigationsForBuild(testData.BuildId);
