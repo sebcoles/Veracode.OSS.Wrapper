@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -11,7 +12,15 @@ namespace VeracodeService
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             using var reader = new StringReader(xml);
-            return (T)serializer.Deserialize(reader);
+            T item;
+            try
+            {
+                item = (T)serializer.Deserialize(reader);
+            } catch(Exception e)
+            {
+                throw new Exception($"{e.Message} using xml payload {xml}");
+            }
+            return item;
         }
 
         public static string GetDecodedXmlResponse(string xmlString, bool indentXml)
@@ -21,10 +30,12 @@ namespace VeracodeService
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlString);
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = indentXml;
-            settings.Encoding = new UTF8Encoding(false);
-            settings.ConformanceLevel = ConformanceLevel.Document;
+            XmlWriterSettings settings = new XmlWriterSettings
+            {
+                Indent = indentXml,
+                Encoding = new UTF8Encoding(false),
+                ConformanceLevel = ConformanceLevel.Document
+            };
 
             using (var writer = new StringWriterWithEncoding(Encoding.UTF8))
             {

@@ -216,9 +216,11 @@ namespace VeracodeService
             if (app_name == null)
                 throw new ArgumentException(app_name);
 
-            var nameValueCollection = new NameValueCollection();
-            nameValueCollection.Add(nameof(app_name), app_name);
-            nameValueCollection.Add(nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality));
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_name), app_name },
+                { nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality) }
+            };
 
             if (!string.IsNullOrWhiteSpace(policy))
                 nameValueCollection.Add(new NameValueCollection { { nameof(policy), policy } });
