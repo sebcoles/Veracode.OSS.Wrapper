@@ -35,6 +35,7 @@ namespace VeracodeService
         buildlist DeleteBuild(string app_id, string sandbox_id = "");
         string[] GetUsers();
         teamlistTeam[] GetTeams();
+        teaminfo GetTeamInfo(string team_id, bool include_users = false, bool include_applications = false);
         string[] DeleteUser(string username);
         teamlistTeam[] DeleteTeam(string team_id);
         LoginAccount CreateUser(LoginAccount user, Roles[] roles);
@@ -356,6 +357,16 @@ namespace VeracodeService
                 return new teamlistTeam[0];
 
             return XmlParseHelper.Parse<teamlist>(xml).team;
+        }
+
+        public teaminfo GetTeamInfo(string team_id, bool include_users = false, bool include_applications = false)
+        {
+            var xml = _wrapper.GetTeamInfo(team_id, include_users, include_applications);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<teaminfo>(xml);
         }
 
         public string[] DeleteUser(string username)

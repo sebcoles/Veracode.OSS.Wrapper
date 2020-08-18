@@ -255,35 +255,49 @@ namespace VeracodeServicesCoreTests.Integration
         [Test]
         public void Create_Update_Delete_Team()
         {
+            var team_name = testData.NewTeamName + _rand.Next(99999);
             var team = new teaminfo
             {
-                team_name = testData.NewTeamName
+                team_name = team_name
             };
 
-            _repo.CreateTeam(team);
+            var newTeam = _repo.CreateTeam(team);
 
-            var retrievedTeam = _repo.GetTeams()
-                .SingleOrDefault(x => x.team_name.Equals(testData.NewTeamName));
+            var user = new LoginAccount
+            {
+                first_name = testData.NewFirstName,
+                last_name = testData.NewLastName,
+                email_address = testData.NewUserEmail,
+                teams = team_name
+            };
+            var role = testData.NewUserRoles
+                .Select(x => (Roles)x).ToArray();
+
+            var newUser = _repo.CreateUser(user, role);
+
+            var retrievedTeam = _repo.GetTeamInfo(newTeam.team_id, true, false);
 
             Assert.IsNotNull(retrievedTeam);
-
-            retrievedTeam.team_name = testData.UpdatedTeamName;
+            
+            team_name = testData.UpdatedTeamName + _rand.Next(99999);
+            retrievedTeam.team_name = team_name;
 
             var teaminfo = new teaminfo
             {
-                team_id = retrievedTeam.team_id,
+                team_id = newTeam.team_id,
                 team_name = retrievedTeam.team_name
             };
 
             var checkTeam = _repo.UpdateTeam(teaminfo);
-            Assert.AreEqual(checkTeam.team_name, testData.UpdatedTeamName);
+            Assert.AreEqual(checkTeam.team_name, team_name);
 
             _repo.DeleteTeam(checkTeam.team_id);
+            _repo.DeleteUser(newUser.email_address);
 
-            retrievedTeam = _repo.GetTeams()
-                .SingleOrDefault(x => x.team_name.Equals(testData.UpdatedTeamName));
+            var teams = _repo.GetTeams()
+                .SingleOrDefault(x => x.team_name.Equals(team_name));
 
-            Assert.IsNull(retrievedTeam);
+            Assert.IsNull(teams);
         }
 
         [Test]

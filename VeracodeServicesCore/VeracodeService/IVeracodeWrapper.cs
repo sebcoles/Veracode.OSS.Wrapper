@@ -29,6 +29,7 @@ namespace VeracodeService
         string UpdateTeam(string team_id, string team_name);
         string UpdateUser(string username, string first_name, string last_name, string email_address, string roles, string teams);
         string GetTeamList();
+        string GetTeamInfo(string team_id, bool include_users, bool include_applications);
         string GetUserList();
         string CreateTeam(string team_name);
         string CreateUser(string first_name, string last_name, string email_address, string roles, string teams);
@@ -234,7 +235,7 @@ namespace VeracodeService
         public string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email)
         {
             if (app_name == null)
-                throw new ArgumentException(app_name);            
+                throw new ArgumentException(app_name);
 
             var nameValueCollection = new NameValueCollection
             {
@@ -258,7 +259,7 @@ namespace VeracodeService
         }
 
         public string DeleteApp(long app_id)
-        {            
+        {
             var nameValueCollection = new NameValueCollection
             {
                 { nameof(app_id), $"{app_id}" },
@@ -363,7 +364,7 @@ namespace VeracodeService
             return _httpService.Get(VeracodeEndpoints.UPDATE_TEAM, nameValueCollection);
         }
 
-        public string UpdateUser(string username, string first_name, string last_name, 
+        public string UpdateUser(string username, string first_name, string last_name,
             string email_address, string roles, string teams)
         {
             var nameValueCollection = new NameValueCollection
@@ -385,6 +386,18 @@ namespace VeracodeService
             return _httpService.Get(VeracodeEndpoints.GET_TEAM_LIST, nameValueCollection);
         }
 
+        public string GetTeamInfo(string team_id, bool include_users, bool include_applications)
+        {
+            var nameValueCollection = new NameValueCollection
+            { 
+                { nameof(team_id), $"{team_id}" },
+                { nameof(include_users), include_users ? "yes" : "no" },
+                { nameof(include_applications), include_applications ? "yes" : "no" }
+            };
+
+            return _httpService.Get(VeracodeEndpoints.GET_TEAM_INFO, nameValueCollection);
+        }
+
         public string GetUserList()
         {
             var nameValueCollection = new NameValueCollection();
@@ -397,7 +410,7 @@ namespace VeracodeService
             {
                 { nameof(username), username }
             };
-            
+
             return _httpService.Get(VeracodeEndpoints.GET_USER_INFO, nameValueCollection);
         }
 

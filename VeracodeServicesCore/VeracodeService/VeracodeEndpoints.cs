@@ -35,5 +35,6 @@ namespace VeracodeService
         public static string GET_USER_INFO = "/api/3.0/getuserinfo.do";
         public static string START_PRESCAN = "/api/3.0/beginprescan.do";
         public static string START_SCAN = "/api/5.0/beginscan.do";
+        public static string GET_TEAM_INFO = "/api/3.0/getteaminfo.do";
     }
 }
