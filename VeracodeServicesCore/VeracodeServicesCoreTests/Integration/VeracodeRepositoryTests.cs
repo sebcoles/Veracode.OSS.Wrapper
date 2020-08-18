@@ -90,7 +90,9 @@ namespace VeracodeServicesCoreTests.Integration
             var newApp = new ApplicationType
             {
                 app_name = testData.NewAppName + _rand.Next(99999),
-                business_criticality = testData.NewAppCriticality
+                business_criticality = testData.NewAppCriticality,
+                business_owner = "Jammy Jam",
+                business_owner_email = "jam@jam.com",
             };
             var result = _repo.CreateApp(newApp);
             Assert.IsNotNull(result);
@@ -330,14 +332,14 @@ namespace VeracodeServicesCoreTests.Integration
         public void GetSandboxesForApp()
         {
             var result = _repo.GetSandboxesForApp(testData.AppId);
-            Assert.IsNotEmpty(result);
+            Assert.IsNotNull(result);
         }
 
         [Test]
         public void GetSeverity()
         {
             var result = _repo.GetSeverity(testData.BuildId);
-            Assert.IsNotEmpty(result);
+            Assert.IsNotNull(result);
         }
 
         [Test]

@@ -91,7 +91,11 @@ namespace VeracodeService.Http
         public string Get(string path, NameValueCollection queryParams)
         {
             var webClient = new WebClient { BaseAddress = $"https://{_base}" };
-            var queryString = ToQueryString(queryParams);
+            
+            var queryString = "";
+            if (queryParams.Count > 0)
+                queryString = ToQueryString(queryParams);
+
             var hmacRequest = new HmacRequest
             {
                 ApiId = _apiId,
@@ -110,7 +114,11 @@ namespace VeracodeService.Http
         public string PostFile(string path, NameValueCollection queryParams, string filepath)
         {
             var webClient = new WebClient { BaseAddress = $"https://{_base}" };
-            var queryString = ToQueryString(queryParams);
+
+            var queryString = "";
+            if (queryParams.Count > 0)
+                queryString = ToQueryString(queryParams);
+
             var hmacRequest = new HmacRequest
             {
                 ApiId = _apiId,
@@ -135,10 +143,7 @@ namespace VeracodeService.Http
                 from key in nvc.AllKeys
                 from value in nvc.GetValues(key)
                 select string.Format(
-            "{0}={1}",
-            key,
-            HttpUtility.UrlEncode(value, Encoding.GetEncoding("ISO-8859-1")))
-                ).ToArray();
+            "{0}={1}", key, HttpUtility.UrlEncode(value))).ToArray();
             return "?" + string.Join("&", array);
         }
     }

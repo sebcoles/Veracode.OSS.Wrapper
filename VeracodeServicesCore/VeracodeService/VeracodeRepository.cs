@@ -191,7 +191,7 @@ namespace VeracodeService
             if (string.IsNullOrWhiteSpace(xml))
                 return new SandboxType[0];
 
-            return XmlParseHelper.Parse<sandboxlist>(xml).sandbox;
+            return XmlParseHelper.Parse<sandboxlist>(xml).sandbox ?? new SandboxType[0];
         }
 
         public IEnumerable<FileListFileType> GetFilesForBuild(string appId, string buildId)
@@ -246,7 +246,12 @@ namespace VeracodeService
 
         public ApplicationType CreateApp(ApplicationType newApp)
         {
-            var xml = _wrapper.NewApp(newApp.app_name, newApp.business_criticality);
+            var xml = _wrapper.NewApp(
+                newApp.app_name, 
+                newApp.business_criticality,
+                newApp.policy,
+                newApp.business_owner,
+                newApp.business_owner_email);
 
             if (string.IsNullOrWhiteSpace(xml))
                 return null;
@@ -255,7 +260,7 @@ namespace VeracodeService
             if (appinfo.application.Count() == 0)
                 return null;
 
-            return XmlParseHelper.Parse<appinfo>(xml).application[0];
+            return appinfo.application[0];
         }
 
         public ApplicationType UpdateApp(ApplicationType app)
@@ -263,7 +268,10 @@ namespace VeracodeService
             var xml = _wrapper.UpdateApp(
                 app.app_id,
                 app.app_name,
-                app.business_criticality);
+                app.business_criticality,
+                app.policy,
+                app.business_owner,
+                app.business_owner_email);
 
             if (string.IsNullOrWhiteSpace(xml))
                 return null;

@@ -11,7 +11,7 @@ namespace VeracodeService
     {
         string GetAppList();
         string GetAppInfo(string app_id);
-        string NewApp(string app_name, BusinessCriticalityType business_criticality);
+        string NewApp(string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email);
         string GetBuildInfo(string app_id, string build_Id);
         string GetBuildList(string app_id);
         string GetBuildListForSandbox(string app_id, string sandboxId);
@@ -21,7 +21,7 @@ namespace VeracodeService
         string GetDetailedResults(string buildId);
         string GetMitigationInfo(string build_id, string flaw_id_list);
         string GetCallStack(string build_id, string flaw_id);
-        string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality);
+        string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email);
         string DeleteApp(long app_id);
         string NewBuild(string app_id, string version);
         string UpdateBuild(string app_id, long build_id, string version);
@@ -210,21 +210,28 @@ namespace VeracodeService
             return _httpService.Get(VeracodeEndpoints.GET_CALL_STACKS, nameValueCollection);
         }
 
-        public string NewApp(string app_name, BusinessCriticalityType business_criticality)
+        public string NewApp(string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email)
         {
             if (app_name == null)
                 throw new ArgumentException(app_name);
 
-            var nameValueCollection = new NameValueCollection
-            {
-                { nameof(app_name), app_name },
-                { nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality)}
-            };
+            var nameValueCollection = new NameValueCollection();
+            nameValueCollection.Add(nameof(app_name), app_name);
+            nameValueCollection.Add(nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality));
+
+            if (!string.IsNullOrWhiteSpace(policy))
+                nameValueCollection.Add(new NameValueCollection { { nameof(policy), policy } });
+
+            if (!string.IsNullOrWhiteSpace(business_owner))
+                nameValueCollection.Add(new NameValueCollection { { nameof(business_owner), business_owner } });
+
+            if (!string.IsNullOrWhiteSpace(business_owner_email))
+                nameValueCollection.Add(new NameValueCollection { { nameof(business_owner_email), business_owner_email } });
 
             return _httpService.Get(VeracodeEndpoints.CREATE_APP, nameValueCollection);
         }
 
-        public string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality)
+        public string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email)
         {
             if (app_name == null)
                 throw new ArgumentException(app_name);            
@@ -235,6 +242,17 @@ namespace VeracodeService
                 { nameof(app_name), app_name },
                 { nameof(business_criticality), VeracodeEnumConverter.Convert(business_criticality)}
             };
+
+
+            if (!string.IsNullOrWhiteSpace(policy))
+                nameValueCollection.Add(new NameValueCollection { { nameof(policy), policy } });
+
+            if (!string.IsNullOrWhiteSpace(business_owner))
+                nameValueCollection.Add(new NameValueCollection { { nameof(business_owner), business_owner } });
+
+            if (!string.IsNullOrWhiteSpace(business_owner_email))
+                nameValueCollection.Add(new NameValueCollection { { nameof(business_owner_email), business_owner_email } });
+
 
             return _httpService.Get(VeracodeEndpoints.UPDATE_APP, nameValueCollection);
         }
