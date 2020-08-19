@@ -6,6 +6,23 @@ using System.Xml.Serialization;
 
 namespace VeracodeService
 {
+    public class XmlParseError : Exception
+    {
+        public XmlParseError()
+        {
+        }
+
+        public XmlParseError(string message)
+            : base(message)
+        {
+        }
+
+        public XmlParseError(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+    }
+
     public static class XmlParseHelper
     {
         public static T Parse<T>(string xml)
@@ -16,9 +33,19 @@ namespace VeracodeService
             try
             {
                 item = (T)serializer.Deserialize(reader);
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
-                throw new Exception($"{e.Message} using xml payload {xml}");
+
+                xml = xml.ToLower();
+                if (xml.Contains("<error>"))
+                {
+                    var start = xml.IndexOf("<error>")+"<error>".Length;
+                    var end = xml.IndexOf("</error>");
+                    throw new XmlParseError(xml.Substring(start, end - start));
+                }
+                throw new Exception($"{e.Message} exploded with payload {xml}");
+
             }
             return item;
         }
@@ -55,7 +82,7 @@ namespace VeracodeService
             {
                 get
                 {
-                    return this.encoding;
+                    return encoding;
                 }
             }
 

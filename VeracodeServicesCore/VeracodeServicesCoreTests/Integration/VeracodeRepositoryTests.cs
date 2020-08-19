@@ -307,6 +307,14 @@ namespace VeracodeServicesCoreTests.Integration
             Assert.IsNotNull(result);
         }
 
+
+        [Test]
+        public void XMLParseErrorOnInvalidPayload()
+        {
+            var ex = Assert.Throws<XmlParseError>(() => _repo.GetAppDetail("JAM!"));
+            Assert.AreEqual("no app_id parameter specified", ex.Message);
+        }
+
         [Test]
         public void GetBuildDetail()
         {

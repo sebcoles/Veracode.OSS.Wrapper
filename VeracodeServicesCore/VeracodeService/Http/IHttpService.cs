@@ -76,7 +76,7 @@ namespace VeracodeService.Http
                 Url = path// + queryString
             };
             var request = new HttpRequestMessage
-            {                
+            {
                 Method = new HttpMethod(method),
                 RequestUri = new Uri($"https://{_restBase}{path}{queryString}", UriKind.Absolute)
             };
@@ -91,7 +91,7 @@ namespace VeracodeService.Http
         public string Get(string path, NameValueCollection queryParams)
         {
             var webClient = new WebClient { BaseAddress = $"https://{_base}" };
-            
+
             var queryString = "";
             if (queryParams.Count > 0)
                 queryString = ToQueryString(queryParams);
@@ -137,14 +137,7 @@ namespace VeracodeService.Http
             return XmlParseHelper.GetDecodedXmlResponse(responseString, true);
         }
 
-        private string ToQueryString(NameValueCollection nvc)
-        {
-            var array = (
-                from key in nvc.AllKeys
-                from value in nvc.GetValues(key)
-                select string.Format(
-            "{0}={1}", key, HttpUtility.UrlEncode(value))).ToArray();
-            return "?" + string.Join("&", array);
-        }
+        private string ToQueryString(NameValueCollection nvc) =>
+            $"?" + string.Join("&", nvc.AllKeys.Select(key => $"{key}={HttpUtility.UrlEncode(nvc.GetValues(key).First())}").ToArray());
     }
 }
