@@ -44,7 +44,7 @@ namespace VeracodeService.Models
 	public class Callstacks
 	{
 		[XmlElement(ElementName = "callstack", Namespace = "https://analysiscenter.veracode.com/schema/2.0/callstacks")]
-		public Callstack Callstack { get; set; }
+		public Callstack[] Callstack { get; set; }
 		[XmlAttribute(AttributeName = "xsi", Namespace = "http://www.w3.org/2000/xmlns/")]
 		public string Xsi { get; set; }
 		[XmlAttribute(AttributeName = "xmlns")]
