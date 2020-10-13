@@ -176,7 +176,7 @@ namespace VeracodeService
             return _httpService.Get(VeracodeEndpoints.GET_SANDBOX_LIST, nameValueCollection);
         }
 
-        public string GetBuildInfo(string app_id, string build_Id)
+        public string GetBuildInfo(string app_id, string build_id)
         {
             if (app_id == null)
                 throw new ArgumentException(app_id);
@@ -186,9 +186,9 @@ namespace VeracodeService
                 { nameof(app_id), app_id }
             };
 
-            if (build_Id != null)
+            if (build_id != null)
                 nameValueCollection.Add(new NameValueCollection{
-                    { nameof(build_Id), build_Id }
+                    { nameof(build_id), build_id }
                 });
 
             return _httpService.Get(VeracodeEndpoints.GET_BUILD_INFO, nameValueCollection);

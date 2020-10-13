@@ -320,6 +320,7 @@ namespace VeracodeServicesCoreTests.Integration
         {
             var result = _repo.GetBuildDetail(testData.AppId, testData.BuildId);
             Assert.IsNotNull(result);
+            Assert.AreEqual($"{result.build_id}", testData.BuildId);
         }
 
         [Test]
