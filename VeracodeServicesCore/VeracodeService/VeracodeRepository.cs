@@ -32,7 +32,7 @@ namespace VeracodeService
         Callstacks GetCallStacks(string buildId, string flawId);
         BuildInfoBuildType CreateBuild(string app_id, BuildInfoBuildType build);
         BuildInfoBuildType UpdateBuild(string app_id, BuildInfoBuildType build);
-        buildlist DeleteBuild(string app_id, string sandbox_id = "");
+        deletebuildresult DeleteBuild(string app_id, string sandbox_id = "");
         string[] GetUsers();
         teamlistTeam[] GetTeams();
         teaminfo GetTeamInfo(string team_id, bool include_users = false, bool include_applications = false);
@@ -325,14 +325,14 @@ namespace VeracodeService
             return XmlParseHelper.Parse<buildinfo>(xml).build;
         }
 
-        public buildlist DeleteBuild(string app_id, string sandbox_id)
+        public deletebuildresult DeleteBuild(string app_id, string sandbox_id)
         {
             var xml = _wrapper.DeleteBuild(app_id, sandbox_id);
 
             if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
-            return XmlParseHelper.Parse<buildlist>(xml);
+            return XmlParseHelper.Parse<deletebuildresult>(xml);
         }
 
         public string[] GetUsers()
