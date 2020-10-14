@@ -429,13 +429,10 @@ namespace VeracodeService
 
         public string StartPrescan(string app_id)
         {
-            var autoscan = false;
-            var scan_all_nonfatal_top_level_modules = false;
             var nameValueCollection = new NameValueCollection
             {
                 { nameof(app_id), app_id },
-                { nameof(autoscan), $"{autoscan}" },
-                { nameof(scan_all_nonfatal_top_level_modules), $"{scan_all_nonfatal_top_level_modules}" }
+                { "auto_scan", "false" }
             };
 
             return _httpService.Get(VeracodeEndpoints.START_PRESCAN, nameValueCollection);

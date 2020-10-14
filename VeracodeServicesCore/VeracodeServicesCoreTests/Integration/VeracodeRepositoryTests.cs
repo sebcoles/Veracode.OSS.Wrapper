@@ -188,12 +188,12 @@ namespace VeracodeServicesCoreTests.Integration
             while (buildFinished == BuildStatusType.PreScanSubmitted)
             {
                 buildFinished = _repo
-                    .GetBuildDetail($"{app.app_id}", $"{buildinfo.Build_id}")
+                    .GetBuildDetail($"{app.app_id}", $"{buildinfo.build_id}")
                     .build.analysis_unit[0].status;
                 Thread.Sleep(30000);
             }
 
-            var modules = _repo.GetModules($"{app.app_id}", $"{buildinfo.Build_id}");
+            var modules = _repo.GetModules($"{app.app_id}", $"{buildinfo.build_id}");
             var scannableModuleIds = modules.Where(x => !x.has_fatal_errors).Select(x => x.id).ToArray();
             var scaninfo = _repo.StartScan($"{app.app_id}", string.Join(",", scannableModuleIds));
 
@@ -201,7 +201,7 @@ namespace VeracodeServicesCoreTests.Integration
             while (buildFinished == BuildStatusType.ScanInProcess)
             {
                 buildFinished = _repo
-                    .GetBuildDetail($"{app.app_id}", $"{buildinfo.Build_id}")
+                    .GetBuildDetail($"{app.app_id}", $"{buildinfo.build_id}")
                     .build.analysis_unit[0].status;
                 Thread.Sleep(30000);
             }

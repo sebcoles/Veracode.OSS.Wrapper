@@ -16,7 +16,7 @@ namespace VeracodeService
         IEnumerable<AppType> GetAllApps();
         ApplicationType CreateApp(ApplicationType app);
         ApplicationType UpdateApp(ApplicationType app);
-        applist DeleteApp(ApplicationType app);
+        deleteapp DeleteApp(ApplicationType app);
         IEnumerable<BuildType> GetAllBuildsForApp(string appId);
         appinfo GetAppDetail(string appId);
         IEnumerable<SandboxType> GetSandboxesForApp(string appId);
@@ -36,15 +36,15 @@ namespace VeracodeService
         string[] GetUsers();
         teamlistTeam[] GetTeams();
         teaminfo GetTeamInfo(string team_id, bool include_users = false, bool include_applications = false);
-        string[] DeleteUser(string username);
-        teamlistTeam[] DeleteTeam(string team_id);
+        deleteuserresult DeleteUser(string username);
+        deleteteamresult DeleteTeam(string team_id);
         LoginAccount CreateUser(LoginAccount user, Roles[] roles);
         teaminfo CreateTeam(teaminfo team);
         LoginAccount UpdateUser(LoginAccount user, Roles[] roles);
         teaminfo UpdateTeam(teaminfo team);
         LoginAccount GetUser(string username);
         FileListFileType[] UploadFileForPrescan(string app_id, string filepath);
-        PrescanBuildinfo StartPrescan(string app_id);
+        buildinfo StartPrescan(string app_id);
         buildinfo StartScan(string app_id, string modules);
         PolicyVersion[] GetPolicies();
         PolicyVersion[] DeletePolicy(string policyGuid);
@@ -284,14 +284,14 @@ namespace VeracodeService
             return XmlParseHelper.Parse<appinfo>(xml).application[0];
         }
 
-        public applist DeleteApp(ApplicationType app)
+        public deleteapp DeleteApp(ApplicationType app)
         {
             var xml = _wrapper.DeleteApp(app.app_id);
 
             if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
-            return XmlParseHelper.Parse<applist>(xml);
+            return XmlParseHelper.Parse<deleteapp>(xml);
         }
 
         public BuildInfoBuildType CreateBuild(string app_id, BuildInfoBuildType build)
@@ -369,28 +369,16 @@ namespace VeracodeService
             return XmlParseHelper.Parse<teaminfo>(xml);
         }
 
-        public string[] DeleteUser(string username)
+        public deleteuserresult DeleteUser(string username)
         {
             var xml = _wrapper.DeleteUser(username);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return new string[0];
-
-            var userlist = XmlParseHelper.Parse<userlist>(xml);
-            if (userlist.users == null || string.IsNullOrWhiteSpace(userlist.users.usernames))
-                return new string[0];
-
-            return userlist.users.usernames.Split(",");
+            return XmlParseHelper.Parse<deleteuserresult>(xml);
         }
 
-        public teamlistTeam[] DeleteTeam(string team_id)
+        public deleteteamresult DeleteTeam(string team_id)
         {
             var xml = _wrapper.DeleteTeam(team_id);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return new teamlistTeam[0];
-
-            return XmlParseHelper.Parse<teamlist>(xml).team;
+            return XmlParseHelper.Parse<deleteteamresult>(xml);
         }
 
         public LoginAccount CreateUser(LoginAccount user, Roles[] roles)
@@ -458,14 +446,14 @@ namespace VeracodeService
             return XmlParseHelper.Parse<filelist>(xml).file;
         }
 
-        public PrescanBuildinfo StartPrescan(string app_id)
+        public buildinfo StartPrescan(string app_id)
         {
             var xml = _wrapper.StartPrescan(app_id);
 
             if (string.IsNullOrWhiteSpace(xml))
                 return null;
 
-            return XmlParseHelper.Parse<PrescanBuildinfo>(xml);
+            return XmlParseHelper.Parse<buildinfo>(xml);
         }
 
         public buildinfo StartScan(string app_id, string modules)
