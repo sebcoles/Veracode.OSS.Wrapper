@@ -20,6 +20,7 @@ namespace VeracodeService
         string GetSandboxes(string app_id);
         string GetDetailedResults(string buildId);
         string GetMitigationInfo(string build_id, string flaw_id_list);
+        string UpdateMitigationInfo(string build_id, string action, string comment, string flaw_id_list);
         string GetCallStack(string build_id, string flaw_id);
         string UpdateApp(long app_id, string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email);
         string DeleteApp(long app_id);
@@ -447,6 +448,19 @@ namespace VeracodeService
             };
 
             return _httpService.Get(VeracodeEndpoints.START_SCAN, nameValueCollection);
+        }
+
+        public string UpdateMitigationInfo(string build_id, string action, string comment, string flaw_id_list)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(build_id), build_id },
+                { nameof(action), action },
+                { nameof(comment), comment },
+                { nameof(flaw_id_list), flaw_id_list }
+            };
+
+            return _httpService.Get(VeracodeEndpoints.UPDATE_MITIGATION_INFO, nameValueCollection);
         }
     }
 }

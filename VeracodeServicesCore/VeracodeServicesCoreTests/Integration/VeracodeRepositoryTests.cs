@@ -85,6 +85,43 @@ namespace VeracodeServicesCoreTests.Integration
         }
 
         [Test]
+        public void ApproveAMitigation()
+        {
+            var originalFlaw = _repo.GetFlaws(testData.BuildId)
+                .SingleOrDefault(x=>x.issueid == testData.MitigationFlawId);
+
+            var mitigationCount = _repo
+                .GetMitigationForFlaw(testData.BuildId, testData.MitigationFlawId)
+                .SingleOrDefault().mitigation_action.Count(); 
+
+            var seed = _rand.Next(100000);
+            var comment1 = testData.MitigationComment1 + seed;
+            var comment2 = testData.MitigationComment2 + seed;
+
+            _repo.UpdateMitigations(testData.BuildId, "rejected",
+                    "Flaw needs rejected before test", testData.MitigationFlawId);
+
+            _repo.UpdateMitigations(testData.BuildId, testData.MitigationAction,
+                comment1, testData.MitigationFlawId);
+
+            _repo.UpdateMitigations(testData.BuildId, testData.MitigationActionApproved,
+                comment2, testData.MitigationFlawId);
+
+            var mitigationUpdated = _repo
+                .GetMitigationForFlaw(testData.BuildId, testData.MitigationFlawId)
+                .SingleOrDefault();
+
+            Assert.IsTrue(mitigationUpdated
+                .mitigation_action.Any(x => x.comment == comment1));
+
+            Assert.IsTrue(mitigationUpdated
+                .mitigation_action.Any(x => x.comment == comment2));
+
+            Assert.AreEqual(mitigationCount+3, 
+                mitigationUpdated.mitigation_action.Count());
+        }
+
+        [Test]
         public void Create_Update_Delete_App()
         {
             var newApp = new ApplicationType

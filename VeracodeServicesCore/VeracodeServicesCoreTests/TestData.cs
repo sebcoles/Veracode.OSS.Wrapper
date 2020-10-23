@@ -40,5 +40,10 @@ namespace VeracodeServicesCoreTests
         public string Policytype { get; set; }
         public bool Policyvendor_policy { get; set; }
         public string Policynameupdated { get; set; }
+        public string MitigationFlawId { get; set; }
+        public string MitigationAction { get; set; }
+        public string MitigationActionApproved { get; set; }
+        public string MitigationComment1 { get; set; }
+        public string MitigationComment2 { get; set; }
     }
 }

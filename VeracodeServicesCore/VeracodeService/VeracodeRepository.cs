@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace VeracodeService
         IEnumerable<ModuleType> GetModules(string appId, string buildId);
         detailedreport GetDetailedReport(string buildId);
         MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildIds);
+        MitigationInfoIssueType[] GetMitigationForFlaw(string build_id, string flaw_id);
+        mitigationinfo UpdateMitigations(string build_id, string action, string comment, string flaw_id_list);
         FlawType[] GetFlaws(string buildId);
         SeverityType[] GetSeverity(string buildId);
         DetailedReportModuleType[] GetEntryPoints(string buildId);
@@ -517,6 +520,34 @@ namespace VeracodeService
                 return null;
 
             return XmlParseHelper.Parse<buildinfo>(xml);
+        }
+
+        public mitigationinfo UpdateMitigations(string build_id, string action, string comment, string flaw_id_list)
+        {
+            action = action.ToLower();
+            var acceptedActions = new[] { "comment", "fp", "appdesign", "osenv", "netenv", "rejected", "accepted" };
+            if (!acceptedActions.Contains(action))
+                throw new ArgumentException("Action must be either \"comment\", \"fp\", \"appdesign\", \"osenv\", \"netenv\", \"rejected\", \"accepted\"");
+
+            var xml = _wrapper.UpdateMitigationInfo(build_id, action, comment, flaw_id_list);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            return XmlParseHelper.Parse<mitigationinfo>(xml);
+        }
+
+        public MitigationInfoIssueType[] GetMitigationForFlaw(string build_id, string flaw_id)
+        {
+            var xml = _wrapper.GetMitigationInfo(build_id, flaw_id);
+
+            if (string.IsNullOrWhiteSpace(xml))
+                return null;
+
+            var issueType = XmlParseHelper.Parse<mitigationinfo>(xml);
+            return issueType.issue
+                .Where(x => x.mitigation_action.Any())
+                .ToArray();
         }
     }
 }
