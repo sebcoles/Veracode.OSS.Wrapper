@@ -45,5 +45,6 @@ namespace VeracodeServicesCoreTests
         public string MitigationActionApproved { get; set; }
         public string MitigationComment1 { get; set; }
         public string MitigationComment2 { get; set; }
+        public string SandboxName { get; set; }
     }
 }

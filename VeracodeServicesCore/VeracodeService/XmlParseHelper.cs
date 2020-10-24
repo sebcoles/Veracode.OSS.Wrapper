@@ -27,6 +27,9 @@ namespace VeracodeService
     {
         public static T Parse<T>(string xml)
         {
+            if (string.IsNullOrWhiteSpace(xml))
+                return default;
+
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             using var reader = new StringReader(xml);
             T item;
@@ -54,7 +57,7 @@ namespace VeracodeService
         {
             string response = string.Empty;
 
-            var xmlDocument = new XmlDocument();
+            var xmlDocument = new XmlDocument { XmlResolver = null };
             xmlDocument.LoadXml(xmlString);
 
             XmlWriterSettings settings = new XmlWriterSettings

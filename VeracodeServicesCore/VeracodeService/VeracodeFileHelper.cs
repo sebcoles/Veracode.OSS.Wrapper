@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using VeracodeService.Configuration;
 
 namespace VeracodeService
@@ -9,7 +10,11 @@ namespace VeracodeService
         {
             string apikey = "", apiId = "";
             var filePath = Environment.ExpandEnvironmentVariables(filelocation);
-            using (var file = new System.IO.StreamReader(filePath))
+
+            if (!File.Exists(filePath))
+                throw new ArgumentException("The veracode credential file provided is invalid.");
+
+            using (var file = new StreamReader(filePath))
             {
                 string line;
                 while ((line = file.ReadLine()) != null)
@@ -21,6 +26,9 @@ namespace VeracodeService
                         apikey = line.Replace(" ", "").Substring(24);
                 }
             }
+
+            if (string.IsNullOrWhiteSpace(apiId) || string.IsNullOrWhiteSpace(apikey))
+                throw new ArgumentException("The veracode credential file provided is invalid.");
 
             return new VeracodeConfiguration
             {

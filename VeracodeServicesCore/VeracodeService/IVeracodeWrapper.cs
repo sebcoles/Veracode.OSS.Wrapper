@@ -40,6 +40,9 @@ namespace VeracodeService
         string UploadFileForPrescan(string app_id, string filepath, string filename);
         string StartPrescan(string app_id);
         string StartScan(string app_id, string modules);
+        string CreateSandbox(string app_id, string sandbox_name);
+        string PromoteSandbox(string build_id);
+        string DeleteSandbox(string sandbox_id);
     }
 
     public class VeracodeWrapper : IVeracodeWrapper
@@ -461,6 +464,37 @@ namespace VeracodeService
             };
 
             return _httpService.Get(VeracodeEndpoints.UPDATE_MITIGATION_INFO, nameValueCollection);
+        }
+
+        public string CreateSandbox(string app_id, string sandbox_name)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(app_id), app_id },
+                { nameof(sandbox_name), sandbox_name }
+            };
+
+            return _httpService.Get(VeracodeEndpoints.CREATE_SANDBOX, nameValueCollection);
+        }
+
+        public string PromoteSandbox(string build_id)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(build_id), build_id }
+            };
+
+            return _httpService.Get(VeracodeEndpoints.PROMOTE_SANDBOX, nameValueCollection);
+        }
+
+        public string DeleteSandbox(string sandbox_id)
+        {
+            var nameValueCollection = new NameValueCollection
+            {
+                { nameof(sandbox_id), sandbox_id }
+            };
+
+            return _httpService.Get(VeracodeEndpoints.DELETE_SANDBOX, nameValueCollection);
         }
     }
 }

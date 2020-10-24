@@ -36,5 +36,9 @@ namespace VeracodeService
         public static string START_PRESCAN = "/api/5.0/beginprescan.do";
         public static string START_SCAN = "/api/5.0/beginscan.do";
         public static string GET_TEAM_INFO = "/api/3.0/getteaminfo.do";
+        public static string CREATE_SANDBOX = "/api/5.0/createsandbox.do";
+        public static string PROMOTE_SANDBOX = "/api/5.0/promotesandbox.do";
+        public static string UPDATE_SANDBOX = "/api/5.0/updatesandbox.do";
+        public static string DELETE_SANDBOX = "/api/5.0/deletesandbox.do";
     }
 }

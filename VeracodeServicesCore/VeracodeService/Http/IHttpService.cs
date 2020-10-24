@@ -73,7 +73,7 @@ namespace VeracodeService.Http
                 ApiKey = _apiKey,
                 HostName = _restBase,
                 HttpMethod = method,
-                Url = path// + queryString
+                Url = path
             };
             var request = new HttpRequestMessage
             {

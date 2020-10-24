@@ -449,5 +449,42 @@ namespace VeracodeServicesCoreTests.Integration
             var deleted = _repo.DeletePolicy(policy.guid).SingleOrDefault(x => x.name.Contains(testData.Policynameupdated));
             Assert.IsNull(deleted);
         }
+
+        [Test]
+        public void Create_Update_Delete_Sandbox()
+        {
+            var newApp = new ApplicationType
+            {
+                app_name = testData.NewAppName + _rand.Next(99999),
+                business_criticality = testData.NewAppCriticality,
+                business_owner = "Jammy Jam",
+                business_owner_email = "jam@jam.com",
+            };
+            var result = _repo.CreateApp(newApp);
+            Assert.IsNotNull(result);
+
+            var created = _repo.GetAllApps()
+                .Single(x => x.app_name == newApp.app_name);
+
+            Assert.IsNotNull(created);
+
+            _repo.CreateSandbox($"{created.app_id}", testData.SandboxName);
+
+            var sandboxes = _repo.GetSandboxesForApp($"{created.app_id}");
+            var newSandbox = sandboxes.FirstOrDefault(x => x.sandbox_name == testData.SandboxName);
+            Assert.IsNotNull(newSandbox);
+            _repo.DeleteSandbox($"{newSandbox.sandbox_id}");
+            newSandbox = sandboxes.FirstOrDefault(x => x.sandbox_name == testData.SandboxName);
+            Assert.IsNotNull(newSandbox);
+
+            _repo.DeleteApp(
+                new ApplicationType { app_id = created.app_id }
+            );
+
+            created = _repo.GetAllApps()
+                .SingleOrDefault(x => x.app_name == newApp.app_name);
+
+            Assert.IsNull(created);
+        }
     }
 }

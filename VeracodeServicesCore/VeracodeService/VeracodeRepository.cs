@@ -53,7 +53,9 @@ namespace VeracodeService
         PolicyVersion[] DeletePolicy(string policyGuid);
         PolicyVersion UpdatePolicy(PolicyVersion policy, string policyGuid);
         PolicyVersion CreatePolicy(PolicyVersion policy);
-
+        sandboxinfo CreateSandbox(string app_id, string sandbox_name);
+        deletesandboxresult DeleteSandbox(string sandbox_id);
+        sandboxinfo PromoteSandbox(string build_id);
     }
     public class VeracodeRepository : IVeracodeRepository
     {
@@ -73,12 +75,7 @@ namespace VeracodeService
         public IEnumerable<AppType> GetAllApps()
         {
             var xml = _wrapper.GetAppList();
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return new AppType[0];
-
-            var list = XmlParseHelper.Parse<applist>(xml);
-            return list.app;
+            return XmlParseHelper.Parse<applist>(xml).app ?? new AppType[0];
         }
 
         public IEnumerable<BuildType> GetAllBuildsForApp(string appId)
@@ -135,10 +132,6 @@ namespace VeracodeService
         public detailedreport GetDetailedReport(string buildId)
         {
             var xml = _wrapper.GetDetailedResults(buildId);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<detailedreport>(xml);
         }
 
@@ -191,20 +184,12 @@ namespace VeracodeService
         public IEnumerable<SandboxType> GetSandboxesForApp(string appId)
         {
             var xml = _wrapper.GetSandboxes(appId);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return new SandboxType[0];
-
             return XmlParseHelper.Parse<sandboxlist>(xml).sandbox ?? new SandboxType[0];
         }
 
         public IEnumerable<FileListFileType> GetFilesForBuild(string appId, string buildId)
         {
             var xml = _wrapper.GetFiles(appId, buildId);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return new FileListFileType[0];
-
             return XmlParseHelper.Parse<filelist>(xml).file ?? new FileListFileType[0]; ;
         }
 
@@ -221,30 +206,18 @@ namespace VeracodeService
         public appinfo GetAppDetail(string appId)
         {
             var xml = _wrapper.GetAppInfo(appId);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<appinfo>(xml);
         }
 
         public buildinfo GetBuildDetail(string appId, string buildId)
         {
             var xml = _wrapper.GetBuildInfo(appId, buildId);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<buildinfo>(xml);
         }
 
         public Callstacks GetCallStacks(string buildId, string flawId)
         {
             var xml = _wrapper.GetCallStack(buildId, flawId);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<Callstacks>(xml);
         }
 
@@ -290,25 +263,13 @@ namespace VeracodeService
         public deleteapp DeleteApp(ApplicationType app)
         {
             var xml = _wrapper.DeleteApp(app.app_id);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<deleteapp>(xml);
         }
 
         public BuildInfoBuildType CreateBuild(string app_id, BuildInfoBuildType build)
         {
             var xml = _wrapper.NewBuild(app_id, build.version);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
-            var appinfo = XmlParseHelper.Parse<buildinfo>(xml);
-            if (appinfo.build == null)
-                return null;
-
-            return XmlParseHelper.Parse<buildinfo>(xml).build;
+            return XmlParseHelper.Parse<buildinfo>(xml).build ?? null;
         }
 
         public BuildInfoBuildType UpdateBuild(string app_id, BuildInfoBuildType build)
@@ -318,23 +279,12 @@ namespace VeracodeService
                 build.build_id,
                 build.version);
 
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
-            var appinfo = XmlParseHelper.Parse<buildinfo>(xml);
-            if (appinfo.build == null)
-                return null;
-
-            return XmlParseHelper.Parse<buildinfo>(xml).build;
+            return XmlParseHelper.Parse<buildinfo>(xml).build ?? null;
         }
 
         public deletebuildresult DeleteBuild(string app_id, string sandbox_id)
         {
             var xml = _wrapper.DeleteBuild(app_id, sandbox_id);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<deletebuildresult>(xml);
         }
 
@@ -355,20 +305,12 @@ namespace VeracodeService
         public teamlistTeam[] GetTeams()
         {
             var xml = _wrapper.GetTeamList();
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return new teamlistTeam[0];
-
             return XmlParseHelper.Parse<teamlist>(xml).team;
         }
 
         public teaminfo GetTeamInfo(string team_id, bool include_users = false, bool include_applications = false)
         {
             var xml = _wrapper.GetTeamInfo(team_id, include_users, include_applications);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<teaminfo>(xml);
         }
 
@@ -390,19 +332,12 @@ namespace VeracodeService
             var xml = _wrapper.CreateUser(user.first_name, user.last_name, 
                 user.email_address, roles_parsed, user.teams);
 
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<userinfo>(xml).login_account;
         }
 
         public teaminfo CreateTeam(teaminfo team)
         {
             var xml = _wrapper.CreateTeam(team.team_name);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<teaminfo>(xml);
         }
 
@@ -411,30 +346,18 @@ namespace VeracodeService
             var roles_parsed = string.Join(",", roles.Select(VeracodeEnumConverter.Convert).ToArray());
             var xml = _wrapper.UpdateUser(user.username, user.first_name,
                 user.last_name, user.email_address, roles_parsed, user.teams);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<userinfo>(xml).login_account;
         }
 
         public teaminfo UpdateTeam(teaminfo team)
         {
             var xml = _wrapper.UpdateTeam(team.team_id, team.team_name);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<teaminfo>(xml);
         }
 
         public LoginAccount GetUser(string username)
         {
             var xml = _wrapper.GetUserDetail(username);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<userinfo>(xml).login_account;
         }
 
@@ -442,30 +365,18 @@ namespace VeracodeService
         {
             var fileInfo = new FileInfo(filepath);            
             var xml = _wrapper.UploadFileForPrescan(app_id, filepath, fileInfo.Name);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<filelist>(xml).file;
         }
 
         public buildinfo StartPrescan(string app_id)
         {
             var xml = _wrapper.StartPrescan(app_id);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<buildinfo>(xml);
         }
 
         public buildinfo StartScan(string app_id, string modules)
         {
             var xml = _wrapper.StartScan(app_id, modules);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<buildinfo>(xml);
         }
 
@@ -515,10 +426,6 @@ namespace VeracodeService
         public buildinfo GetLatestcan(string appId)
         {
             var xml = _wrapper.GetBuildInfo(appId, null);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<buildinfo>(xml);
         }
 
@@ -529,11 +436,15 @@ namespace VeracodeService
             if (!acceptedActions.Contains(action))
                 throw new ArgumentException("Action must be either \"comment\", \"fp\", \"appdesign\", \"osenv\", \"netenv\", \"rejected\", \"accepted\"");
 
+            if(action.Equals("accepted") || action.Equals("rejected"))
+            {
+                var currentMitigations = GetMitigationForFlaw(build_id, flaw_id_list);
+                var mitigationActions = new[] { "appdesign", "osenv", "netenv" };
+                if (!mitigationActions.Contains(currentMitigations.First().mitigation_action.First().comment))
+                    throw new ArgumentException("The latest action on this flaw is not \"appdesign\", \"osenv\", \"netenv\" so there is nothing to accept or reject.");
+            }
+
             var xml = _wrapper.UpdateMitigationInfo(build_id, action, comment, flaw_id_list);
-
-            if (string.IsNullOrWhiteSpace(xml))
-                return null;
-
             return XmlParseHelper.Parse<mitigationinfo>(xml);
         }
 
@@ -548,6 +459,24 @@ namespace VeracodeService
             return issueType.issue
                 .Where(x => x.mitigation_action.Any())
                 .ToArray();
+        }
+
+        public sandboxinfo CreateSandbox(string app_id, string sandbox_name)
+        {
+            var xml = _wrapper.CreateSandbox(app_id, sandbox_name);
+            return XmlParseHelper.Parse<sandboxinfo>(xml);
+        }
+
+        public deletesandboxresult DeleteSandbox(string sandbox_id)
+        {
+            var xml = _wrapper.DeleteSandbox(sandbox_id);
+            return XmlParseHelper.Parse<deletesandboxresult>(xml);
+        }
+
+        public sandboxinfo PromoteSandbox(string build_id)
+        {
+            var xml = _wrapper.DeleteSandbox(build_id);
+            return XmlParseHelper.Parse<sandboxinfo>(xml);
         }
     }
 }
