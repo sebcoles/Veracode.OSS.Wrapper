@@ -22,7 +22,8 @@ namespace VeracodeService
         appinfo GetAppDetail(string appId);
         IEnumerable<SandboxType> GetSandboxesForApp(string appId);
         buildinfo GetBuildDetail(string appId, string buildId);
-        buildinfo GetLatestcan(string appId);
+        buildinfo GetLatestScan(string appId);
+        buildinfo GetLatestScanSandbox(string appId, string sandboxId);
         IEnumerable<FileListFileType> GetFilesForBuild(string appId, string buildId);
         IEnumerable<ModuleType> GetModules(string appId, string buildId);
         detailedreport GetDetailedReport(string buildId);
@@ -54,6 +55,7 @@ namespace VeracodeService
         PolicyVersion UpdatePolicy(PolicyVersion policy, string policyGuid);
         PolicyVersion CreatePolicy(PolicyVersion policy);
         sandboxinfo CreateSandbox(string app_id, string sandbox_name);
+        IEnumerable<BuildType> GetAllBuildsForSandbox(string appId, string sandboxId);
         deletesandboxresult DeleteSandbox(string sandbox_id);
         sandboxinfo PromoteSandbox(string build_id);
     }
@@ -107,6 +109,13 @@ namespace VeracodeService
                 .Select(g => g.First())
                 .ToList();
         }
+
+        public IEnumerable<BuildType> GetAllBuildsForSandbox(string appId, string sandboxId)
+        {
+            var sandboxBuildXml = _wrapper.GetBuildListForSandbox(appId, sandboxId);
+            return XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build;
+        }
+
         public MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildId)
         {
             var mitgations = new List<MitigationInfoIssueType>();
@@ -211,7 +220,7 @@ namespace VeracodeService
 
         public buildinfo GetBuildDetail(string appId, string buildId)
         {
-            var xml = _wrapper.GetBuildInfo(appId, buildId);
+            var xml = _wrapper.GetBuildInfo(appId, buildId, null);
             return XmlParseHelper.Parse<buildinfo>(xml);
         }
 
@@ -423,9 +432,15 @@ namespace VeracodeService
             return _policyClient.Create(sendPolicy).Result;
         }
 
-        public buildinfo GetLatestcan(string appId)
+        public buildinfo GetLatestScan(string appId)
         {
-            var xml = _wrapper.GetBuildInfo(appId, null);
+            var xml = _wrapper.GetBuildInfo(appId, null, null);
+            return XmlParseHelper.Parse<buildinfo>(xml);
+        }
+
+        public buildinfo GetLatestScanSandbox(string appId, string sandbox_id)
+        {
+            var xml = _wrapper.GetBuildInfo(appId, null, sandbox_id);
             return XmlParseHelper.Parse<buildinfo>(xml);
         }
 

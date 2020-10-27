@@ -12,7 +12,7 @@ namespace VeracodeService
         string GetAppList();
         string GetAppInfo(string app_id);
         string NewApp(string app_name, BusinessCriticalityType business_criticality, string policy, string business_owner, string business_owner_email);
-        string GetBuildInfo(string app_id, string build_Id);
+        string GetBuildInfo(string app_id, string build_Id, string sandbox_id);
         string GetBuildList(string app_id);
         string GetBuildListForSandbox(string app_id, string sandboxId);
         string GetFiles(string app_id, string buildId);
@@ -180,7 +180,7 @@ namespace VeracodeService
             return _httpService.Get(VeracodeEndpoints.GET_SANDBOX_LIST, nameValueCollection);
         }
 
-        public string GetBuildInfo(string app_id, string build_id)
+        public string GetBuildInfo(string app_id, string build_id, string sandbox_id)
         {
             if (app_id == null)
                 throw new ArgumentException(app_id);
@@ -193,6 +193,11 @@ namespace VeracodeService
             if (build_id != null)
                 nameValueCollection.Add(new NameValueCollection{
                     { nameof(build_id), build_id }
+                });
+
+            if (sandbox_id != null)
+                nameValueCollection.Add(new NameValueCollection{
+                    { nameof(sandbox_id), sandbox_id }
                 });
 
             return _httpService.Get(VeracodeEndpoints.GET_BUILD_INFO, nameValueCollection);
