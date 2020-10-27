@@ -8,6 +8,33 @@ namespace VeracodeService
 {
     public static class VeracodeEnumConverter
     {
+        public static string Convert(PolicyComplianceType compliance_status)
+        {
+            string parsed_compliance_status;
+            switch (compliance_status)
+            {
+                case PolicyComplianceType.Calculating:
+                    parsed_compliance_status = "Calculating";
+                    break;
+                case PolicyComplianceType.ConditionalPass:
+                    parsed_compliance_status = "Conditional Pass";
+                    break;
+                case PolicyComplianceType.DidNotPass:
+                    parsed_compliance_status = "Did Not Pass";
+                    break;
+                case PolicyComplianceType.NotAssessed:
+                    parsed_compliance_status = "Not Assessed";
+                    break;
+                case PolicyComplianceType.Pass:
+                    parsed_compliance_status = "Pass";
+                    break;
+                default:
+                    parsed_compliance_status = compliance_status.ToString("g");
+                    break;
+            }
+            return parsed_compliance_status;
+        }
+
         public static string Convert(BusinessCriticalityType business_criticality)
         {
             string parsed_business_criticality;
