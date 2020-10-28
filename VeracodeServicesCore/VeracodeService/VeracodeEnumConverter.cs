@@ -116,52 +116,52 @@ namespace VeracodeService
                     parsed_status = "Incomplete";
                     break;
                 case BuildStatusType.NotSubmittedtoEngine:
-                    parsed_status = "NotSubmittedtoEngine";
+                    parsed_status = "Not Submitted to Engine";
                     break;
                 case BuildStatusType.SubmittedtoEngine:
-                    parsed_status = "SubmittedtoEngine";
+                    parsed_status = "Submitted to Engine";
                     break;
                 case BuildStatusType.ScanErrors:
-                    parsed_status = "ScanErrors";
+                    parsed_status = "Scan Errors";
                     break;
                 case BuildStatusType.ScanInProcess:
-                    parsed_status = "ScanInProcess";
+                    parsed_status = "Scan In Process";
                     break;
                 case BuildStatusType.ScanCancelled:
-                    parsed_status = "ScanCancelled";
+                    parsed_status = "Scan Cancelled";
                     break;
                 case BuildStatusType.ScanInternalError:
-                    parsed_status = "ScanInternalError";
+                    parsed_status = "Scan Internal Error";
                     break;
                 case BuildStatusType.PendingInternalReview:
-                    parsed_status = "PendingInternalReview";
+                    parsed_status = "Pending Internal Review";
                     break;
                 case BuildStatusType.ResultsReady:
-                    parsed_status = "ResultsReady";
+                    parsed_status = "Results Ready";
                     break;
                 case BuildStatusType.PreScanSubmitted:
-                    parsed_status = "PreScanSubmitted";
+                    parsed_status = "Pre Scan Submitted";
                     break;
                 case BuildStatusType.PreScanFailed:
-                    parsed_status = "PreScanFailed";
+                    parsed_status = "Pre Scan Failed";
                     break;
                 case BuildStatusType.PreScanSuccess:
-                    parsed_status = "PreScanSuccess";
+                    parsed_status = "Pre Scan Success";
                     break;
                 case BuildStatusType.NoModulesDefined:
-                    parsed_status = "NoModulesDefined";
+                    parsed_status = "No Modules Defined";
                     break;
                 case BuildStatusType.PendingVendorConfirmation:
-                    parsed_status = "PendingVendorConfirmation";
+                    parsed_status = "Pending Vendor Confirmation";
                     break;
                 case BuildStatusType.VendorReviewing:
-                    parsed_status = "VendorReviewing";
+                    parsed_status = "Vendor Reviewing";
                     break;
                 case BuildStatusType.PreScanCancelled:
-                    parsed_status = "PreScanCancelled";
+                    parsed_status = "Pre Scan Cancelled";
                     break;
                 case BuildStatusType.ScanOnHold:
-                    parsed_status = "ScanOnHold";
+                    parsed_status = "Scan On Hold";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("Build status can only be between 0 - 16");
