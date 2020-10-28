@@ -86,9 +86,16 @@ namespace VeracodeService
 
             var xml = _wrapper.GetBuildList(appId);
 
-            if (!string.IsNullOrWhiteSpace(xml))
-                if(XmlParseHelper.Parse<buildlist>(xml).build != null)
-                    builds.AddRange(XmlParseHelper.Parse<buildlist>(xml).build);
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(xml))
+                    if (XmlParseHelper.Parse<buildlist>(xml).build != null)
+                        builds.AddRange(XmlParseHelper.Parse<buildlist>(xml).build);
+            } catch(XmlParseError e)
+            {
+                if (!e.Message.ToLower().Contains("could not find"))
+                    throw e;
+            }
 
             var sandboxXml = _wrapper.GetSandboxes(appId);
             if (!string.IsNullOrWhiteSpace(sandboxXml))
@@ -99,8 +106,16 @@ namespace VeracodeService
                     foreach (var sandbox in sandboxes.sandbox)
                     {
                         var sandboxBuildXml = _wrapper.GetBuildListForSandbox(appId, $"{sandbox.sandbox_id}");
-                        if (!string.IsNullOrWhiteSpace(sandboxBuildXml))
-                            builds.AddRange(XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build);
+
+                        try
+                        {
+                            if (!string.IsNullOrWhiteSpace(sandboxBuildXml))
+                                builds.AddRange(XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build);
+                        } catch (XmlParseError e)
+                        {
+                            if (!e.Message.ToLower().Contains("could not find"))
+                                throw e;
+                        }
                     }
                 }               
             }
@@ -113,7 +128,16 @@ namespace VeracodeService
         public IEnumerable<BuildType> GetAllBuildsForSandbox(string appId, string sandboxId)
         {
             var sandboxBuildXml = _wrapper.GetBuildListForSandbox(appId, sandboxId);
-            return XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build;
+            try
+            {
+                return XmlParseHelper.Parse<buildlist>(sandboxBuildXml).build;
+            } catch (XmlParseError e)
+            {
+                if (e.Message.Contains("could not find"))
+                    return new List<BuildType>();
+
+                throw e;
+            }
         }
 
         public MitigationInfoIssueType[] GetAllMitigationsForBuild(string buildId)
@@ -221,7 +245,17 @@ namespace VeracodeService
         public buildinfo GetBuildDetail(string appId, string buildId)
         {
             var xml = _wrapper.GetBuildInfo(appId, buildId, null);
-            return XmlParseHelper.Parse<buildinfo>(xml);
+            try
+            {
+                return XmlParseHelper.Parse<buildinfo>(xml);
+            }
+            catch (XmlParseError e)
+            {
+                if (!e.Message.ToLower().Contains("could not find"))
+                    throw e;
+
+                return null;
+            }
         }
 
         public Callstacks GetCallStacks(string buildId, string flawId)
@@ -435,13 +469,31 @@ namespace VeracodeService
         public buildinfo GetLatestScan(string appId)
         {
             var xml = _wrapper.GetBuildInfo(appId, null, null);
-            return XmlParseHelper.Parse<buildinfo>(xml);
-        }
+            try {
+                return XmlParseHelper.Parse<buildinfo>(xml);
+            } catch (XmlParseError e)
+            {
+                if (!e.Message.ToLower().Contains("could not find"))
+                    throw e;
+
+                return null;
+            }
+            }
 
         public buildinfo GetLatestScanSandbox(string appId, string sandbox_id)
         {
             var xml = _wrapper.GetBuildInfo(appId, null, sandbox_id);
-            return XmlParseHelper.Parse<buildinfo>(xml);
+            try
+            {
+                return XmlParseHelper.Parse<buildinfo>(xml);
+            }
+            catch (XmlParseError e)
+            {
+                if (!e.Message.ToLower().Contains("could not find"))
+                    throw e;
+
+                return null;
+            }
         }
 
         public mitigationinfo UpdateMitigations(string build_id, string action, string comment, string flaw_id_list)
