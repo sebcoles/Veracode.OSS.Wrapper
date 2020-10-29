@@ -401,7 +401,7 @@ namespace VeracodeService
         {
             var nameValueCollection = new NameValueCollection
             { 
-                { nameof(team_id), $"{team_id}" },
+                { nameof(team_id), team_id },
                 { nameof(include_users), include_users ? "yes" : "no" },
                 { nameof(include_applications), include_applications ? "yes" : "no" }
             };
