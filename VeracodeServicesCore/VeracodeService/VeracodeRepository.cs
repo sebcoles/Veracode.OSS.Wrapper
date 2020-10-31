@@ -523,6 +523,13 @@ namespace VeracodeService
                 return null;
 
             var issueType = XmlParseHelper.Parse<mitigationinfo>(xml);
+
+            if (issueType.issue is null || !issueType.issue.Any())
+                return new MitigationInfoIssueType[0];
+
+            if (issueType.issue[0].mitigation_action is null || !issueType.issue[0].mitigation_action.Any())
+                return new MitigationInfoIssueType[0];
+
             return issueType.issue
                 .Where(x => x.mitigation_action.Any())
                 .ToArray();
