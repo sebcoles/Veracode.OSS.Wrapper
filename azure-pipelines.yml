@@ -6,7 +6,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  project: 'VeracodeServicesCore/VeracodeService/Veracode.OSS.Wrapper.csproj'
+  project: 'Veracode.OSS.Wrapper/Veracode.OSS.Wrapper.csproj'
 
 steps:
 
@@ -20,7 +20,7 @@ steps:
 - task: CopyFiles@2
   displayName: "Copy to Staging"
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)/VeracodeServicesCore/Veracode.OSS.Wrapper/bin/Release/'
+    sourceFolder: '$(Build.SourcesDirectory)/Veracode.OSS.Wrapper/bin/Release/'
     contents: '*.nupkg' 
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
