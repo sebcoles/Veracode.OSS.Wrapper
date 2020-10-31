@@ -506,9 +506,9 @@ namespace VeracodeService
             if(action.Equals("accepted") || action.Equals("rejected"))
             {
                 var currentMitigations = GetMitigationForFlaw(build_id, flaw_id_list);
-                var mitigationActions = new[] { "appdesign", "osenv", "netenv" };
+                var mitigationActions = new[] { "appdesign", "osenv", "netenv", "fp" };
                 if (!mitigationActions.Contains(currentMitigations.First().mitigation_action.First().comment))
-                    throw new ArgumentException("The latest action on this flaw is not \"appdesign\", \"osenv\", \"netenv\" so there is nothing to accept or reject.");
+                    throw new ArgumentException("The latest action on this flaw is not \"appdesign\", \"osenv\", \"netenv\", \"fp\" so there is nothing to accept or reject.");
             }
 
             var xml = _wrapper.UpdateMitigationInfo(build_id, action, comment, flaw_id_list);
