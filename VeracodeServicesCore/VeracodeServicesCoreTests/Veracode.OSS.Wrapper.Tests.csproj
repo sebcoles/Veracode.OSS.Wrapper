@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VeracodeService\VeracodeService.csproj" />
+    <ProjectReference Include="..\VeracodeService\Veracode.OSS.Wrapper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

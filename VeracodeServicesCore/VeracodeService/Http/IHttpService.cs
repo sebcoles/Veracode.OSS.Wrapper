@@ -9,10 +9,10 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using VeracodeService.Configuration;
-using VeracodeService.Security;
+using Veracode.OSS.Wrapper.Configuration;
+using Veracode.OSS.Wrapper.Security;
 
-namespace VeracodeService.Http
+namespace Veracode.OSS.Wrapper.Http
 {
     public interface IHttpService
     {

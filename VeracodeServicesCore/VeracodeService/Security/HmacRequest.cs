@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VeracodeService.Security
+namespace Veracode.OSS.Wrapper.Security
 {
     public class HmacRequest
     {

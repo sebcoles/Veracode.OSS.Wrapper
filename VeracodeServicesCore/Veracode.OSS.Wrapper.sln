@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeracodeService", "VeracodeService\VeracodeService.csproj", "{3A11756D-EE1D-4974-B481-345CB4FCC61A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veracode.OSS.Wrapper", "VeracodeService\Veracode.OSS.Wrapper.csproj", "{3A11756D-EE1D-4974-B481-345CB4FCC61A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeracodeServicesCoreTests", "VeracodeServicesCoreTests\VeracodeServicesCoreTests.csproj", "{00356955-4653-4711-80B1-6115429886DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veracode.OSS.Wrapper.Tests", "VeracodeServicesCoreTests\Veracode.OSS.Wrapper.Tests.csproj", "{00356955-4653-4711-80B1-6115429886DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0E92351-517A-43F3-BF96-5BF6AF5ECDD3}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\azure-pipelines.yml = ..\azure-pipelines.yml
 		..\README.md = ..\README.md
 		..\veracode.json = ..\veracode.json
+	EndProjectSection
+	ProjectSection(FolderGlobals) = preProject
+		C_5_4git_4Veracode_1OSS_1Wrapper_4veracode_1json__JsonSchema = http://json.schemastore.org/jovo-language-model
 	EndProjectSection
 EndProject
 Global

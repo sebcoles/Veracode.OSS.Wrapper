@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VeracodeService.Enums
+namespace Veracode.OSS.Wrapper.Enums
 {
     public enum Roles
     {

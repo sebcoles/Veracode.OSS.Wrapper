@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VeracodeService.Enums;
-using VeracodeService.Models;
+using Veracode.OSS.Wrapper.Enums;
+using Veracode.OSS.Wrapper.Models;
 
-namespace VeracodeService
+namespace Veracode.OSS.Wrapper
 {
     public static class VeracodeEnumConverter
     {

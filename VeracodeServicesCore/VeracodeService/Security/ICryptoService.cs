@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace VeracodeService.Security
+namespace Veracode.OSS.Wrapper.Security
 {
     public interface ICryptoService
     {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VeracodeService.Models;
+﻿using Veracode.OSS.Wrapper.Models;
 
-namespace VeracodeServicesCoreTests
+namespace Veracode.OSS.WrappersCoreTests
 {
     public class TestData
     {

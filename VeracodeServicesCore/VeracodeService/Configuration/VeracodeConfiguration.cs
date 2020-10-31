@@ -1,4 +1,4 @@
-﻿namespace VeracodeService.Configuration
+﻿namespace Veracode.OSS.Wrapper.Configuration
 {
     public class VeracodeConfiguration
     {

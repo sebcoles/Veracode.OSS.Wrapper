@@ -6,7 +6,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-namespace VeracodeService.Models
+namespace Veracode.OSS.Wrapper.Models
 {
 	[XmlRoot(ElementName = "call", Namespace = "https://analysiscenter.veracode.com/schema/2.0/callstacks")]
 	public class Call

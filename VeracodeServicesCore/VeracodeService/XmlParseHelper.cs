@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace VeracodeService
+namespace Veracode.OSS.Wrapper
 {
     public class XmlParseError : Exception
     {

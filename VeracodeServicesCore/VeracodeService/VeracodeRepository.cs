@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using VeracodeService.Configuration;
-using VeracodeService.Enums;
-using VeracodeService.Http;
-using VeracodeService.Models;
-using VeracodeService.Rest;
-using VeracodeService.Security;
+using Veracode.OSS.Wrapper.Configuration;
+using Veracode.OSS.Wrapper.Enums;
+using Veracode.OSS.Wrapper.Http;
+using Veracode.OSS.Wrapper.Models;
+using Veracode.OSS.Wrapper.Rest;
+using Veracode.OSS.Wrapper.Security;
 
-namespace VeracodeService
+namespace Veracode.OSS.Wrapper
 {
     public interface IVeracodeRepository
     {

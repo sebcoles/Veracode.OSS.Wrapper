@@ -1,5 +1,5 @@
 ﻿using System.Xml.Serialization;
-namespace VeracodeService.Models
+namespace Veracode.OSS.Wrapper.Models
 {
 	[XmlRoot(ElementName = "analysis_unit", Namespace = "https://analysiscenter.veracode.com/schema/2.0/buildinfo")]
 	public class Analysis_unit

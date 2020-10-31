@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using VeracodeService;
-using VeracodeService.Configuration;
-using VeracodeService.Enums;
-using VeracodeService.Models;
-using VeracodeService.Rest;
+using Veracode.OSS.Wrapper.Configuration;
+using Veracode.OSS.Wrapper.Enums;
+using Veracode.OSS.Wrapper.Models;
+using Veracode.OSS.Wrapper.Rest;
+using Veracode.OSS.WrappersCoreTests;
 
-namespace VeracodeServicesCoreTests.Integration
+namespace Veracode.OSS.Wrapper.Tests.Integration
 {
     [TestFixture]
     [Category("Integration")]
@@ -88,11 +88,11 @@ namespace VeracodeServicesCoreTests.Integration
         public void ApproveAMitigation()
         {
             var originalFlaw = _repo.GetFlaws(testData.BuildId)
-                .SingleOrDefault(x=>x.issueid == testData.MitigationFlawId);
+                .SingleOrDefault(x => x.issueid == testData.MitigationFlawId);
 
             var mitigationCount = _repo
                 .GetMitigationForFlaw(testData.BuildId, testData.MitigationFlawId)
-                .SingleOrDefault().mitigation_action.Count(); 
+                .SingleOrDefault().mitigation_action.Count();
 
             var seed = _rand.Next(100000);
             var comment1 = testData.MitigationComment1 + seed;
@@ -117,7 +117,7 @@ namespace VeracodeServicesCoreTests.Integration
             Assert.IsTrue(mitigationUpdated
                 .mitigation_action.Any(x => x.comment == comment2));
 
-            Assert.AreEqual(mitigationCount+3, 
+            Assert.AreEqual(mitigationCount + 3,
                 mitigationUpdated.mitigation_action.Count());
         }
 
@@ -246,7 +246,7 @@ namespace VeracodeServicesCoreTests.Integration
             _repo.DeleteApp(
                 new ApplicationType { app_id = app.app_id }
             );
-        }           
+        }
 
         [Test]
         public void Create_Update_Delete_User()
@@ -261,7 +261,7 @@ namespace VeracodeServicesCoreTests.Integration
             var role = testData.NewUserRoles
                 .Select(x => (Roles)x).ToArray();
 
-            _repo.CreateUser(user, role);            
+            _repo.CreateUser(user, role);
 
             var retrievedUserName = _repo.GetUsers()
                 .SingleOrDefault(x => x.Equals(testData.NewUserEmail));
@@ -286,7 +286,7 @@ namespace VeracodeServicesCoreTests.Integration
             retrievedUserName = _repo.GetUsers()
                 .SingleOrDefault(x => x.Equals(testData.NewUserEmail));
 
-            Assert.IsNull(retrievedUserName);           
+            Assert.IsNull(retrievedUserName);
         }
 
         [Test]
@@ -315,7 +315,7 @@ namespace VeracodeServicesCoreTests.Integration
             var retrievedTeam = _repo.GetTeamInfo(newTeam.team_id, true, false);
 
             Assert.IsNotNull(retrievedTeam);
-            
+
             team_name = testData.UpdatedTeamName + _rand.Next(99999);
             retrievedTeam.team_name = team_name;
 

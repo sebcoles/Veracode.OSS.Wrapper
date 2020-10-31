@@ -4,9 +4,9 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using VeracodeService.Http;
+using Veracode.OSS.Wrapper.Http;
 
-namespace VeracodeService.Rest
+namespace Veracode.OSS.Wrapper.Rest
 {
     public interface IPolicyClient
     {

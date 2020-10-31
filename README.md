@@ -34,7 +34,7 @@ var apps = veracodeRepository.GetAllApps();
 ```
 Please do not hardcode your credentials! I would recommend whatever application you build reads in the credentials from the .veracode/credentials file
 
-The Integration Tests suite [here](https://github.com/sebcoles/VeracodeServicesCore/blob/master/VeracodeServicesCore/VeracodeServicesCoreTests/Integration/VeracodeRepositoryTests.cs) has code samples for using the NuGet wrapper.
+The Integration Tests suite [here](https://github.com/sebcoles/Veracode.OSS.WrappersCore/blob/master/VeracodeServicesCore/VeracodeServicesCoreTests/Integration/VeracodeRepositoryTests.cs) has code samples for using the NuGet wrapper.
 
 Please also check out my other Veracode integration projects!
 

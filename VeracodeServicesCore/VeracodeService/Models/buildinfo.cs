@@ -15,7 +15,7 @@ using System.Xml.Serialization;
 // 
 
 
-namespace VeracodeService.Models
+namespace Veracode.OSS.Wrapper.Models
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]

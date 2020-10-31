@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Specialized;
-using System.IO;
-using System.Web;
-using VeracodeService.Http;
-using VeracodeService.Models;
+using Veracode.OSS.Wrapper.Http;
+using Veracode.OSS.Wrapper.Models;
 
-namespace VeracodeService
+namespace Veracode.OSS.Wrapper
 {
     public interface IVeracodeWrapper
     {

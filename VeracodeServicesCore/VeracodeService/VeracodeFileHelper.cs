@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using VeracodeService.Configuration;
+using Veracode.OSS.Wrapper.Configuration;
 
-namespace VeracodeService
+namespace Veracode.OSS.Wrapper
 {
     public static class VeracodeFileHelper
     {

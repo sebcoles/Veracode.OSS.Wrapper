@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VeracodeService
+﻿namespace Veracode.OSS.Wrapper
 {
     public static class VeracodeEndpoints
     {

@@ -6,7 +6,7 @@
 	  <Authors>sebcoles</Authors>
 	  <Company>Veracode OSS</Company>
 	  <PackageTags>Veracode;VeracodeOSS;</PackageTags>
-	  <RepositoryUrl>https://github.com/sebcoles/VeracodeServicesCore</RepositoryUrl>
+	  <RepositoryUrl>https://github.com/sebcoles/Veracode.OSS.Wrapper</RepositoryUrl>
 	  <Description>
 		  This is an unoffical open source wrapper for the Veracode XML APIs. Please feel free to contribute!
 	  </Description>
