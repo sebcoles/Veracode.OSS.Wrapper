@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veracode.OSS.Wrapper", "VeracodeService\Veracode.OSS.Wrapper.csproj", "{3A11756D-EE1D-4974-B481-345CB4FCC61A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veracode.OSS.Wrapper.Tests", "VeracodeServicesCoreTests\Veracode.OSS.Wrapper.Tests.csproj", "{00356955-4653-4711-80B1-6115429886DB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0E92351-517A-43F3-BF96-5BF6AF5ECDD3}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
@@ -18,20 +14,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		C_5_4git_4Veracode_1OSS_1Wrapper_4veracode_1json__JsonSchema = http://json.schemastore.org/jovo-language-model
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veracode.OSS.Wrapper", "Veracode.OSS.Wrapper\Veracode.OSS.Wrapper.csproj", "{DAADE464-2164-4CA5-A75A-8F14FF4C029D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veracode.OSS.Wrapper.Tests", "Veracode.OSS.Wrapper.Tests\Veracode.OSS.Wrapper.Tests.csproj", "{94108678-B28F-4E13-9B79-764361CE9AB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A11756D-EE1D-4974-B481-345CB4FCC61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A11756D-EE1D-4974-B481-345CB4FCC61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A11756D-EE1D-4974-B481-345CB4FCC61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A11756D-EE1D-4974-B481-345CB4FCC61A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00356955-4653-4711-80B1-6115429886DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00356955-4653-4711-80B1-6115429886DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00356955-4653-4711-80B1-6115429886DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00356955-4653-4711-80B1-6115429886DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAADE464-2164-4CA5-A75A-8F14FF4C029D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAADE464-2164-4CA5-A75A-8F14FF4C029D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAADE464-2164-4CA5-A75A-8F14FF4C029D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAADE464-2164-4CA5-A75A-8F14FF4C029D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94108678-B28F-4E13-9B79-764361CE9AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94108678-B28F-4E13-9B79-764361CE9AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94108678-B28F-4E13-9B79-764361CE9AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94108678-B28F-4E13-9B79-764361CE9AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
