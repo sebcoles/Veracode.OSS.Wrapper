@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using Veracode.OSS.Wrapper.Configuration;
+using Salaros.Configuration;
 
 namespace Veracode.OSS.Wrapper
 {
     public static class VeracodeFileHelper
     {
-        public static VeracodeConfiguration GetConfiguration(string filelocation)
+        public static VeracodeConfiguration GetConfiguration(string filelocation, string profileName)
         {
             string apikey = "", apiId = "";
             var filePath = Environment.ExpandEnvironmentVariables(filelocation);
@@ -14,18 +15,10 @@ namespace Veracode.OSS.Wrapper
             if (!File.Exists(filePath))
                 throw new ArgumentException("The veracode credential file provided is invalid.");
 
-            using (var file = new StreamReader(filePath))
-            {
-                string line;
-                while ((line = file.ReadLine()) != null)
-                {
-                    if (line.Contains("veracode_api_key_id"))
-                        apiId = line.Replace(" ", "").Substring(20);
+            var configFileFromPath = new ConfigParser(filePath);
 
-                    if (line.Contains("veracode_api_key_secret "))
-                        apikey = line.Replace(" ", "").Substring(24);
-                }
-            }
+            apiId = configFileFromPath.GetValue(profileName, "veracode_api_key_id");
+            apikey = configFileFromPath.GetValue(profileName, "veracode_api_key_secret");
 
             if (string.IsNullOrWhiteSpace(apiId) || string.IsNullOrWhiteSpace(apikey))
                 throw new ArgumentException("The veracode credential file provided is invalid.");
