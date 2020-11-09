@@ -17,6 +17,7 @@
 	</Target>
 	<ItemGroup>
 	  <None Remove="IVeracodeWrapper.cs~RF4004d3ac.TMP" />
+	  <None Remove="VeracodeFileHelper.cs~RF16a82e02.TMP" />
 	  <None Remove="VeracodeRepository.cs~RF12260902.TMP" />
 	  <None Remove="VeracodeRepository.cs~RF4009429f.TMP" />
 	</ItemGroup>

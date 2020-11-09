@@ -13,7 +13,9 @@ namespace Veracode.OSS.Wrapper
         }
         public static VeracodeConfiguration GetConfiguration(string filelocation, string profileName)
         {
-            string apikey = "", apiId = "";
+            if (String.IsNullOrEmpty(profileName))
+                profileName = "default";
+
             var filePath = Environment.ExpandEnvironmentVariables(filelocation);
 
             if (!File.Exists(filePath))
@@ -21,8 +23,8 @@ namespace Veracode.OSS.Wrapper
 
             var configFileFromPath = new ConfigParser(filePath);
 
-            apiId = configFileFromPath.GetValue(profileName, "veracode_api_key_id");
-            apikey = configFileFromPath.GetValue(profileName, "veracode_api_key_secret");
+            string apiId = configFileFromPath.GetValue(profileName, "veracode_api_key_id").Trim();
+            string apikey = configFileFromPath.GetValue(profileName, "veracode_api_key_secret").Trim();
 
             if (string.IsNullOrWhiteSpace(apiId) || string.IsNullOrWhiteSpace(apikey))
                 throw new ArgumentException("The veracode credential file provided is invalid.");
