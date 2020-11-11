@@ -1,0 +1,22 @@
+name: Build and Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet: [ '3.1.x' ]
+    name: Build and NuGet Publish for Veracode.OSS.Wrapper for ${{ matrix.dotnet }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - run: dotnet build --configuration Release Veracode.OSS.Wrapper/Veracode.OSS.Wrapper.csproj
+      - name: Push generated package to NuGet
+        run: dotnet nuget push Veracode.OSS.Wrapper/bin/Release/*.nupkg --skip-duplicate --no-symbols true --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}} 
