@@ -9,7 +9,7 @@ namespace Veracode.OSS.Wrapper
     {
         public static VeracodeConfiguration GetConfiguration(string filelocation)
         {
-            return VeracodeFileHelper.GetConfiguration(filelocation, "default");
+            return GetConfiguration(filelocation, "default");
         }
         public static VeracodeConfiguration GetConfiguration(string filelocation, string profileName)
         {

@@ -443,7 +443,8 @@ namespace Veracode.OSS.Wrapper.Tests.Integration
             policy.name = testData.Policynameupdated;
             _ = _repo.UpdatePolicy(policy, policy.guid);
 
-            var retrievedPolicy = _repo.GetPolicies().SingleOrDefault(x => x.name.Contains(testData.Policynameupdated));
+            var retrievedPolicies = _repo.GetPolicies();
+            var retrievedPolicy = retrievedPolicies.SingleOrDefault(x => x.name.Contains(testData.Policynameupdated));
             Assert.AreEqual(testData.Policynameupdated, retrievedPolicy.name);
 
             var deleted = _repo.DeletePolicy(policy.guid).SingleOrDefault(x => x.name.Contains(testData.Policynameupdated));

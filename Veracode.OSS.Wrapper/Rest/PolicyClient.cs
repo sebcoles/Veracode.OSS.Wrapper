@@ -230,7 +230,7 @@ namespace Veracode.OSS.Wrapper.Rest
             var nameValueCollection = new NameValueCollection();
 
             if (replace_with_default_policy != null)
-                nameValueCollection.Add(new NameValueCollection { { nameof(replace_with_default_policy), $"{replace_with_default_policy}" } });
+                nameValueCollection.Add(new NameValueCollection { { nameof(replace_with_default_policy), replace_with_default_policy.Value ? "yes" : "no"  } });
 
             if (replacement_GUID != null)
                 nameValueCollection.Add(new NameValueCollection { { nameof(replacement_GUID), $"{replacement_GUID}" } });

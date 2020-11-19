@@ -432,7 +432,7 @@ namespace Veracode.OSS.Wrapper
 
         public PolicyVersion[] DeletePolicy(string policyGuid)
         {
-            var result = _policyClient.Delete(policyGuid, null, null).Result;
+            var result = _policyClient.Delete(policyGuid, true, null).Result;
             if (result)
                 return GetPolicies();
             else
